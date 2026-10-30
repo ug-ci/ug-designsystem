@@ -642,3 +642,7 @@ a.wp-block-read-more.ug-read-more:hover { gap: 12px; text-decoration: none; }
 .ug-tag-cell > * { margin: 0 !important; }
 .ug-tag-cell__meta { font-family: monospace; font-size: 11px; line-height: 1.4; color: var(--ug-gray-text); }
 @media (max-width: 600px) { .ug-tag-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Strona główna: sekcje przylegają do siebie i do stopki (bez białych pasów z blockGap) */
+.ug-home-hero, .ug-home-news, .ug-home-about, .ug-home-cta { margin-block: 0 !important; }
+.home .wp-site-blocks > * { margin-block-start: 0; }

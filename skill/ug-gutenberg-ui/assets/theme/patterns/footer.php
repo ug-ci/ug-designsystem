@@ -20,7 +20,7 @@
 <!-- /wp:image -->
 
 <!-- wp:paragraph {"className":"ug-footer__address"} -->
-<p class="ug-footer__address">Rector's Office, University of Gdańsk<br><br>ul. Jana Bażyńskiego 8, 80-309 Gdańsk<br>Tax ID (NIP): 584-020-32-39, REGON: 000001330<br><br>Reception: +48 58 523 30 00</p>
+<p class="ug-footer__address">Rector's Office, University of Gdańsk<br><br>ul. Marii Janion 7, 80-309 Gdańsk<br>Tax ID (NIP): 584-020-32-39, REGON: 000001330<br><br>Reception: +48 58 523 30 00</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

@@ -14,7 +14,7 @@ Skopiuj z `assets/theme/` do motywu blokowego (zalecany motyw potomny):
 | `parts/header-campaign.html` + `templates/page-campaign.html` | nagłówek kampanijny (logo \| pionowa linia 62px \| tytuł uppercase) jako część szablonu „Nagłówek kampanijny” oraz szablon strony „Strona kampanii”; `theme.json` rejestruje `templateParts` i `customTemplates` (wybór w edytorze: Strona → Szablon) |
 | `templates/404.html` | `<motyw>/templates/404.html` — strona błędu bez nagłówka i stopki |
 | `templates/front-page.html` | `<motyw>/templates/front-page.html` — strona główna bez tytułu (treść = 4 wzorce `ug/home-*`) |
-| `templates/page-with-sidebar.html` | `<motyw>/templates/page.html` (lub osobny szablon) — strona z menu bocznym |
+| `templates/page-with-sidebar.html` + `parts/sidebar.html` | szablon „Strona z menu bocznym” (zarejestrowany w `customTemplates`): menu 20% / treść 80%, aktywny link blue. Menu to część szablonu `sidebar` — zamień wzorcowe linki na własne w Edytorze witryny; nie twórz osobnego `wp_navigation`, bo nagłówek bez przypisanego menu używa ostatnio dodanego |
 | `functions-snippet.php` | wklej do `functions.php` (enqueue CSS + edytor, style bloków, kategorie wzorców) |
 
 Ścieżki w `theme.json` (`file:./ug/fonts/...`) i wzorcach (`get_theme_file_uri('ug/logos/...')`) zakładają tę strukturę. Po instalacji w edytorze pojawią się kategorie **UG — Układ / Komponenty / Karty / Formularze**.

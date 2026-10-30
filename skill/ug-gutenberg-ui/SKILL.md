@@ -18,21 +18,21 @@ Skill do budowania nowych stron WordPress (edytor blokowy) **wiernie** w identyf
 
 - **Paleta (tylko te kolory):** blue `#0041d2`, blue-dark `#052D73`, navy `#00153A`, nav `#0F2E6F` (tylko górny pasek), sail `#a1daf8`, foam `#e5f5fd`, white; neutralne `#F5F5F5` `#D9D9D9` `#8EA0C0` `#6B6B6B` `#606060`, szary tekst `#595959`; tekst body `#1a1a2e`; semantyczne error/success/warning/info (+ warianty `-strong` na tekst i tła pod białym tekstem). W blokach używaj **slotów palety** (`blue-dark`, `foam`…), nigdy hexów.
 - **Czcionki:** nagłówki **Work Sans 600** (wszystkie, także H1 64px) w kolorze blue-dark; wszystko inne **DM Sans**. H2 28 · H3 24 · H4 22 · H5 18; lead 18; body 16 (UI 14); small 12; data 11. Rozmiary z presetów motywu — nie ustawiaj ich ręcznie w nagłówkach.
-- **Zero zaokrągleń** wszędzie (przyciski, pola, tagi, karty, zdjęcia, menu). Wyjątek: koła — numer steppera, avatar osoby, „dziś” w kalendarzu (klasa `ug-round`).
+- **Zero zaokrągleń** wszędzie (przyciski, pola, tagi, karty, zdjęcia, menu). Wyjątek: koła — numer steppera, avatar osoby, „dziś” w kalendarzu, radio button (klasa `ug-round`).
 - **Przyciski:** DM Sans 600 12px uppercase, letter-spacing 1px, wysokość 48px; primary blue → hover blue-dark; outlined 2px blue; dark blue-dark → hover navy; ghost tylko na ciemnym tle/zdjęciu; strzałka 42×11 (`ug-arrow`).
 - **Pola formularzy:** 41px, ramka 1px `#6B6B6B`, padding 10/20; focus = ramka blue + pierścień 3px; błąd = ramka `#DE3E44` + komunikat `#A22D32` 12px.
 - **Tagi:** kwadratowe, 10px/600 uppercase, padding 4/12.
 - **Karty:** dolna linia 1px blue; tytuł Work Sans 600 18px blue-dark; zdjęcia z cieniem 3px (`img`), logo i ikony bez cienia.
 - **Nawigacja górna:** tło `#0F2E6F`, białe logo; desktop ≥1024px klasyczne menu w pasku (DM Sans 14px biały, odstęp 30px, hover sail), poniżej hamburger z overlayem i akordeonem; pasek 92px (logo 58px), mobile 80px z samym herbem 35×64.
 - **Stopka:** blue-dark (3 kolumny 1.5/1/1) + dolny pasek navy.
-- **Logo:** białe na blue/navy/`#0F2E6F`; niebieskie na jasnych tłach; na mobile sam herb.
+- **Logo:** `logo-ug-white.svg` (PL) / `logo-ug-white-en.svg` (EN) na blue, navy, `#0F2E6F`; `logo-ug.svg` / `logo-ug-en.svg` na jasnych tłach; na mobile sam herb. Pliki w `assets/theme/ug/logos`, bez tła i cienia.
 - **Tła:** maks. 2 kolory tła na widok; biały tekst na ciemnych, nigdy niebieski na navy.
 - **Bez:** gradientów, emoji, dekoracyjnych cieni, własnych fontów, animacji innych niż kolor `.15s`/strzałka `.2s`.
 - **Dostępność AAA:** szary tekst tylko `#595959`, błąd tekstowy tylko `#A22D32`, kontrast ≥ 7:1 (UI ≥ 3:1). Treści przykładowe w interfejsie po angielsku („Read more”, „Search”).
 
 ## Wzorce (`assets/theme/patterns/`)
 
-`ug/header` · `ug/header-campaign` · `ug/footer` · `ug/page-title` · `ug/404` · `ug/home-hero` · `ug/home-news` · `ug/home-about` · `ug/home-cta` · `ug/colors` · `ug/buttons` · `ug/read-more` · `ug/link-box` · `ug/promo-banner` · `ug/tags` · `ug/news-card` · `ug/news-card-horizontal` · `ug/featured-card` · `ug/slider` · `ug/small-card` · `ug/user-card` · `ug/infobox` · `ug/accordion` · `ug/tabs` · `ug/stepper` · `ug/calendar` · `ug/form` · `ug/search` · `ug/sidebar-menu`
+`ug/header` · `ug/header-campaign` · `ug/footer` · `ug/page-title` · `ug/404` · `ug/home-hero` · `ug/home-news` · `ug/home-about` · `ug/home-cta` · `ug/colors` · `ug/typography` · `ug/logos` · `ug/buttons` · `ug/read-more` · `ug/link-box` · `ug/promo-banner` · `ug/tags` · `ug/news-card` · `ug/news-card-horizontal` · `ug/featured-card` · `ug/slider` · `ug/small-card` · `ug/user-card` · `ug/infobox` · `ug/accordion` · `ug/tabs` · `ug/stepper` · `ug/calendar` · `ug/form` · `ug/search` · `ug/sidebar-menu`
 
 ## Pliki
 

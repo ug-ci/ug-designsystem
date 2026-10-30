@@ -678,3 +678,18 @@ a.wp-block-read-more.ug-read-more:hover { gap: 12px; text-decoration: none; }
 .wp-block-quote { margin: 0; padding: 4px 0 4px 24px; border-left: 4px solid var(--ug-blue); font-size: 18px; font-weight: 400; line-height: 1.4; color: var(--ug-ink); }
 .wp-block-quote p { margin: 0; font-size: inherit; font-weight: inherit; line-height: inherit; }
 .wp-block-quote cite { display: block; padding-top: 12px; font-size: 12px; font-style: normal; color: var(--ug-gray-text); }
+
+/* Checkbox i radio (.ug-choice) — rozszerzenie wzorca, zgodne z polami formularza */
+.ug-form fieldset.ug-choice-group { margin: 0; padding: 0; border: 0; min-width: 0; }
+.ug-form .ug-choice-group > legend { display: block; margin: 0 0 8px; padding: 0; font-weight: 700; font-size: 13px; color: var(--ug-gray-text); }
+.ug-form label.ug-choice { display: flex; align-items: center; gap: 12px; margin: 0; padding: 6px 0; font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ug-ink); cursor: pointer; }
+.ug-form .ug-choice input { appearance: none; -webkit-appearance: none; flex: 0 0 auto; width: 20px; height: 20px; margin: 0; background: #fff center/14px 14px no-repeat; border: 1px solid var(--ug-gray-500); border-radius: 0; cursor: pointer; transition: background-color var(--ug-t), border-color var(--ug-t); }
+.ug-form .ug-choice input:hover { border-color: var(--ug-blue); }
+.ug-form .ug-choice input:checked { background-color: var(--ug-blue); border-color: var(--ug-blue); }
+.ug-form .ug-choice input[type=checkbox]:checked { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%23fff' stroke-width='2'%3E%3Cpath d='M2.5 7.5l3 3 6-7'/%3E%3C/svg%3E"); }
+.ug-form .ug-choice input[type=radio]:checked { background-image: radial-gradient(circle, #fff 0 3.5px, transparent 4px); background-size: 100% 100%; }
+.ug-form .ug-choice input:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(0,65,210,.25); border-color: var(--ug-blue); }
+.ug-form .ug-choice input:disabled { background-color: rgba(107,107,107,.1); border-color: var(--ug-gray-400); cursor: not-allowed; }
+.ug-form .ug-choice input:disabled:checked { background-color: var(--ug-gray-400); }
+.ug-form .ug-choice:has(input:disabled) { color: var(--ug-gray-text); cursor: not-allowed; }
+.ug-form .ug-choice input.is-error { border-color: var(--ug-error); }

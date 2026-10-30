@@ -186,3 +186,6 @@ Zdjęcia dostają cień `img`; logo i ikony nie.
 
 ### Cytat (`core/quote`) — rozszerzenie
 Lewa linia 4px blue, padding 4/0/4/24, tekst 18px/1.4 waga 400, `cite` 12px gray-text. Wzorzec wizualny nie definiuje cytatu; styl wyprowadzony z lead.
+
+### Checkbox i radio — rozszerzenie
+Wzorzec wizualny nie definiuje tych pól; styl wyprowadzony z pól tekstowych (`.ug-choice` w `.ug-form`). Kontrolka 20×20, ramka 1px gray-500, tło białe; zaznaczona: tło i ramka blue, biały znaczek (checkbox kwadratowy, radio okrągłe z klasą `ug-round` i białą kropką). Hover: ramka blue; focus: pierścień 3px; błąd: ramka `#DE3E44` + komunikat `#A22D32`; disabled: tło `rgba(107,107,107,.1)`, ramka gray-400. Etykieta DM Sans 14px/400 ink, odstęp od pola 12px; tytuł grupy (`legend`) jak etykieta pola.

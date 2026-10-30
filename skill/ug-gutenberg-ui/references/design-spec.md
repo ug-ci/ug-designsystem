@@ -150,7 +150,7 @@ Treść wpisu (data 12px gray-text, H1, obraz wyróżniający 5:3, treść, kate
 
 ### Hero strony głównej
 
-Tło = zdjęcie wyróżniające strony (`core/cover`, „użyj obrazu wyróżniającego”), przyciemnione overlayem navy `#00153A` o krycju 70%; bez zdjęcia: tło blue pod overlayem. Min. wysokość 520px, padding 96px (mobile 56px), treść wyrównana do lewej krawędzi kontenera 1140px, tekst biały.
+Tło = zdjęcie wyróżniające strony (`core/cover`, „użyj obrazu wyróżniającego”), zamienione na monochromatyczne (`grayscale`) i przyciemnione overlayem navy `#00153A` o krycju 80%; bez zdjęcia: tło blue pod overlayem. Min. wysokość 520px, padding 96px (mobile 56px), treść wyrównana do lewej krawędzi kontenera 1140px, tekst biały.
 
 ## 11. Stopka
 

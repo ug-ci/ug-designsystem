@@ -559,7 +559,7 @@ html.ug-no-scroll { overflow: hidden; }
 .ug-home-hero.wp-block-cover { background-color: var(--ug-blue); }
 .ug-home-hero.wp-block-cover { justify-content: center; }
 .ug-home-hero .wp-block-cover__inner-container { width: 100%; max-width: 1140px; margin-left: auto; margin-right: auto; }
-.ug-home-hero .wp-block-cover__image-background { box-shadow: none; }
+.ug-home-hero .wp-block-cover__image-background { box-shadow: none; filter: grayscale(1); } /* zdjęcie monochromatyczne pod overlayem navy */
 /* Treść hero wyrównana do lewej krawędzi kontenera 1140px (reszta stron centrowana) */
 .ug-home-hero .wp-block-cover__inner-container > * { max-width: 1140px; margin-left: 0 !important; margin-right: auto !important; }
 .ug-home-hero .wp-block-cover__inner-container > .is-style-ug-lead { max-width: 640px; margin-bottom: 32px; }

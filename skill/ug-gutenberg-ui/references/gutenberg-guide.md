@@ -55,7 +55,7 @@ Weryfikacja po instalacji: Wygląd → Edytor → Style pokazuje paletę UG (bez
 | Nagłówek | `ug/header`, `ug/header-campaign` | `group.ug-header` › logo + herb (`image.ug-logo`, `image.ug-emblem`) + `core/navigation` (`overlayMenu: always`) |
 | Stopka | `ug/footer` | `group.ug-footer` › `.ug-footer__main` (siatka `.ug-footer__cols`) + `.ug-footer__sub` |
 | Paleta kolorów | `ug/colors` | `group.ug-swatch-card` › `group.ug-swatches` › `group.ug-swatch` (wypełnienie = slot palety) |
-| Strona główna | `ug/home-hero`, `ug/home-news`, `ug/home-about`, `ug/home-cta` + `templates/front-page.html` | Hero (`core/cover` ze zdjęciem wyróżniającym strony w tle, overlay navy 70%, fallback blue; H1 + lead + 2 przyciski) · Aktualności (`core/query`, 3 wpisy, siatka 3 kol., karta `ug-news-card`) · O projekcie (`core/columns`: tekst + przycisk / zdjęcie, tło foam) · CTA (blue-dark, wyśrodkowany) |
+| Strona główna | `ug/home-hero`, `ug/home-news`, `ug/home-about`, `ug/home-cta` + `templates/front-page.html` | Hero (`core/cover` ze zdjęciem wyróżniającym strony w tle, overlay navy 80%, fallback blue; H1 + lead + 2 przyciski) · Aktualności (`core/query`, 3 wpisy, siatka 3 kol., karta `ug-news-card`) · O projekcie (`core/columns`: tekst + przycisk / zdjęcie, tło foam) · CTA (blue-dark, wyśrodkowany) |
 | Strona 404 | `ug/404` + `templates/404.html` | `group.ug-404` (navy, min-height 100vh, flex): kod 404 sail 200px, H1 biały, tekst sail, przycisk ghost; szablon bez nagłówka i stopki |
 | Tytuł strony | `ug/page-title` | `core/heading` H1 + `paragraph.is-style-ug-lead` |
 

@@ -152,6 +152,10 @@ Treść wpisu (data 12px gray-text, H1, obraz wyróżniający 5:3, treść, kate
 
 Tło = zdjęcie wyróżniające strony (`core/cover`, „użyj obrazu wyróżniającego”), zamienione na monochromatyczne (`grayscale`) i przyciemnione overlayem navy `#00153A` o krycju 80%; bez zdjęcia: tło blue pod overlayem. Min. wysokość 520px, padding 96px (mobile 56px), treść wyrównana do lewej krawędzi kontenera 1140px, tekst biały.
 
+### CTA strony głównej
+
+Tło: ciemny gradient `linear-gradient(135deg, navy #00153A → blue-dark #052D73)` (jedyny gradient w systemie, na życzenie; wzorzec nadal ma ustawiony kolor blue-dark jako fallback).
+
 ## 11. Stopka
 
 Górny pasek blue-dark, padding 40, 3 kolumny `1.5fr 1fr 1fr`, gap 32. Kol. 1: logo białe 122×52 + adres (14px/1.7 `rgba(255,255,255,.72)`). Kol. 2–3: tytuł DM Sans 700 18px biały + linki 14px `rgba(255,255,255,.72)` padding pionowy 4px, hover biały. Dolny pasek navy, padding `20px 40px`, wyśrodkowany, 14px `rgba(255,255,255,.8)`.

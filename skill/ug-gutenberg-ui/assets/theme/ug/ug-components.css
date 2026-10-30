@@ -579,6 +579,8 @@ a.wp-block-read-more.ug-read-more:hover { gap: 12px; text-decoration: none; }
 .ug-home-about .wp-block-column > * + * { margin-block-start: 16px !important; }
 .ug-home-about .wp-block-column > .wp-block-heading { margin-bottom: 8px !important; }
 .ug-home-about .wp-block-image img { display: block; width: 100%; height: auto; }
+/* CTA: ciemny gradient navy → blue-dark (świadome odstępstwo od reguły „bez gradientów”, na życzenie) */
+.ug-home-cta { background-image: linear-gradient(135deg, var(--ug-navy) 0%, var(--ug-blue-dark) 100%); }
 .ug-home-cta h2 { color: #fff; }
 .ug-home-cta p { max-width: 640px; margin: 0 auto 32px; text-align: center; }
 @media (max-width: 781px) { .ug-home-hero { padding-top: 56px !important; padding-bottom: 56px !important; } .ug-home-news, .ug-home-about, .ug-home-cta { padding-top: 48px !important; padding-bottom: 48px !important; } .ug-home-about .wp-block-columns { gap: 32px; } }

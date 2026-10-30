@@ -10,6 +10,7 @@ Skopiuj z `assets/theme/` do motywu blokowego (zalecany motyw potomny):
 | `ug/` (css, js, fonts, logos) | `<motyw>/ug/` |
 | `patterns/*.php` | `<motyw>/patterns/` |
 | `parts/header.html` | `<motyw>/parts/header.html` — nagłówek UG z hamburgerem (wzorzec `ug/header`) w całym motywie |
+| `templates/front-page.html` | `<motyw>/templates/front-page.html` — strona główna bez tytułu (treść = 4 wzorce `ug/home-*`) |
 | `templates/page-with-sidebar.html` | `<motyw>/templates/page.html` (lub osobny szablon) — strona z menu bocznym |
 | `functions-snippet.php` | wklej do `functions.php` (enqueue CSS + edytor, style bloków, kategorie wzorców) |
 
@@ -50,6 +51,7 @@ Weryfikacja po instalacji: Wygląd → Edytor → Style pokazuje paletę UG (bez
 | Nagłówek | `ug/header`, `ug/header-campaign` | `group.ug-header` › logo + herb (`image.ug-logo`, `image.ug-emblem`) + `core/navigation` (`overlayMenu: always`) |
 | Stopka | `ug/footer` | `group.ug-footer` › `.ug-footer__main` (siatka `.ug-footer__cols`) + `.ug-footer__sub` |
 | Paleta kolorów | `ug/colors` | `group.ug-swatch-card` › `group.ug-swatches` › `group.ug-swatch` (wypełnienie = slot palety) |
+| Strona główna | `ug/home-hero`, `ug/home-news`, `ug/home-about`, `ug/home-cta` + `templates/front-page.html` | Hero (blue, H1 + lead + 2 przyciski) · Aktualności (`core/query`, 3 wpisy, siatka 3 kol., karta `ug-news-card`) · O projekcie (`core/columns`: tekst + przycisk / zdjęcie, tło foam) · CTA (blue-dark, wyśrodkowany) |
 | Tytuł strony | `ug/page-title` | `core/heading` H1 + `paragraph.is-style-ug-lead` |
 
 Wstawianie wzorca programowo: `<!-- wp:pattern {"slug":"ug/news-card"} /-->`.
@@ -109,3 +111,4 @@ Wnioski z testu:
 - **Puste bloki obrazu** nie renderują się na froncie, dlatego wzorce używają `ug/placeholder.svg` (szary #D9D9D9) — zastąp własnym zdjęciem.
 - **Walidacja w edytorze** (brak „Unexpected or invalid content”) wymaga zalogowanego edytora — patrz status w raporcie.
 - **Cache wzorców motywu:** po dodaniu nowego pliku do `patterns/` WordPress może go nie widzieć — podbij `Version` w `style.css` motywu lub wywołaj `wp_get_theme()->delete_pattern_cache()`.
+- **Serializacja z edytora:** w WordPressie 7 wyrównanie tekstu to `style.typography.textAlign` (klasa `has-text-align-center`), a nie atrybut `align`/`textAlign` — ręcznie pisane atrybuty są po cichu odrzucane. Złożone bloki (query, columns, accordion, tabs) generuj w edytorze (`wp.blocks.createBlock` + `serialize`) i kopiuj gotowy markup do wzorca.

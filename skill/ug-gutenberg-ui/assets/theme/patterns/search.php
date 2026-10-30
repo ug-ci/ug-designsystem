@@ -7,4 +7,4 @@
  * Keywords: search szukaj
  */
 ?>
-<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search...","buttonText":"Search","buttonUseIcon":true,"buttonPosition":"button-outside"} /-->
+<!-- wp:search {"label":"Szukaj","showLabel":false,"placeholder":"Szukaj","buttonText":"Szukaj","buttonUseIcon":true,"buttonPosition":"button-outside"} /-->

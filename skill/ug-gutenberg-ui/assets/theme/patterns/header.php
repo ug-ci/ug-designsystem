@@ -33,7 +33,7 @@
 <button type="button" class="ug-search-close" aria-label="Close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M1 1l22 22M23 1L1 23"/></svg></button>
 <!-- /wp:html -->
 
-<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search...","buttonText":"Search","buttonUseIcon":true,"buttonPosition":"button-outside"} /-->
+<!-- wp:search {"label":"Szukaj","showLabel":false,"placeholder":"Szukaj","buttonText":"Szukaj","buttonUseIcon":true,"buttonPosition":"button-outside"} /-->
 </div>
 <!-- /wp:group -->
 </div>

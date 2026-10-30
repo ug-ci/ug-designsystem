@@ -55,7 +55,7 @@
 			openBtn.setAttribute('aria-expanded', 'true');
 			modal.setAttribute('role', 'dialog');
 			modal.setAttribute('aria-modal', 'true');
-			modal.setAttribute('aria-label', 'Search');
+			modal.setAttribute('aria-label', 'Szukaj');
 			var f = field(); if (f) { f.focus(); setTimeout(function () { if (modal.classList.contains('is-open') && document.activeElement !== f) { f.focus(); } }, 60); }
 		};
 		var closeSearch = function () {

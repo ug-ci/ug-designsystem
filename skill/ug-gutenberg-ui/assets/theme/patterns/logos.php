@@ -3,7 +3,7 @@
  * Title: UG — Logotypy
  * Slug: ug/logos
  * Categories: ug-components
- * Description: Aktualne logotypy UG (PL i EN) na jasne i ciemne tła, herb, znak i ikona menu.
+ * Description: Aktualne logotypy UG (PL i EN) na jasne i ciemne tła, herb i znak.
  * Keywords: logo logotyp herb znak
  */
 ?>
@@ -89,18 +89,6 @@
 
 <!-- wp:paragraph {"className":"ug-logo-label","textColor":"gray-text"} -->
 <p class="ug-logo-label has-gray-text-color has-text-color">Mark</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ug-logo-tile","backgroundColor":"nav"} -->
-<div class="wp-block-group ug-logo-tile has-nav-background-color has-background">
-<!-- wp:image {"width":"40px","sizeSlug":"full","linkDestination":"none","className":"ug-logo-img"} -->
-<figure class="wp-block-image size-full is-resized ug-logo-img"><img src="<?php echo esc_url( get_theme_file_uri( 'ug/logos/icon-bars.svg' ) ); ?>" alt="Icon — hamburger" style="width:40px"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph {"className":"ug-logo-label","textColor":"white"} -->
-<p class="ug-logo-label has-white-color has-text-color">Icon — hamburger</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

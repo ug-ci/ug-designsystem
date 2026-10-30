@@ -547,6 +547,11 @@
       "area": "header"
     },
     {
+      "name": "header-hamburger",
+      "title": "Nagłówek z hamburgerem (menu offcanvas)",
+      "area": "header"
+    },
+    {
       "name": "footer",
       "title": "Stopka UG",
       "area": "footer"
@@ -561,6 +566,13 @@
     {
       "name": "page-with-sidebar",
       "title": "Strona z menu bocznym",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "page-hamburger",
+      "title": "Strona z nagłówkiem hamburger",
       "postTypes": [
         "page"
       ]

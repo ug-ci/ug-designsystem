@@ -23,16 +23,16 @@ Skill do budowania nowych stron WordPress (edytor blokowy) **wiernie** w identyf
 - **Pola formularzy:** 41px, ramka 1px `#6B6B6B`, padding 10/20; focus = ramka blue + pierścień 3px; błąd = ramka `#DE3E44` + komunikat `#A22D32` 12px.
 - **Tagi:** kwadratowe, 10px/600 uppercase, padding 4/12.
 - **Karty:** dolna linia 1px blue; tytuł Work Sans 600 18px blue-dark; zdjęcia z cieniem 3px (`img`), logo i ikony bez cienia.
-- **Nawigacja górna:** tło `#0F2E6F`, białe logo; desktop ≥1024px klasyczne menu w pasku (DM Sans 14px biały, odstęp 30px, hover sail), poniżej hamburger z overlayem i akordeonem; pasek 92px (logo 58px), mobile 80px z samym herbem 35×64.
+- **Nawigacja górna:** tło `#0F2E6F`, białe logo; desktop ≥1024px klasyczne menu w pasku (DM Sans 14px biały, odstęp 30px, hover sail), poniżej hamburger z overlayem i akordeonem; pasek 92px (logo 58px), mobile 80px z samym herbem 35×64. Trzy warianty: standardowy (menu poziome ≥1024px), hamburger (`ug/header-hamburger`, hamburger na każdej szerokości + menu offcanvas 300px wjeżdżające z prawej, zawartość jak w menu mobilnym) i kampanijny.
 - **Stopka:** blue-dark (3 kolumny 1.5/1/1) + dolny pasek navy.
 - **Logo:** `logo-ug-white.svg` (PL) / `logo-ug-white-en.svg` (EN) na blue, navy, `#0F2E6F`; `logo-ug.svg` / `logo-ug-en.svg` na jasnych tłach; na mobile sam herb. Pliki w `assets/theme/ug/logos`, bez tła i cienia.
 - **Tła:** maks. 2 kolory tła na widok; biały tekst na ciemnych, nigdy niebieski na navy.
 - **Bez:** gradientów, emoji, dekoracyjnych cieni, własnych fontów, animacji innych niż kolor `.15s`/strzałka `.2s`.
-- **Dostępność AAA:** szary tekst tylko `#595959`, błąd tekstowy tylko `#A22D32`, kontrast ≥ 7:1 (UI ≥ 3:1). Treści przykładowe w interfejsie po angielsku („Read more”, „Search”).
+- **Dostępność WCAG AA:** kontrast tekstu ≥ 4.5:1 (duży tekst ≥ 3:1), elementy UI ≥ 3:1, widoczny fokus klawiatury. Paleta spełnia też AAA — szary tekst tylko `#595959`, błąd tekstowy tylko `#A22D32`. Treści przykładowe w interfejsie po angielsku („Read more”, „Search”).
 
 ## Wzorce (`assets/theme/patterns/`)
 
-`ug/header` · `ug/header-campaign` · `ug/footer` · `ug/page-title` · `ug/404` · `ug/home-hero` · `ug/home-news` · `ug/home-about` · `ug/home-cta` · `ug/news-list` · `ug/colors` · `ug/typography` · `ug/logos` · `ug/buttons` · `ug/read-more` · `ug/link-box` · `ug/promo-banner` · `ug/tags` · `ug/news-card` · `ug/news-card-horizontal` · `ug/featured-card` · `ug/slider` · `ug/small-card` · `ug/user-card` · `ug/infobox` · `ug/accordion` · `ug/tabs` · `ug/stepper` · `ug/calendar` · `ug/form` · `ug/search` · `ug/sidebar-menu`
+`ug/header` · `ug/header-hamburger` · `ug/header-campaign` · `ug/footer` · `ug/page-title` · `ug/404` · `ug/home-hero` · `ug/home-news` · `ug/home-about` · `ug/home-cta` · `ug/news-list` · `ug/colors` · `ug/typography` · `ug/logos` · `ug/buttons` · `ug/read-more` · `ug/link-box` · `ug/promo-banner` · `ug/tags` · `ug/news-card` · `ug/news-card-horizontal` · `ug/featured-card` · `ug/slider` · `ug/small-card` · `ug/user-card` · `ug/infobox` · `ug/accordion` · `ug/tabs` · `ug/stepper` · `ug/calendar` · `ug/form` · `ug/search` · `ug/sidebar-menu`
 
 ## Pliki
 
@@ -51,6 +51,6 @@ Skill do budowania nowych stron WordPress (edytor blokowy) **wiernie** w identyf
 - [ ] Zero zaokrągleń (poza `ug-round`)
 - [ ] Komponenty ze wzorców `ug/*`, klasy `ug-*` nienaruszone
 - [ ] Maks. 2 kolory tła na widok; białe logo na ciemnym, niebieskie na jasnym
-- [ ] Kontrast AAA (szary `#595959`, błąd `#A22D32`); alt przy zdjęciach
+- [ ] Kontrast AA (tekst ≥ 4.5:1, UI ≥ 3:1; szary `#595959`, błąd `#A22D32`), widoczny fokus klawiatury; alt przy zdjęciach
 - [ ] Brak „Unexpected or invalid content” w edytorze
 - [ ] Wygląd zgodny z `ug-design-system-reference.html` (desktop 1440 i mobile 375)

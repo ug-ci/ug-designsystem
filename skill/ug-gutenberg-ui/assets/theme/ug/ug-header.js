@@ -42,6 +42,14 @@
 		if (document.documentElement.classList.contains('has-modal-open')) { setTimeout(sync, 0); setTimeout(sync, 150); }
 	}).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
+	/* Wariant z hamburgerem (offcanvas 300px): kliknięcie poza panelem zamyka menu. */
+	document.addEventListener('click', function (e) {
+		var panel = document.querySelector('.ug-header--hamburger .wp-block-navigation__responsive-container.is-menu-open');
+		if (!panel || panel.contains(e.target) || e.target.closest('.wp-block-navigation__responsive-container-open')) { return; }
+		var close = panel.querySelector('.wp-block-navigation__responsive-container-close');
+		if (close) { close.click(); }
+	});
+
 	/* Lupa w nagłówku: lightbox na całą stronę z polem wyszukiwania. */
 	var modal = document.getElementById('ug-search-modal');
 	var openBtn = document.querySelector('.ug-search-open');
@@ -80,25 +88,4 @@
 			}
 		});
 	}
-
-	/* Logo w overlayu menu mobilnego jest linkiem do strony głównej (adres i grafika z logo w nagłówku). */
-	function ensureMenuLogo() {
-		var c = document.querySelector('.ug-header .wp-block-navigation__responsive-container.is-menu-open');
-		if (!c || c.querySelector('.ug-menu-logo')) { return; }
-		var img = document.querySelector('.ug-header .ug-logo img');
-		var link = document.querySelector('.ug-header .ug-logo a');
-		if (!img || !link) { return; }
-		var a = document.createElement('a');
-		a.className = 'ug-menu-logo';
-		a.href = link.href;
-		a.setAttribute('aria-label', img.alt || 'Home');
-		var i = document.createElement('img');
-		i.src = img.currentSrc || img.src;
-		i.alt = '';
-		a.appendChild(i);
-		c.insertBefore(a, c.firstChild);
-	}
-	new MutationObserver(function () {
-		if (document.documentElement.classList.contains('has-modal-open')) { ensureMenuLogo(); setTimeout(ensureMenuLogo, 0); setTimeout(ensureMenuLogo, 150); }
-	}).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 })();

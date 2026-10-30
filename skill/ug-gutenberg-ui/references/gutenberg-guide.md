@@ -11,6 +11,7 @@ Skopiuj z `assets/theme/` do motywu blokowego (zalecany motyw potomny):
 | `patterns/*.php` | `<motyw>/patterns/` |
 | `parts/header.html` | `<motyw>/parts/header.html` — nagłówek UG z hamburgerem (wzorzec `ug/header`) w całym motywie |
 | `templates/single.html` | `<motyw>/templates/single.html` — szablon wpisu, treść (data, tytuł, obraz, treść, kategorie) max 900px |
+| `patterns/header-hamburger.php` + `parts/header-hamburger.html` + `templates/page-hamburger.html` | trzeci wariant nagłówka: hamburger na każdej szerokości (`overlayMenu: always`, klasa `ug-header--hamburger`), po kliknięciu menu offcanvas 300px wjeżdża z prawej (reszta strony przyciemniona, kliknięcie poza panelem zamyka go), wiersze i akordeon jak w menu mobilnym; lupa po lewej od hamburgera. Szablon „Strona z nagłówkiem hamburger” w `customTemplates`; globalnie podmień część szablonu `header` na `header-hamburger` |
 | `parts/header-campaign.html` + `templates/page-campaign.html` | nagłówek kampanijny (logo \| pionowa linia 62px \| tytuł uppercase) jako część szablonu „Nagłówek kampanijny” oraz szablon strony „Strona kampanii”; `theme.json` rejestruje `templateParts` i `customTemplates` (wybór w edytorze: Strona → Szablon) |
 | `templates/404.html` | `<motyw>/templates/404.html` — strona błędu bez nagłówka i stopki |
 | `patterns/news-list.php` + `templates/home.html` + `templates/archive.html` | strona aktualności: nagłówek, filtr kategorii (tagi), siatka 3 kart, paginacja UG. `home.html` = strona wpisów (Ustawienia → Czytanie → „Strona wpisów”), `archive.html` = kategorie/tagi/daty. Liczba wpisów na stronę = ustawienie Czytanie (zalecane 9) |
@@ -79,11 +80,11 @@ Jeden H1 na stronę. H2–H5 zgodnie z tabelą typografii (rozmiary pochodzą z 
 - Siatki kart: `core/group` z `layout.type:grid` (`minimumColumnWidth:"260px"`) lub `core/columns`; odstęp 24px (`var:preset|spacing|24`).
 - Linie kart (1px blue) są częścią komponentu — nie dodawaj osobnych separatorów między kartami.
 
-## 7. Dostępność (WCAG AAA)
+## 7. Dostępność (WCAG AA)
 
 - Szary tekst tylko `gray-text`; błąd tylko `error-strong`; tło pod białym tekstem tylko kolory `-strong`/blue/blue-dark/navy. Jasne kolory semantyczne wyłącznie jako ikony, ramki, tła bez tekstu.
-- Kontrast tekstu ≥ 7:1, elementy UI ≥ 3:1. Body ≥ 14px, etykiety UI ≥ 10px.
-- Focus klawiatury: widoczny (`outline` 3px). Link ze strzałką ma zawsze tekst; hamburger ma `aria-label` (core/navigation dodaje go sam).
+- Kontrast tekstu ≥ 4.5:1 (duży tekst ≥ 3:1), elementy UI ≥ 3:1; paleta UG daje zapas (większość par ≥ 7:1). Body ≥ 14px, etykiety UI ≥ 10px.
+- Focus klawiatury: widoczny (`outline` 3px; w menu mobilnym/offcanvas dyskretnie: kolor sail + podkreślenie, bez obwódki). Link ze strzałką ma zawsze tekst; hamburger ma `aria-label` (core/navigation dodaje go sam).
 - Treść przykładowa w interfejsie — po angielsku („Read more”, „Search”); treści właściwe w języku strony.
 
 ## 8. Czego nie robić

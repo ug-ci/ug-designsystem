@@ -20,9 +20,9 @@
 | `--ug-gray-400` | `#8EA0C0` | obramowanie stanu disabled |
 | `--ug-gray-500` | `#6B6B6B` | ramki pól formularzy |
 | `--ug-gray-600` | `#606060` | strzałki steppera |
-| `--ug-gray-text` | `#595959` | szary tekst (AAA 7:1), placeholdery, etykiety |
+| `--ug-gray-text` | `#595959` | szary tekst (7:1, spełnia AA i AAA), placeholdery, etykiety |
 
-Semantyczne — wariant jasny tylko na ikony/ramki/tła; wariant `-strong` na tekst i tła pod białym tekstem (AAA):
+Semantyczne — wariant jasny tylko na ikony/ramki/tła; wariant `-strong` na tekst i tła pod białym tekstem (kontrast ≥ 7:1, spełnia AA i AAA):
 
 | | jasny | strong |
 |---|---|---|
@@ -125,7 +125,7 @@ Nagłówek jest **sticky** (przyklejony do górnej krawędzi okna; przy zalogowa
 
 ### Menu mobilne (overlay hamburgera) — wg makiety
 
-Pełny ekran `#0F2E6F`. Pasek górny 75px: białe logo poziome jako link do strony głównej (109×45px, od lewej 20px, od góry 11px; wstawia je `ug-header.js` na podstawie logo z nagłówka) i X 24×24 (kreska 2px, prawa krawędź 19px, góra 19px). Lista zaczyna się 95px od góry (pasek 75px + 20px marginesu). Wiersze: wysokość 48px, DM Sans 500 14px biały, padding `0 12px`, linia 1px `rgba(255,255,255,.5)` pod każdym wierszem, kontener z wcięciem 11px po bokach. Pozycja z podmenu: chevron 24×13 po prawej. Wiersz podrzędny: tło navy `#00153A` (ciemniejsze od overlayu), tekst biały, linia `rgba(255,255,255,.25)` (ciemniejsza niż przy nadrzędnych), hover sail. Hover tekstu: sail. Linki nadrzędne wersalikami (uppercase, letter-spacing .5px), podlinki bez zmian. Wysokość wiersza 48px.
+Pełny ekran `#0F2E6F`. Pasek górny 75px: tylko X 24×24 (kreska 2px, prawa krawędź 19px, góra 19px) — bez logo (logo uniwersytetu zostaje w pasku nagłówka pod overlayem). Lista zaczyna się 95px od góry (pasek 75px + 20px marginesu). W wariancie hamburger (`ug/header-hamburger`) ta sama zawartość stoi w panelu offcanvas 300px wjeżdżającym z prawej. Wiersze: wysokość 48px, DM Sans 500 14px biały, padding `0 12px`, linia 1px `rgba(255,255,255,.5)` pod każdym wierszem, kontener z wcięciem 11px po bokach. Pozycja z podmenu: chevron 24×13 po prawej. Wiersz podrzędny: tło `#0C2863` (token `--ug-nav-sub`, ok. 12% ciemniejsze od overlayu `#0F2E6F`, bez ostrego kontrastu z navy), tekst biały, linia `rgba(255,255,255,.18)` (delikatniejsza niż przy nadrzędnych), hover sail. Hover tekstu: sail. Linki nadrzędne wersalikami (uppercase, letter-spacing .5px), podlinki bez zmian. Wysokość wiersza 48px.
 Korekty błędów makiety: (1) wiersz podrzędny miał pełną szerokość ekranu, a linie były wcięte — ujednolicono do wcięcia 11px; (2) rozwinięta pozycja miała chevron ∨ (taki sam jak zwinięta) — przyjęto ∨ zwinięte, ∧ rozwinięte.
 
 ### Wyszukiwarka w nagłówku (desktop ≥1024px) — rozszerzenie spoza wzorca
@@ -192,3 +192,9 @@ Wzorzec wizualny nie definiuje tych pól; styl wyprowadzony z pól tekstowych (`
 
 ### Blok core/calendar — rozszerzenie
 Styl `.wp-block-calendar` odwzorowuje komponent `.ug-cal`: karta gray-100 340px (padding 24), nazwa miesiąca DM Sans 700 14px blue-dark, dni tygodnia 700 12px gray-text, komórki 36px bez ramek, dni z wpisami blue 700, dzisiaj = białe 700 na kole blue 32px, nawigacja miesięcy pod linią gray-200 (ukryta, gdy brak sąsiednich miesięcy z wpisami).
+
+### Fokus w menu mobilnym i offcanvas
+Bez obwódki i pierścienia. Mysz/dotyk: fokus niewidoczny (WordPress przenosi go na pierwszą pozycję po otwarciu). Klawiatura (`:focus-visible`): dyskretny wskaźnik — tekst sail `#a1daf8` z podkreśleniem 1px (offset 5px), przycisk X z tłem `rgba(255,255,255,.18)`. Spełnia WCAG AA 2.4.7 (Focus Visible); kontrast sail na `#0F2E6F` ≈ 8:1.
+
+### Poziom dostępności
+Projekt celuje w **WCAG AA** (wcześniej AAA). Wartości palety (`#595959`, `#A22D32`, warianty `-strong`) zostają bez zmian — dają kontrast ≥ 7:1, więc spełniają też AAA, ale wymogiem jest AA: tekst ≥ 4.5:1 (duży ≥ 3:1), elementy UI ≥ 3:1.

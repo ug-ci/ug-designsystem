@@ -15,10 +15,10 @@ Nowe strony UG na WordPressie mają wyglądać identycznie z design systemem (`U
 |---|---|
 | Paleta i typografia | kolory UG jako sloty palety, nagłówki Work Sans 600, treść DM Sans (fonty lokalnie, bez Google Fonts), rozmiary, odstępy, cienie |
 | Komponenty | przyciski, formularze, tagi, karty, slider, accordion, zakładki, stepper, kalendarz, infobox, wyszukiwarka, menu boczne |
-| Nawigacja | sticky nagłówek z menu desktop, hamburger + akordeon na mobile, lightbox wyszukiwania, wariant kampanijny, stopka |
-| Wzorce bloków | 32 wzorce `ug/*` (w tym sekcje strony głównej: hero, aktualności, o projekcie, CTA) |
+| Nawigacja | sticky nagłówek z menu desktop, hamburger + akordeon na mobile, wariant z hamburgerem na każdej szerokości, lightbox wyszukiwania, wariant kampanijny, stopka |
+| Wzorce bloków | 33 wzorce `ug/*` (w tym sekcje strony głównej: hero, aktualności, o projekcie, CTA) |
 | Szablony | strona główna, aktualności (lista + archiwum), strona z menu bocznym 20/80, wpis (treść do 900 px + nawigacja następny/poprzedni), 404, strona kampanii, strona z menu bocznym |
-| Zasady | zero zaokrągleń, dostępność AAA, maks. 2 kolory tła na widok, bez gradientów poza hero i CTA |
+| Zasady | zero zaokrągleń, dostępność WCAG AA, maks. 2 kolory tła na widok, bez gradientów poza hero i CTA |
 
 ## Struktura repozytorium
 

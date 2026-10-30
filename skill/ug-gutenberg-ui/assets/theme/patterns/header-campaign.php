@@ -29,6 +29,6 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:navigation {"overlayMenu":"always","icon":"menu","layout":{"type":"flex","justifyContent":"right"}} /-->
+<!-- wp:navigation {"overlayMenu":"always","icon":"menu","overlayBackgroundColor":"nav","overlayTextColor":"white","layout":{"type":"flex","justifyContent":"right"}} /-->
 </div>
 <!-- /wp:group -->

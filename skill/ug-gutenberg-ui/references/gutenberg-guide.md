@@ -9,6 +9,8 @@ Skopiuj z `assets/theme/` do motywu blokowego (zalecany motyw potomny):
 | `theme.json` | scal z `theme.json` motywu (palety, fonty, rozmiary, odstępy, cienie, style elementów) — lub podmień, jeśli motyw jest nowy |
 | `ug/` (css, fonts, logos) | `<motyw>/ug/` |
 | `patterns/*.php` | `<motyw>/patterns/` |
+| `parts/header.html` | `<motyw>/parts/header.html` — nagłówek UG z hamburgerem (wzorzec `ug/header`) w całym motywie |
+| `templates/page-with-sidebar.html` | `<motyw>/templates/page.html` (lub osobny szablon) — strona z menu bocznym |
 | `functions-snippet.php` | wklej do `functions.php` (enqueue CSS + edytor, style bloków, kategorie wzorców) |
 
 Ścieżki w `theme.json` (`file:./ug/fonts/...`) i wzorcach (`get_theme_file_uri('ug/logos/...')`) zakładają tę strukturę. Po instalacji w edytorze pojawią się kategorie **UG — Układ / Komponenty / Karty / Formularze**.
@@ -95,6 +97,7 @@ Sprawdzone na froncie (1440px): wszystkie 20 wzorców rejestruje się i renderuj
 Wnioski z testu:
 - **Slugi rozmiarów z cyfrą po literze** (`h1`) WordPress zamienia na `h-1` — dlatego używamy `heading-1…4`.
 - **Motyw potomny dziedziczy po rodzicu** niektóre presety (np. rozmiary `large`, `x-large`, kolory domyślne rdzenia). Dla pełnej czystości palety użyj samodzielnego motywu blokowego zamiast potomnego, albo nie wybieraj tych presetów.
+- **Hamburger:** `core/navigation` z `overlayMenu: always` i atrybutami `overlayBackgroundColor: nav`, `overlayTextColor: white` — bez nich rozwinięte menu ma białe tło i niewidoczne białe linki.
 - **Menu boczne** używa przycisków `wp-block-navigation-submenu__toggle`; podmenu rozwija się kliknięciem (`aria-expanded`), nie ma stanu „rozwinięte” w statycznym wzorcu.
 - **Puste bloki obrazu** nie renderują się na froncie, dlatego wzorce używają `ug/placeholder.svg` (szary #D9D9D9) — zastąp własnym zdjęciem.
 - **Walidacja w edytorze** (brak „Unexpected or invalid content”) wymaga zalogowanego edytora — patrz status w raporcie.

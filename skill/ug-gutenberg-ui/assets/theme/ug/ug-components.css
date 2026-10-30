@@ -312,7 +312,7 @@ ol.ug-stepper { display: flex; flex-wrap: wrap; align-items: flex-start; list-st
 .ug-header .wp-block-navigation__responsive-container-open { display: flex; padding: 0; background: none; border: 0; color: #fff; }
 .ug-header .wp-block-navigation__responsive-container-open svg { display: none; }
 .ug-header .wp-block-navigation__responsive-container-open::before { content: ""; width: 18px; height: 15px; background: var(--ug-bars) center/contain no-repeat; }
-.ug-header .wp-block-navigation__responsive-container.is-menu-open { background-color: var(--ug-nav); color: #fff; }
+.ug-header .wp-block-navigation__responsive-container.is-menu-open { background-color: var(--ug-nav) !important; color: #fff !important; }
 .ug-header .wp-block-navigation__responsive-container.is-menu-open :is(a, .wp-block-navigation-item__content) { font-family: var(--ug-font-body); font-weight: 400; font-size: 14px; color: #fff; transition: color .2s; }
 .ug-header .wp-block-navigation__responsive-container.is-menu-open :is(a, .wp-block-navigation-item__content):hover { color: var(--ug-sail); text-decoration: none; }
 .ug-header .wp-block-navigation__responsive-container-close { color: #fff; }
@@ -355,6 +355,11 @@ ul.ug-navmenu, ul.ug-navmenu ul { list-style: none; margin: 0; padding: 0; }
 }
 .ug-navmenu.wp-block-navigation .has-child .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content { padding: 12px 24px 12px 32px; }
 .ug-navmenu.wp-block-navigation .has-child .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content:hover { background: none; color: var(--ug-blue); }
+
+/* Układ strony z menu bocznym (templates/page-with-sidebar.html) */
+.ug-page-layout { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 48px; align-items: start; max-width: 1140px; margin-inline: auto; }
+.ug-page-layout > * { margin-block: 0; }
+@media (max-width: 900px) { .ug-page-layout { grid-template-columns: 1fr; gap: 32px; } }
 
 /* ───────────────────────── 11. STOPKA ───────────────────────── */
 .ug-footer__main { padding: 40px; background: var(--ug-blue-dark); color: #fff; }

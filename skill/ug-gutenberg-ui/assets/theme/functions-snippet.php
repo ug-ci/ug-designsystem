@@ -40,11 +40,13 @@ add_action( 'init', function () {
 		'ug-dark'     => 'UG Dark',
 		'ug-ghost'    => 'UG Ghost (na ciemnym tle)',
 		'ug-text'     => 'UG Text',
+		'ug-read-more' => 'UG Read more (ze strzałką)',
 	);
 	foreach ( $styles as $name => $label ) {
 		register_block_style( 'core/button', array( 'name' => $name, 'label' => $label ) );
 	}
 	register_block_style( 'core/paragraph', array( 'name' => 'ug-lead', 'label' => 'UG Lead' ) );
+	register_block_style( 'core/read-more', array( 'name' => 'ug-read-more', 'label' => 'UG Read more (ze strzałką)' ) );
 } );
 
 // Kategorie wzorców.
@@ -59,3 +61,16 @@ add_action( 'init', function () {
 		register_block_pattern_category( $slug, array( 'label' => $label ) );
 	}
 } );
+
+// Brak wzorców początkowych przy tworzeniu nowej strony (okno „Wybierz wzorzec”): usuwamy wszystkie wzorce
+// przeznaczone dla bloku treści wpisu (blockTypes: core/post-content), np. strony startowe motywu bazowego,
+// oraz wzorce zdalne z katalogu wordpress.org. Wzorce ug/* pozostają dostępne w wstawiaczu bloków.
+add_filter( 'should_load_remote_block_patterns', '__return_false' );
+add_action( 'init', function () {
+	$registry = WP_Block_Patterns_Registry::get_instance();
+	foreach ( $registry->get_all_registered() as $pattern ) {
+		if ( in_array( 'core/post-content', $pattern['blockTypes'] ?? array(), true ) ) {
+			unregister_block_pattern( $pattern['name'] );
+		}
+	}
+}, 100 );

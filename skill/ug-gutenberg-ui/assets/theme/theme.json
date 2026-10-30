@@ -247,11 +247,11 @@
         },
         {
           "slug": "heading-1",
-          "name": "H1 64",
-          "size": "64px",
+          "name": "H1 44",
+          "size": "44px",
           "fluid": {
-            "min": "40px",
-            "max": "64px"
+            "min": "32px",
+            "max": "44px"
           }
         }
       ]
@@ -414,7 +414,7 @@
         "typography": {
           "fontSize": "var(--wp--preset--font-size--heading-1)",
           "fontWeight": "600",
-          "lineHeight": "1"
+          "lineHeight": "1.1"
         }
       },
       "h2": {

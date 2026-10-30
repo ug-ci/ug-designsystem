@@ -10,7 +10,7 @@
 <!-- wp:group {"className":"ug-type"} -->
 <div class="wp-block-group ug-type">
 <!-- wp:paragraph {"className":"ug-card-label"} -->
-<p class="ug-card-label">H1 · Work Sans 600 · 64px (fluid 40→64) · lh 1</p>
+<p class="ug-card-label">H1 · Work Sans 600 · 44px (fluid 32→44) · lh 1.1</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":1} -->

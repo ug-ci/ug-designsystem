@@ -39,7 +39,7 @@ Fonty: **Work Sans** (nagłówki) i **DM Sans** (reszta). Wagi 400–700, pliki 
 
 | Styl | Font | Waga | Rozmiar | Line-height | Kolor |
 |---|---|---|---|---|---|
-| H1 | Work Sans | 600 | 64px (fluid 40→64) | 1 | blue-dark |
+| H1 | Work Sans | 600 | 44px (fluid 32→44) | 1.1 | blue-dark |
 | H2 | Work Sans | 600 | 28px | 1 | blue-dark |
 | H3 | Work Sans | 600 | 24px | 1.1 | blue-dark |
 | H4 | Work Sans | 600 | 22px | 1.1 | blue-dark |
@@ -72,6 +72,7 @@ Wspólne: DM Sans **600, 12px, uppercase, letter-spacing 1px**, `line-height:1`,
 | Dark (`ug-dark`) | blue-dark / biały | — | tło navy |
 | Ghost (`ug-ghost`, na ciemnym/zdjęciu) | transparent / biały | 2px biała | tło `rgba(255,255,255,.15)` |
 | Text (`ug-text`) | transparent / blue | — | tekst blue-dark |
+| Read more (`ug-read-more`) | brak tła i ramki, padding 0 | tekst blue (na ciemnym białe), 12px/600 wersaliki, ls 1px | strzałka 42×11 po prawej (gap 8px, hover 12px) — odpowiednik akapitu `.ug-read-more` jako styl przycisku |
 | Disabled | `rgba(107,107,107,.1)` / gray-text | gray-400 | brak, `not-allowed` |
 | Small (`ug-btn-sm`) | jak wyżej | — | wysokość 36px, padding `8px 16px` |
 
@@ -160,7 +161,7 @@ Tło: ciemny gradient `linear-gradient(135deg, navy #00153A → blue-dark #052D7
 
 ## 11. Stopka
 
-Górny pasek blue-dark, padding 40, 3 kolumny `1.5fr 1fr 1fr`, gap 32. Kol. 1: logo białe 122×52 + adres (14px/1.7 `rgba(255,255,255,.72)`). Kol. 2–3: tytuł DM Sans 600 18px biały + linki 14px `rgba(255,255,255,.72)` padding pionowy 4px, hover biały. Dolny pasek navy, padding `20px 40px`, wyśrodkowany, 14px `rgba(255,255,255,.8)`.
+Górny pasek blue-dark, padding pionowy 72 (mobile 56) i poziomy 40, dolny pasek navy padding 28/40 (rozszerzenie względem wzorca: 40 / 20), 3 kolumny `1.5fr 1fr 1fr`, gap 32. Kol. 1: logo białe 122×52 + adres (14px/1.7 `rgba(255,255,255,.72)`). Kol. 2–3: tytuł DM Sans 600 18px biały + linki 14px `rgba(255,255,255,.72)` padding pionowy 4px, hover biały. Dolny pasek navy, padding `20px 40px`, wyśrodkowany, 14px `rgba(255,255,255,.8)`.
 
 ## 12. Logo
 
@@ -198,3 +199,6 @@ Bez obwódki i pierścienia. Mysz/dotyk: fokus niewidoczny (WordPress przenosi g
 
 ### Poziom dostępności
 Projekt celuje w **WCAG AA** (wcześniej AAA). Wartości palety (`#595959`, `#A22D32`, warianty `-strong`) zostają bez zmian — dają kontrast ≥ 7:1, więc spełniają też AAA, ale wymogiem jest AA: tekst ≥ 4.5:1 (duży ≥ 3:1), elementy UI ≥ 3:1.
+
+### H1 — odstępstwo od wzorca
+Wzorzec wizualny definiuje H1 64px (fluid 40→64), ale przy H2 28px skok skali (×2,3) był nieharmonijny na stronach z treścią. H1 zmniejszony na życzenie do **44px (fluid 32→44), line-height 1.1** (skala: 44 · 28 · 24 · 22 · 18).

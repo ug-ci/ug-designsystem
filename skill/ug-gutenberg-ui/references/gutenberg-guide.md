@@ -17,7 +17,7 @@ Skopiuj z `assets/theme/` do motywu blokowego (zalecany motyw potomny):
 | `patterns/news-list.php` + `templates/home.html` + `templates/archive.html` | strona aktualności: nagłówek, filtr kategorii (tagi), siatka 3 kart, paginacja UG. `home.html` = strona wpisów (Ustawienia → Czytanie → „Strona wpisów”), `archive.html` = kategorie/tagi/daty. Liczba wpisów na stronę = ustawienie Czytanie (zalecane 9) |
 | `templates/front-page.html` | `<motyw>/templates/front-page.html` — strona główna bez tytułu (treść = 4 wzorce `ug/home-*`) |
 | `templates/page-with-sidebar.html` + `parts/sidebar.html` | szablon „Strona z menu bocznym” (zarejestrowany w `customTemplates`): menu 20% / treść 80%, aktywny link blue. Menu to część szablonu `sidebar` — zamień wzorcowe linki na własne w Edytorze witryny; nie twórz osobnego `wp_navigation`, bo nagłówek bez przypisanego menu używa ostatnio dodanego |
-| `functions-snippet.php` | wklej do `functions.php` (enqueue CSS + edytor, style bloków, kategorie wzorców) |
+| `functions-snippet.php` | wklej do `functions.php` (enqueue CSS + edytor, style bloków, kategorie wzorców; wyłącza wzorce początkowe nowej strony i wzorce zdalne) |
 
 Ścieżki w `theme.json` (`file:./ug/fonts/...`) i wzorcach (`get_theme_file_uri('ug/logos/...')`) zakładają tę strukturę. Po instalacji w edytorze pojawią się kategorie **UG — Układ / Komponenty / Karty / Formularze**.
 
@@ -28,14 +28,14 @@ Weryfikacja po instalacji: Wygląd → Edytor → Style pokazuje paletę UG (bez
 - Kolory w blokach przez **sloty palety**: `backgroundColor":"blue-dark"`, `textColor":"white"` → klasy `has-blue-dark-background-color`. Nigdy `style.color.background:"#052D73"`.
 - Rozmiary czcionek przez presety (`fontSize":"small"`), odstępy przez `var:preset|spacing|24`, cienie przez `var:preset|shadow|md`.
 - Slugi palety: `blue`, `blue-dark`, `navy`, `nav`, `sail`, `foam`, `white`, `ink`, `black`, `gray-100/200/400/500/600`, `gray-text`, `error(-strong)`, `success(-strong)`, `warning(-strong)`, `info(-strong)`.
-- Slugi rozmiarów: `caption`(11) `tag`(10) `small`(12) `ui`(14) `base`(16) `lead`(18) `heading-4`(22) `heading-3`(24) `heading-2`(28) `heading-1`(64, fluid 40→64).
+- Slugi rozmiarów: `caption`(11) `tag`(10) `small`(12) `ui`(14) `base`(16) `lead`(18) `heading-4`(22) `heading-3`(24) `heading-2`(28) `heading-1`(44, fluid 32→44).
 - Slugi odstępów: `4 8 12 16 20 24 32 40 48 64`.
 
 ## 3. Mapowanie komponentów → bloki
 
 | Komponent | Wzorzec | Bloki / klasy |
 |---|---|---|
-| Przyciski | `ug/buttons` | `core/button`; style bloku: domyślny (primary), `ug-outlined`, `ug-dark`, `ug-ghost`, `ug-text`; klasy `ug-arrow` (strzałka), `ug-btn-sm` |
+| Przyciski | `ug/buttons` | `core/button`; style bloku: domyślny (primary), `ug-outlined`, `ug-dark`, `ug-ghost`, `ug-text`, `ug-read-more` (link ze strzałką; ten sam styl jest też dla `core/read-more`); klasy `ug-arrow` (strzałka), `ug-btn-sm` |
 | Read more | `ug/read-more` | `core/paragraph.ug-read-more` z linkiem |
 | Link Box | `ug/link-box` | `core/paragraph.ug-link-box` z linkiem (cały kafel klikalny) |
 | Baner promo | `ug/promo-banner` | `core/group.ug-promo` + `core/heading.ug-promo__title` z linkiem |

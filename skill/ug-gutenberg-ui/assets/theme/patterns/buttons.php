@@ -32,6 +32,10 @@
 <!-- wp:button {"className":"is-style-ug-text ug-arrow"} -->
 <div class="wp-block-button is-style-ug-text ug-arrow"><a class="wp-block-button__link wp-element-button" href="#">Default button</a></div>
 <!-- /wp:button -->
+
+<!-- wp:button {"className":"is-style-ug-read-more"} -->
+<div class="wp-block-button is-style-ug-read-more"><a class="wp-block-button__link wp-element-button" href="#">Read more</a></div>
+<!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
 
@@ -41,6 +45,10 @@
 <div class="wp-block-buttons">
 <!-- wp:button {"className":"is-style-ug-ghost ug-arrow"} -->
 <div class="wp-block-button is-style-ug-ghost ug-arrow"><a class="wp-block-button__link wp-element-button" href="#">Read more</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"className":"is-style-ug-read-more"} -->
+<div class="wp-block-button is-style-ug-read-more"><a class="wp-block-button__link wp-element-button" href="#">Read more</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->

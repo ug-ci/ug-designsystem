@@ -1,0 +1,379 @@
+/*!
+ * UG Gutenberg UI — komponenty Design Systemu Uniwersytetu Gdańskiego
+ * Źródło wartości: references/design-spec.md (wartości EFEKTYWNE, tj. to, co renderuje UG Design System.html).
+ * Ładuj na froncie i w edytorze (patrz functions-snippet.php). Fonty i paleta: theme.json.
+ */
+
+/* ───────────────────────── 1. TOKENY ───────────────────────── */
+:root {
+  --ug-blue: #0041d2;
+  --ug-blue-dark: #052D73;
+  --ug-navy: #00153A;
+  --ug-nav: #0F2E6F;           /* tło górnej nawigacji */
+  --ug-sail: #a1daf8;
+  --ug-foam: #e5f5fd;
+  --ug-white: #FFFFFF;
+  --ug-ink: #1a1a2e;           /* tekst podstawowy */
+  --ug-black: #000000;
+  --ug-gray-100: #F5F5F5;
+  --ug-gray-200: #D9D9D9;
+  --ug-gray-400: #8EA0C0;
+  --ug-gray-500: #6B6B6B;
+  --ug-gray-600: #606060;
+  --ug-gray-text: #595959;     /* szary tekst, AAA 7:1 */
+  --ug-error: #DE3E44;
+  --ug-error-strong: #A22D32;  /* tekst błędu / tło pod białym tekstem */
+  --ug-success: #1BA345;
+  --ug-success-strong: #11662B;
+  --ug-warning: #FEC001;
+  --ug-warning-strong: #705500;
+  --ug-info: #1E9BE8;
+  --ug-info-strong: #125D8B;
+
+  --ug-font-heading: "Work Sans", sans-serif;
+  --ug-font-body: "DM Sans", sans-serif;
+
+  --ug-sp-4: 4px;  --ug-sp-8: 8px;  --ug-sp-12: 12px; --ug-sp-16: 16px; --ug-sp-20: 20px;
+  --ug-sp-24: 24px; --ug-sp-32: 32px; --ug-sp-40: 40px; --ug-sp-48: 48px; --ug-sp-64: 64px;
+
+  --ug-shadow-sm: 0 2px 2px rgba(0,0,0,.15);
+  --ug-shadow-md: 0 4px 16px rgba(0,33,77,.08);
+  --ug-shadow-infobox: 0 8px 24px rgba(0,33,77,.14);
+  --ug-shadow-img: 0 1px 3px rgba(0,33,77,.12);
+  --ug-shadow-card: 0 4px 10px rgba(0,0,0,.25);
+
+  --ug-t: .15s;
+
+  /* Maski SVG (kolor = currentColor elementu) */
+  --ug-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='11' viewBox='0 0 42 11'%3E%3Cpath fill-rule='evenodd' d='M 36.97 0.219 L 41.779 4.972 C 42.074 5.264 42.074 5.736 41.779 6.028 L 36.97 10.781 C 36.675 11.073 36.197 11.073 35.902 10.781 C 35.607 10.49 35.607 10.017 35.902 9.725 L 39.42 6.247 L 0 6.247 L 0 4.753 L 39.42 4.753 L 35.902 1.275 C 35.607 0.983 35.607 0.51 35.902 0.219 C 36.197 -0.073 36.675 -0.073 36.97 0.219 Z'/%3E%3C/svg%3E");
+  --ug-step-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='41' height='11' viewBox='0 0 41 11' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M0 5.5h39M34.5 1l4.5 4.5-4.5 4.5'/%3E%3C/svg%3E");
+  --ug-chev-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='14' viewBox='0 0 8 14' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l6 6-6 6'/%3E%3C/svg%3E");
+  --ug-chev-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l6 6 6-6'/%3E%3C/svg%3E");
+  --ug-chev-box: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='11' viewBox='0 0 8 11' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M1 0.7L6 5.5L1 10.3'/%3E%3C/svg%3E");
+  --ug-bars: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='21' viewBox='0 0 24 21'%3E%3Cpath fill='%23fff' d='M0.857 3.857H23.143C23.616 3.857 24 3.473 24 3V0.857C24 0.384 23.616 0 23.143 0H0.857C0.384 0 0 0.384 0 0.857V3C0 3.473 0.384 3.857 0.857 3.857ZM0.857 12.429H23.143C23.616 12.429 24 12.045 24 11.571V9.429C24 8.955 23.616 8.571 23.143 8.571H0.857C0.384 8.571 0 8.955 0 9.429V11.571C0 12.045 0.384 12.429 0.857 12.429ZM0.857 21H23.143C23.616 21 24 20.616 24 20.143V18C24 17.527 23.616 17.143 23.143 17.143H0.857C0.384 17.143 0 17.527 0 18V20.143C0 20.616 0.384 21 0.857 21Z'/%3E%3C/svg%3E");
+}
+
+/* ───────────────────────── 2. ZASADY GLOBALNE ───────────────────────── */
+/* Zero zaokrągleń w całym interfejsie. Wyjątek: elementy .ug-round (koła: stepper, avatar, "dziś" w kalendarzu). */
+body *:not(.ug-round):not(.ug-round *) { border-radius: 0 !important; }
+.ug-round, .ug-round img { border-radius: 50% !important; }
+
+/* Cień zdjęć 3px — nie dla logo i ikon */
+.wp-block-image:not(.ug-logo):not(.ug-icon) img,
+.wp-block-post-featured-image img { box-shadow: var(--ug-shadow-img); }
+
+html { scroll-behavior: smooth; }
+:where(a, button, input, select, textarea, summary):focus-visible { outline: 3px solid rgba(0,65,210,.5); outline-offset: 2px; }
+::placeholder { color: var(--ug-gray-text); opacity: 1; }
+
+/* Tła sekcji (maks. 2 kolory tła na widok) */
+.has-foam-background-color { background-color: var(--ug-foam); }
+
+/* ───────────────────────── 3. TYPOGRAFIA ───────────────────────── */
+.ug-lead, p.is-style-ug-lead { font-size: 18px; line-height: 1.4; font-weight: 400; }
+.ug-small { font-size: 12px; line-height: 1.4; color: var(--ug-gray-text); }
+.ug-label { font-weight: 700; font-size: 16px; line-height: 1; }
+.ug-caption { font-size: 11px; line-height: 1.4; }
+/* Opcjonalne podkreślenie H1 (63×2px, 48px linia + kropki) — w specyfikacji zdefiniowane, nieużyte w wzorcach */
+.ug-h1-underline::after { content: ""; display: block; width: 63px; height: 2px; margin-top: 10px;
+  background: linear-gradient(var(--ug-blue),var(--ug-blue)) 0 0/48px 2px no-repeat, repeating-linear-gradient(to right,var(--ug-blue) 0 2px,transparent 2px 5px) 51px 0/12px 2px no-repeat; }
+
+/* ───────────────────────── 4. PRZYCISKI (core/button) ───────────────────────── */
+.wp-block-button .wp-block-button__link {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  height: 48px; box-sizing: border-box;
+  border: 2px solid transparent; border-radius: 0;
+  text-decoration: none; cursor: pointer;
+  transition: background var(--ug-t), border-color var(--ug-t), color var(--ug-t);
+}
+.wp-block-button .wp-block-button__link:hover { text-decoration: none; }
+
+/* Outlined */
+.wp-block-button.is-style-ug-outlined .wp-block-button__link { background: transparent; color: var(--ug-blue); border-color: var(--ug-blue); }
+.wp-block-button.is-style-ug-outlined .wp-block-button__link:hover,
+.wp-block-button.is-style-ug-outlined .wp-block-button__link:focus { background: var(--ug-blue); color: #fff; }
+/* Dark */
+.wp-block-button.is-style-ug-dark .wp-block-button__link { background: var(--ug-blue-dark); color: #fff; }
+.wp-block-button.is-style-ug-dark .wp-block-button__link:hover,
+.wp-block-button.is-style-ug-dark .wp-block-button__link:focus { background: var(--ug-navy); color: #fff; }
+/* Ghost (na ciemnym tle / zdjęciu) */
+.wp-block-button.is-style-ug-ghost .wp-block-button__link { background: transparent; color: #fff; border-color: #fff; }
+.wp-block-button.is-style-ug-ghost .wp-block-button__link:hover,
+.wp-block-button.is-style-ug-ghost .wp-block-button__link:focus { background: rgba(255,255,255,.15); color: #fff; }
+/* Text */
+.wp-block-button.is-style-ug-text .wp-block-button__link { background: transparent; color: var(--ug-blue); }
+.wp-block-button.is-style-ug-text .wp-block-button__link:hover,
+.wp-block-button.is-style-ug-text .wp-block-button__link:focus { background: transparent; color: var(--ug-blue-dark); }
+/* Mały */
+.wp-block-button.ug-btn-sm .wp-block-button__link { height: 36px; padding: 8px 16px; }
+/* Wyłączony */
+.wp-block-button .wp-block-button__link[aria-disabled="true"],
+.wp-block-button .wp-block-button__link.is-disabled {
+  background: rgba(107,107,107,.1); color: var(--ug-gray-text); border-color: var(--ug-gray-400); cursor: not-allowed; pointer-events: none;
+}
+/* Strzałka 42×11 (klasa .ug-arrow na bloku przycisku) */
+.wp-block-button.ug-arrow .wp-block-button__link::after,
+.ug-read-more a::after {
+  content: ""; flex-shrink: 0; width: 42px; height: 11px; background: currentColor;
+  -webkit-mask: var(--ug-arrow) center/contain no-repeat; mask: var(--ug-arrow) center/contain no-repeat;
+  transition: transform .2s;
+}
+.wp-block-button.ug-arrow .wp-block-button__link:hover::after { transform: translateX(4px); }
+
+/* Read more / link ze strzałką (akapit .ug-read-more z linkiem) */
+.ug-read-more { margin: 0; }
+.ug-read-more a { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--ug-blue); text-decoration: none; transition: gap .2s; }
+.ug-read-more a:hover { gap: 12px; text-decoration: none; }
+.ug-read-more.is-light a, .has-blue-dark-background-color .ug-read-more a, .has-navy-background-color .ug-read-more a { color: #fff; }
+
+/* Link Box — ramka 2px, strzałka wydłuża się po najechaniu */
+.ug-link-box { position: relative; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; width: 300px; max-width: 100%; margin: 0; padding: 20px;
+  background: #fff; box-shadow: inset 0 0 0 2px var(--ug-blue); font-weight: 700; font-size: 14px; line-height: 1; color: var(--ug-blue); }
+.ug-link-box a { color: inherit; text-decoration: none; }
+.ug-link-box a::before { content: ""; position: absolute; inset: 0; }
+.ug-link-box::after { content: ""; display: block; height: 11px; width: 46.5px; background: currentColor; transition: width .25s;
+  -webkit-mask: var(--ug-chev-box) right center/8px 11px no-repeat, linear-gradient(#000,#000) left center/calc(100% - 2px) 2px no-repeat;
+  mask: var(--ug-chev-box) right center/8px 11px no-repeat, linear-gradient(#000,#000) left center/calc(100% - 2px) 2px no-repeat; }
+.ug-link-box:hover::after { width: 65.5px; }
+.ug-link-box.is-empty { box-shadow: inset 0 0 0 2px var(--ug-blue-dark); min-height: 89px; }
+
+/* Login link (biały tekst na blue-dark) */
+.ug-login-link a { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: #fff; text-decoration: none; }
+.ug-login-link a:hover { text-decoration: underline; }
+
+/* Chevron slidera (button 39.5×59) — użyj w bloku HTML: <button class="ug-chevron-btn is-prev" aria-label="Previous"></button> */
+.ug-chevron-btn { width: 39.5px; height: 59px; border: 0; padding: 0; background: var(--ug-blue); cursor: pointer; transition: background var(--ug-t); position: relative; }
+.ug-chevron-btn:hover { background: var(--ug-blue-dark); }
+.ug-chevron-btn::after { content: ""; position: absolute; inset: 0; margin: auto; width: 14px; height: 22px; background: #fff;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='22' viewBox='0 0 14 22' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 2L12 11L2 20'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='22' viewBox='0 0 14 22' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 2L12 11L2 20'/%3E%3C/svg%3E") center/contain no-repeat; }
+.ug-chevron-btn.is-prev::after { transform: scaleX(-1); }
+
+/* ───────────────────────── 5. FORMULARZE ───────────────────────── */
+.ug-form label, .ug-form .form-label, .wp-block-search__label { display: block; margin-bottom: 6px; font-weight: 700; font-size: 13px; color: var(--ug-gray-text); }
+.ug-form :is(input[type=text], input[type=email], input[type=tel], input[type=url], input[type=number], input[type=password], input[type=search], input[type=date], textarea),
+.wp-block-search__input {
+  width: 100%; box-sizing: border-box; height: 41px; padding: 10px 20px;
+  border: 1px solid var(--ug-gray-500); background: #fff; color: var(--ug-ink);
+  font-family: var(--ug-font-body); font-size: 14px; outline: none; transition: border-color var(--ug-t);
+}
+.ug-form textarea { height: auto; min-height: 120px; }
+.ug-form :is(input, textarea, select):focus, .wp-block-search__input:focus { outline: none; border-color: var(--ug-blue); box-shadow: 0 0 0 3px rgba(0,65,210,.25); }
+.ug-form :is(input, textarea, select):disabled { background: rgba(107,107,107,.1); cursor: not-allowed; }
+.ug-form :is(input, textarea, select).is-error, .ug-form [aria-invalid="true"] { border-color: var(--ug-error); }
+.ug-form .ug-error-msg, .ug-form .wpcf7-not-valid-tip { margin-top: 4px; font-size: 12px; color: var(--ug-error-strong); }
+.ug-form select {
+  width: 100%; box-sizing: border-box; height: 41px; padding: 10px 40px 10px 20px; appearance: none; cursor: pointer;
+  border: 1px solid var(--ug-gray-500); color: var(--ug-ink); font-family: var(--ug-font-body); font-size: 14px; outline: none;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%230041d2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 12px center no-repeat;
+  transition: border-color var(--ug-t), box-shadow var(--ug-t);
+}
+.ug-form select:focus { box-shadow: 0 0 0 2px rgba(0,65,210,.12); }
+.ug-form .ug-field + .ug-field { margin-top: 16px; }
+.ug-form :is(button[type=submit], input[type=submit]) {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 48px; padding: 15px 25px 15px 20px; border: 0;
+  background: var(--ug-blue); color: #fff; font-family: var(--ug-font-body); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; line-height: 1; cursor: pointer; transition: background var(--ug-t);
+}
+.ug-form :is(button[type=submit], input[type=submit]):hover { background: var(--ug-blue-dark); }
+
+/* Wyszukiwarka (core/search): input 47px bez prawej ramki + przycisk primary */
+.wp-block-search .wp-block-search__inside-wrapper { max-width: 420px; gap: 0; }
+.wp-block-search .wp-block-search__input { height: 47px; border-right: 0; }
+.wp-block-search .wp-block-search__button { height: 48px; margin: 0; padding: 0 20px; border: 0; background: var(--ug-blue); color: #fff; cursor: pointer; transition: background var(--ug-t); }
+.wp-block-search .wp-block-search__button:hover { background: var(--ug-blue-dark); }
+.wp-block-search .wp-block-search__button svg { fill: #fff; width: 20px; height: 20px; }
+
+/* Lista menu (dropdown items) — <ul class="ug-menu-list"> */
+.ug-menu-list { list-style: none; margin: 0; padding: 0; max-width: 360px; }
+.ug-menu-list li { margin: 0; }
+.ug-menu-list a { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background: var(--ug-gray-100); font-weight: 600; font-size: 14px; color: #303030; text-decoration: none; transition: background var(--ug-t), color var(--ug-t); }
+.ug-menu-list a::after { content: ""; width: 8px; height: 14px; background: currentColor; -webkit-mask: var(--ug-chev-right) center/contain no-repeat; mask: var(--ug-chev-right) center/contain no-repeat; color: var(--ug-blue); }
+.ug-menu-list a:hover, .ug-menu-list a:hover::after { background-color: var(--ug-blue); color: #fff; }
+.ug-menu-list a:hover::after { background: #fff; }
+.ug-menu-list .is-selected > a, .ug-menu-list .current-menu-item > a { background: var(--ug-blue-dark); color: #fff; box-shadow: var(--ug-shadow-sm); }
+.ug-menu-list .is-selected > a::after, .ug-menu-list .current-menu-item > a::after { color: #fff; }
+
+/* ───────────────────────── 6. TAGI ───────────────────────── */
+.ug-tags { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 0; padding: 0; }
+.ug-tag, .ug-tags a, .wp-block-post-terms.ug-tags a {
+  display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; height: auto;
+  font-family: var(--ug-font-body); font-size: 10px; font-weight: 600; line-height: 1; text-transform: uppercase; text-decoration: none;
+  background: var(--ug-blue); color: #fff; border: 0;
+}
+.ug-tags a:hover { text-decoration: none; color: #fff; background: var(--ug-blue-dark); }
+.ug-tag--dark { background: var(--ug-blue-dark); }
+.ug-tag--navy { background: var(--ug-navy); }
+.ug-tag--gray { background: var(--ug-gray-text); }
+.ug-tag--info { background: var(--ug-info-strong); }
+.ug-tag--success { background: var(--ug-success-strong); }
+.ug-tag--error { background: var(--ug-error-strong); }
+.ug-tag--warning { background: var(--ug-warning); color: #000; }
+.ug-tag--outlined { background: transparent; border: 1px solid var(--ug-blue); color: var(--ug-blue); }
+
+/* ───────────────────────── 7. KARTY ───────────────────────── */
+.ug-card-date { margin: 0; font-size: 11px; line-height: 1.4; color: var(--ug-ink); }
+.ug-card-title, h3.ug-card-title, h4.ug-card-title { margin: 0; font-family: var(--ug-font-heading); font-weight: 600; font-size: 18px; line-height: 1.15; color: var(--ug-blue-dark); }
+.ug-card-title a { color: inherit; text-decoration: none; }
+.ug-card-text { margin: 0; font-size: 14px; line-height: 1.5; }
+
+/* Pionowa karta aktualności */
+.ug-news-card { display: flex; flex-direction: column; width: 100%; max-width: 301px; border-bottom: 1px solid var(--ug-blue); gap: 0; }
+.ug-news-card > .wp-block-image { margin: 0; }
+.ug-news-card > .wp-block-image img { display: block; width: 100%; height: 180px; object-fit: cover; background: var(--ug-gray-200); }
+.ug-news-card__body { display: flex; flex-direction: column; gap: 8px; padding: 12px 0 15px; flex: 1; }
+.ug-news-card__footer { padding: 12px 0; }
+
+/* Pozioma karta */
+.ug-news-card--h { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: flex-start; gap: 24px; max-width: 628px; padding-bottom: 20px; border-bottom: 1px solid var(--ug-blue); }
+.ug-news-card--h > .wp-block-image { flex: 0 0 187px; width: 187px; margin: 0; }
+.ug-news-card--h > .wp-block-image img { display: block; width: 187px; height: 137px; object-fit: cover; background: var(--ug-gray-200); }
+.ug-news-card--h .ug-news-card__body { padding: 0; }
+@media (max-width: 600px) { .ug-news-card--h { flex-direction: column; } .ug-news-card--h > .wp-block-image, .ug-news-card--h > .wp-block-image img { width: 100%; flex-basis: auto; } }
+
+/* Karta wyróżniona: zdjęcie 320px + niebieski baner */
+.ug-featured-card { position: relative; max-width: 630px; height: 320px; overflow: hidden; background: var(--ug-gray-200); box-shadow: var(--ug-shadow-img); }
+.ug-featured-card > .wp-block-image { margin: 0; height: 100%; }
+.ug-featured-card > .wp-block-image img { width: 100%; height: 100%; object-fit: cover; box-shadow: none; }
+.ug-featured-card__label { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: 20px; background: var(--ug-blue); }
+.ug-featured-card__label, .ug-featured-card__label a { font-family: var(--ug-font-heading); font-weight: 600; font-size: 14px; line-height: 1.15; color: #fff; text-decoration: none; }
+
+/* Mała karta */
+.ug-small-card { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: flex-start; gap: 20px; max-width: 300px; padding-bottom: 16px; border-bottom: 1px solid var(--ug-blue); }
+.ug-small-card > .wp-block-image { flex: 0 0 80px; width: 80px; margin: 0; }
+.ug-small-card > .wp-block-image img { width: 80px; height: 80px; object-fit: cover; background: var(--ug-gray-200); }
+.ug-small-card__body { display: flex; flex-direction: column; gap: 6px; }
+.ug-small-card__title { margin: 0; font-family: var(--ug-font-body); font-weight: 700; font-size: 14px; line-height: 1.3; color: var(--ug-blue-dark); }
+.ug-small-card__title a { color: inherit; text-decoration: none; }
+
+/* Karta osoby */
+.ug-user-card { box-sizing: border-box; width: 300px; max-width: 100%; padding: 40px 19.5px 19px; display: flex; flex-direction: column; align-items: center; gap: 40px; text-align: center; background: #fff; box-shadow: var(--ug-shadow-card); }
+.ug-user-card .wp-block-image { margin: 0 0 10px; }
+.ug-user-card .wp-block-image img { box-shadow: none; width: 100px; height: 100px; object-fit: cover; background: var(--ug-gray-100); }
+.ug-user-card__name { margin: 0; font-weight: 700; font-size: 18px; line-height: 1; color: var(--ug-blue-dark); font-family: var(--ug-font-body); }
+.ug-user-card__role { margin: 10px 0 0; font-size: 11px; line-height: 1; color: #2F2F2F; }
+.ug-user-card__contact { display: block; margin: 0; font-size: 14px; line-height: 1.4; color: #000; }
+.ug-user-card__contact a { display: block; margin-bottom: 5px; color: var(--ug-blue); text-decoration: none; }
+.ug-user-card__contact a:hover { text-decoration: underline; }
+
+/* Info box */
+.ug-infobox { max-width: 410px; overflow: hidden; background: #fff; box-shadow: var(--ug-shadow-infobox); }
+.ug-infobox > .wp-block-image { margin: 0; }
+.ug-infobox > .wp-block-image img { display: block; width: 100%; height: 130px; object-fit: cover; box-shadow: none; background: var(--ug-gray-200); }
+.ug-infobox__body { padding: 20px; }
+.ug-infobox__title { margin: 0 0 12px; font-family: var(--ug-font-heading); font-weight: 600; font-size: 18px; line-height: 1; color: var(--ug-blue-dark); }
+.ug-infobox__body p { margin: 0 0 16px; }
+
+/* Baner promocyjny (cały blok jest linkiem) */
+.ug-promo { position: relative; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; width: 100%; max-width: 780px; min-height: 180px; padding: 32px 36px; background: #fff; border: 2px solid var(--ug-blue); transition: background .2s, border-color .2s; }
+.ug-promo__title { margin: 0; font-family: var(--ug-font-heading); font-weight: 700; font-size: 24px; line-height: 1.15; color: var(--ug-blue); transition: color .2s; }
+.ug-promo__title a { color: inherit; text-decoration: none; }
+.ug-promo__title a::before { content: ""; position: absolute; inset: 0; }
+.ug-promo::after { content: ""; margin-top: 40px; width: 42px; height: 11px; background: var(--ug-blue); transition: background .2s; -webkit-mask: var(--ug-arrow) left center/contain no-repeat; mask: var(--ug-arrow) left center/contain no-repeat; }
+.ug-promo:hover { background: var(--ug-blue); }
+.ug-promo:hover .ug-promo__title { color: #fff; }
+.ug-promo:hover::after { background: #fff; }
+
+/* ───────────────────────── 8. STEPPER (core/list uporządkowana + .ug-stepper) ───────────────────────── */
+ol.ug-stepper { display: flex; flex-wrap: wrap; align-items: flex-start; list-style: none; margin: 0; padding: 0; counter-reset: ug-step; }
+.ug-stepper > li { counter-increment: ug-step; position: relative; width: 106px; margin: 0 35px 0 0; display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 16px; line-height: 1.2; text-align: center; color: #000; }
+.ug-stepper > li:last-child { margin-right: 0; }
+.ug-stepper > li::before { content: counter(ug-step); box-sizing: border-box; width: 71px; height: 71px; display: flex; align-items: center; justify-content: center; border-radius: 50% !important; font-weight: 700; font-size: 32px; line-height: 1; color: var(--ug-blue); }
+.ug-stepper > li.is-done::before { box-shadow: inset 0 0 0 2px var(--ug-blue); }
+.ug-stepper > li:not(:last-child)::after { content: ""; position: absolute; top: 30px; left: 103px; width: 41px; height: 11px; background: var(--ug-gray-600); -webkit-mask: var(--ug-step-arrow) center/contain no-repeat; mask: var(--ug-step-arrow) center/contain no-repeat; }
+
+/* ───────────────────────── 9. KALENDARZ (wp:html, patrz pattern ug-calendar) ───────────────────────── */
+.ug-cal { box-sizing: border-box; width: 340px; max-width: 100%; padding: 24px; display: flex; flex-direction: column; gap: 20px; background: var(--ug-gray-100); box-shadow: inset 0 0 0 1px #EBEBEB, 0 4px 32px rgba(170,170,170,.03); font-family: var(--ug-font-body); color: #333; }
+.ug-cal-head { display: flex; justify-content: space-between; align-items: center; }
+.ug-cal-month { font-weight: 700; font-size: 14px; line-height: 1; color: var(--ug-blue-dark); }
+.ug-cal-arrows { display: flex; gap: 4px; }
+.ug-cal-arrows button { display: flex; padding: 4px; border: 0; background: none; color: #333; cursor: pointer; }
+.ug-cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); row-gap: 4px; text-align: center; font-size: 14px; line-height: 1; }
+.ug-cal-grid .wd { padding-bottom: 8px; font-weight: 700; font-size: 12px; color: var(--ug-gray-text); }
+.ug-cal-grid .d { height: 36px; display: flex; align-items: center; justify-content: center; color: #333; }
+.ug-cal-grid .d.today span { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50% !important; background: var(--ug-blue); color: #fff; font-weight: 700; }
+.ug-cal-events { display: flex; flex-direction: column; gap: 14px; padding-top: 20px; border-top: 1px solid var(--ug-gray-200); }
+.ug-cal-ev-time { margin-bottom: 4px; font-size: 12px; color: var(--ug-gray-text); }
+.ug-cal-ev-title { font-size: 14px; font-weight: 700; line-height: 1.2; color: #333; }
+
+/* ───────────────────────── 10. NAWIGACJA GÓRNA ───────────────────────── */
+.ug-header { background: var(--ug-nav); min-height: 92px; padding: 0 25px 0 19px; display: flex; align-items: center; justify-content: space-between; color: #fff; }
+.ug-header > .wp-block-group, .ug-header .ug-header__brand { display: flex; align-items: center; gap: 28px; flex-wrap: nowrap; }
+/* WordPress blockGap (margin-block-start dla rodzeństwa w układzie flow) rozjeżdża wyrównanie — zerujemy w całym pasku */
+.ug-header, .ug-header > *, .ug-header__brand > * { margin-block: 0; }
+.ug-header .wp-block-navigation { align-self: center; }
+.ug-header .wp-block-image { margin: 0; display: flex; line-height: 0; }
+.ug-header .wp-block-image a { display: block; line-height: 0; }
+.ug-header .ug-logo img { display: block; height: 58px; width: auto; box-shadow: none; }
+.ug-header .ug-emblem { display: none; }
+.ug-header .ug-emblem img { display: block; width: 35px; height: 64px; box-shadow: none; }
+.ug-header__divider { width: 1px; height: 62px; background: #fff; flex-shrink: 0; }
+.ug-header__claim { margin: 0; font-weight: 700; font-size: 14px; line-height: 1.7; letter-spacing: .5px; text-transform: uppercase; color: #fff; }
+/* Hamburger: biała ikona po prawej, bez pozycji menu w pasku (overlayMenu = always) */
+.ug-header .wp-block-navigation__responsive-container-open { display: flex; padding: 0; background: none; border: 0; color: #fff; }
+.ug-header .wp-block-navigation__responsive-container-open svg { display: none; }
+.ug-header .wp-block-navigation__responsive-container-open::before { content: ""; width: 18px; height: 15px; background: var(--ug-bars) center/contain no-repeat; }
+.ug-header .wp-block-navigation__responsive-container.is-menu-open { background-color: var(--ug-nav); color: #fff; }
+.ug-header .wp-block-navigation__responsive-container.is-menu-open :is(a, .wp-block-navigation-item__content) { font-family: var(--ug-font-body); font-weight: 400; font-size: 14px; color: #fff; transition: color .2s; }
+.ug-header .wp-block-navigation__responsive-container.is-menu-open :is(a, .wp-block-navigation-item__content):hover { color: var(--ug-sail); text-decoration: none; }
+.ug-header .wp-block-navigation__responsive-container-close { color: #fff; }
+/* Mobile: sam herb 35×64, pasek 80px */
+@media (max-width: 781px) {
+  .ug-header { min-height: 80px; padding: 0 30px 0 22px; }
+  .ug-header .ug-logo, .ug-header__divider, .ug-header__claim { display: none; }
+  .ug-header .ug-emblem { display: block; }
+  .ug-header .wp-block-navigation__responsive-container-open::before { width: 17px; height: 16px; }
+}
+
+/* Menu boczne (core/navigation pionowa .ug-navmenu) */
+.ug-navmenu-wrap { width: 100%; max-width: 360px; background: var(--ug-gray-100); }
+.ug-navmenu-title { margin: 0; padding: 24px 24px 12px; font-family: var(--ug-font-heading); font-weight: 700; font-size: 18px; line-height: 1.1; color: var(--ug-blue-dark); }
+ul.ug-navmenu, ul.ug-navmenu ul { list-style: none; margin: 0; padding: 0; }
+.ug-navmenu.wp-block-navigation { display: block; }
+.ug-navmenu .wp-block-navigation__container { display: flex; flex-direction: column; align-items: stretch; gap: 0; width: 100%; }
+.ug-navmenu .wp-block-navigation-item { display: block; width: 100%; margin: 0; }
+.ug-navmenu .wp-block-navigation-item > :is(a, button).wp-block-navigation-item__content {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; box-sizing: border-box; width: 100%; margin: 0; padding: 14px 24px;
+  border: 0; background: none; font-family: var(--ug-font-body); font-size: 14px; font-weight: 500; line-height: 1.25; text-align: left; color: var(--ug-ink); text-decoration: none; cursor: pointer;
+  transition: background var(--ug-t), color var(--ug-t);
+}
+.ug-navmenu .wp-block-navigation-item > :is(a, button).wp-block-navigation-item__content:hover { background: rgba(0,65,210,.06); color: var(--ug-ink); }
+.ug-navmenu .wp-block-navigation-item__label { flex: 1; }
+.ug-navmenu .wp-block-navigation__submenu-icon { display: none; }
+/* Chevron przy pozycjach z podmenu */
+.ug-navmenu button.wp-block-navigation-submenu__toggle::after { content: ""; flex-shrink: 0; width: 8px; height: 14px; background: var(--ug-blue-dark); -webkit-mask: var(--ug-chev-right) center/contain no-repeat; mask: var(--ug-chev-right) center/contain no-repeat; }
+/* Rozwinięta pozycja: blue + biały tekst + chevron w dół */
+.ug-navmenu .wp-block-navigation-submenu:has(> button[aria-expanded="true"]) > button.wp-block-navigation-submenu__toggle,
+.ug-navmenu .wp-block-navigation-submenu:has(> button[aria-expanded="true"]) > button.wp-block-navigation-submenu__toggle:hover { background: var(--ug-blue); color: #fff; }
+.ug-navmenu .wp-block-navigation-submenu:has(> button[aria-expanded="true"]) > button.wp-block-navigation-submenu__toggle::after { background: #fff; width: 14px; height: 8px; -webkit-mask-image: var(--ug-chev-down); mask-image: var(--ug-chev-down); }
+/* Rozwinięta pozycja ma tło gray-200 pod sobą — bez jasnej kreski na styku blue/gray przy ułamkowych wysokościach */
+.ug-navmenu .wp-block-navigation-submenu:has(> button[aria-expanded="true"]) { background: var(--ug-gray-200); }
+/* Podmenu: ukryte, dopóki pozycja nie jest rozwinięta */
+.ug-navmenu .wp-block-navigation__submenu-container { display: none !important; }
+.ug-navmenu .wp-block-navigation-submenu:has(> button[aria-expanded="true"]) > .wp-block-navigation__submenu-container {
+  display: flex !important; flex-direction: column; position: static !important; width: 100% !important; min-width: 0 !important; height: auto !important; margin: 0; padding: 6px 0 !important;
+  border: 0 !important; background: var(--ug-gray-200) !important; opacity: 1 !important; visibility: visible !important; overflow: visible !important; box-shadow: none;
+}
+.ug-navmenu.wp-block-navigation .has-child .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content { padding: 12px 24px 12px 32px; }
+.ug-navmenu.wp-block-navigation .has-child .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content:hover { background: none; color: var(--ug-blue); }
+
+/* ───────────────────────── 11. STOPKA ───────────────────────── */
+.ug-footer__main { padding: 40px; background: var(--ug-blue-dark); color: #fff; }
+.ug-footer__cols { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 32px; }
+@media (max-width: 781px) { .ug-footer__cols { grid-template-columns: 1fr; } .ug-footer__main { padding: 32px 20px; } }
+.ug-footer__logo { margin: 0 0 20px; }
+.ug-footer__logo img { display: block; width: 122px; height: 52px; box-shadow: none; }
+.ug-footer__address { margin: 0; font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.72); }
+.ug-footer__title { margin: 0 0 16px; font-family: var(--ug-font-body); font-weight: 700; font-size: 18px; line-height: 1.3; color: #fff; }
+.ug-footer__links { list-style: none; margin: 0; padding: 0; }
+.ug-footer__links li { margin: 0; }
+.ug-footer__links a { display: block; padding: 4px 0; font-size: 14px; color: rgba(255,255,255,.72); text-decoration: none; transition: color var(--ug-t); }
+.ug-footer__links a:hover { color: #fff; text-decoration: none; }
+.ug-footer__sub { margin: 0; padding: 20px 40px; background: var(--ug-navy); text-align: center; font-size: 14px; color: rgba(255,255,255,.8); }
+
+/* ───────────────────────── 12. TREŚĆ (ekstrapolacja — brak w specyfikacji) ───────────────────────── */
+.entry-content :where(ul, ol) { padding-left: 1.25em; }
+.wp-block-table table { border-collapse: collapse; width: 100%; }
+.wp-block-table :is(th, td) { padding: 10px 16px; border: 1px solid var(--ug-gray-200); text-align: left; }
+.wp-block-table thead th { background: var(--ug-foam); color: var(--ug-blue-dark); font-weight: 700; }
+.wp-block-quote { margin-left: 0; padding: 4px 0 4px 24px; border-left: 4px solid var(--ug-blue); }
+.wp-block-separator { border: 0; border-top: 1px solid var(--ug-gray-200); }

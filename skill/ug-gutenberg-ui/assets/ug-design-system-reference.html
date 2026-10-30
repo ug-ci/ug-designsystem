@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UG Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail" data-bg-color="#0041d2"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="#0041d2"/><text x="60" y="65" font-family="Work Sans, sans-serif" font-size="48" font-weight="600" fill="white" text-anchor="middle" dominant-baseline="middle">UG</text></svg></template>
+<style>
+  :root {
+    /* ── Primary Palette ── */
+    --ug-blue:       #0041d2;
+    --ug-blue-dark:  #052D73;
+    --ug-navy:       #00153A;
+
+    /* ── Tints ── */
+    --ug-sail:       #a1daf8;
+    --ug-foam:       #e5f5fd;
+
+    /* ── Neutrals ── */
+    --ug-white:      #FFFFFF;
+    --ug-gray-100:   #F5F5F5;
+    --ug-gray-200:   #D9D9D9;
+    --ug-gray-400:   #8EA0C0;
+    --ug-gray-500:   #6B6B6B;
+    --ug-gray-600:   #606060;
+    --ug-gray-text:  #595959; /* AAA 7:1 text on white */
+    --ug-black:      #000000;
+
+    /* ── Semantic ── */
+    --ug-error:      #DE3E44;
+    --ug-error-text: #A22D32; /* AAA 7:1 text on white */
+    --ug-success:    #1BA345;
+    --ug-warning:    #FEC001;
+    --ug-info:       #1E9BE8;
+    --ug-error-strong:   #A22D32;   /* AAA 7:1 — text on white / bg under white text */
+    --ug-success-strong: #11662B;
+    --ug-warning-strong: #705500;
+    --ug-info-strong:    #125D8B;
+
+    /* ── Typography ── */
+    --font-heading:  'Work Sans', sans-serif;
+    --font-body:     'DM Sans', sans-serif;
+
+    /* ── Spacing ── */
+    --sp-4:  4px;
+    --sp-8:  8px;
+    --sp-12: 12px;
+    --sp-16: 16px;
+    --sp-20: 20px;
+    --sp-24: 24px;
+    --sp-32: 32px;
+    --sp-40: 40px;
+    --sp-48: 48px;
+    --sp-64: 64px;
+
+    /* ── Radius ── */
+    --radius-sm: 3px;
+    --radius-md: 5px;
+    --radius-lg: 8px;
+    --radius-full: 9999px;
+
+    /* ── Shadow ── */
+    --shadow-infobox: 0 8px 24px rgba(0,33,77,.14);
+    --shadow-sm: 0 2px 2px rgba(0,0,0,.15);
+    --shadow-md: 0 4px 16px rgba(0,33,77,.08);
+
+    /* ── Layout ── */
+    --sidebar-w: 220px;
+    --content-max: 960px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+  /* No rounded corners anywhere */
+  body *{border-radius:0px !important}
+  /* Image shadow 3px */
+  .news-card-img,.news-card-h-img,.small-card-img,.news-card-featured,.main img:not(.nav-logo):not(.nav-emblem):not([src$="icon-bars.svg"]){box-shadow:0 1px 3px rgba(0,33,77,.12)}
+
+
+  body {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: #1a1a2e;
+    background: var(--ug-gray-100);
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: var(--ug-navy);
+    overflow-y: auto;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-logo {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .sidebar-logo-mark {
+    width: 36px; height: 36px;
+    background: var(--ug-blue);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 700; font-size: 16px;
+    color: white; flex-shrink: 0;
+  }
+
+  .sidebar-logo-text {
+    font-family: var(--font-body);
+    font-weight: 700; font-size: 13px;
+    color: white; line-height: 1.3;
+  }
+  .sidebar-logo-text span { display: block; font-weight: 400; opacity: .6; font-size: 11px; }
+
+  .sidebar-nav { padding: 16px 0; flex: 1; }
+
+  .sidebar-section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: rgba(255,255,255,.4);
+    padding: 16px 24px 6px;
+  }
+
+  .sidebar-link {
+    display: block;
+    padding: 8px 24px;
+    font-family: var(--font-body);
+    font-size: 14px; color: rgba(255,255,255,.72);
+    text-decoration: none;
+    transition: all .15s;
+    border-left: 2px solid transparent;
+  }
+  .sidebar-link:hover { color: white; background: rgba(255,255,255,.06); }
+  .sidebar-link.active { color: white; border-left-color: var(--ug-blue); background: rgba(0,65,210,.2); }
+
+  /* ── Main ── */
+  .main {
+    margin-left: var(--sidebar-w);
+    flex: 1;
+    padding: 48px 64px 80px;
+    max-width: calc(var(--content-max) + var(--sidebar-w) + 128px);
+  }
+
+  /* ── Section ── */
+  .ds-section {
+    margin-bottom: 72px;
+    scroll-margin-top: 32px;
+  }
+
+  .ds-section-header {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--ug-blue);
+  }
+
+  .ds-section-header h2 {
+    font-family: var(--font-heading);
+    font-weight: 600; font-size: 28px;
+    color: var(--ug-blue-dark);
+  }
+  .ds-section-header .ds-section-num {
+    font-family: var(--font-body);
+    font-size: 12px; font-weight: 700;
+    color: var(--ug-blue);
+    letter-spacing: .08em;
+    background: rgba(0,65,210,.1);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+  }
+
+  /* ── Card wrapper ── */
+  .ds-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 20px;
+  }
+
+  .ds-card-label {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ug-gray-text);
+    margin-bottom: 20px;
+  }
+
+  /* ── Grid helpers ── */
+  .ds-grid { display: grid; gap: 16px; }
+  .ds-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .ds-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .ds-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .ds-flex { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .ds-flex-col { display: flex; flex-direction: column; gap: 12px; }
+
+  /* ═══════════════════════════════
+     COLORS
+  ═══════════════════════════════ */
+  .color-swatch {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .color-swatch-fill {
+    height: 80px;
+    width: 100%;
+  }
+  .color-swatch-info {
+    background: white;
+    padding: 12px 14px;
+  }
+  .color-swatch-name {
+    font-family: var(--font-heading);
+    font-weight: 700; font-size: 13px;
+    color: #1a1a2e;
+  }
+  .color-swatch-hex {
+    font-family: monospace;
+    font-size: 12px; color: var(--ug-gray-text);
+    margin-top: 2px;
+  }
+  .color-swatch-usage {
+    font-size: 11px; color: var(--ug-gray-text);
+    margin-top: 4px;
+  }
+
+  /* Semantic row */
+  .semantic-swatch {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px;
+    border-radius: var(--radius-md);
+    background: var(--ug-gray-100);
+  }
+  .semantic-dot {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  }
+  .semantic-info .label { font-weight: 700; font-size: 13px; color: #1a1a2e; }
+  .semantic-info .hex { font-family: monospace; font-size: 11px; color: var(--ug-gray-text); }
+
+  /* ═══════════════════════════════
+     TYPOGRAPHY
+  ═══════════════════════════════ */
+  .type-row {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--ug-gray-200);
+    display: flex; align-items: baseline; gap: 24px;
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-meta {
+    min-width: 180px; flex-shrink: 0;
+  }
+  .type-meta .name { font-size: 12px; font-weight: 700; color: var(--ug-gray-text); }
+  .type-meta .spec { font-family: monospace; font-size: 11px; color: var(--ug-gray-text); margin-top: 3px; }
+
+  .t-h1 { font-family: var(--font-heading); font-weight: 600; font-size: 34px; color: var(--ug-blue-dark); line-height: 1; }
+  .t-h2 { font-family: var(--font-heading); font-weight: 600; font-size: 28px; color: var(--ug-blue-dark); line-height: 1; }
+  .t-h3 { font-family: var(--font-heading); font-weight: 600; font-size: 24px; color: var(--ug-blue-dark); line-height: 1.1; }
+  .t-h4 { font-family: var(--font-heading); font-weight: 600; font-size: 22px; color: var(--ug-blue-dark); line-height: 1.1; }
+  .t-h5 { font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--ug-blue-dark); line-height: 1.2; }
+  .t-lead { font-family: var(--font-body); font-weight: 700; font-size: 18px; color: #1a1a2e; line-height: 1.4; }
+  .t-body { font-family: var(--font-body); font-weight: 400; font-size: 14px; color: #1a1a2e; line-height: 1.5; }
+  .t-small { font-family: var(--font-body); font-weight: 400; font-size: 11px; color: var(--ug-gray-text); line-height: 1.4; }
+  .t-label { font-family: var(--font-body); font-weight: 700; font-size: 14px; color: #1a1a2e; line-height: 1; }
+
+  .h1-underline { display: inline-block; }
+  .h1-underline::after {
+    content: ''; display: block;
+    width: 63px; height: 2px;
+    background: linear-gradient(var(--ug-blue),var(--ug-blue)) 0 0/48px 2px no-repeat, repeating-linear-gradient(to right,var(--ug-blue) 0 2px,transparent 2px 5px) 51px 0/12px 2px no-repeat;
+    margin-top: 10px;
+  }
+
+  /* ═══════════════════════════════
+     BUTTONS
+  ═══════════════════════════════ */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-body);
+    font-weight: 700; font-size: 14px;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    padding: 15px 25px 15px 20px;
+    height: 48px;
+    transition: background .15s, border-color .15s, color .15s;
+    text-decoration: none;
+    gap: 10px;
+    border-radius: 0;
+  }
+
+  .btn-primary {
+    background: var(--ug-blue);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--ug-blue-dark); }
+
+  .btn-outlined {
+    background: transparent;
+    color: var(--ug-blue);
+    border: 2px solid var(--ug-blue);
+  }
+  .btn-outlined:hover { background: var(--ug-blue); color: white; }
+
+  .btn-dark {
+    background: var(--ug-blue-dark);
+    color: white;
+  }
+  .btn-dark:hover { background: var(--ug-navy); }
+
+  .btn-ghost-white {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  .btn-ghost-white:hover { background: rgba(255,255,255,.15); }
+
+  .btn-sm {
+    height: 36px;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .read-more {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-body); font-size: 14px;
+    color: var(--ug-blue);
+    text-decoration: none;
+    cursor: pointer;
+    background: none; border: none; padding: 0;
+    transition: gap .2s;
+  }
+  .read-more:hover { gap: 12px; }
+  .read-more svg { flex-shrink: 0; }
+
+  .btn-icon {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-body); font-size: 14px;
+    color: white; background: none; border: none;
+    cursor: pointer; padding: 0;
+  }
+
+  /* disabled */
+  .btn[disabled], .btn.disabled {
+    background: rgba(107,107,107,.1);
+    color: var(--ug-gray-text);
+    border-color: var(--ug-gray-400);
+    cursor: not-allowed;
+  }
+
+  /* ═══════════════════════════════
+     FORMS
+  ═══════════════════════════════ */
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label { font-family: var(--font-body); font-weight: 700; font-size: 13px; color: var(--ug-gray-text); }
+
+  .form-input {
+    width: 100%;
+    height: 41px;
+    padding: 10px 20px;
+    border: 1px solid var(--ug-gray-500);
+    background: white;
+    font-family: var(--font-body); font-size: 14px;
+    color: #1a1a2e;
+    outline: none;
+    border-radius: 0;
+    transition: border-color .15s;
+  }
+  .form-input::placeholder { color: var(--ug-gray-text); }
+  .form-input:focus, .form-input.is-focus { outline: none; border-color: var(--ug-blue); box-shadow: 0 0 0 3px rgba(0,65,210,.25); }
+  .form-input:disabled { background: rgba(107,107,107,.1); cursor: not-allowed; }
+
+  .form-select {
+    width: 100%; height: 41px;
+    padding: 10px 40px 10px 20px;
+    border: 1px solid rgb(107,107,107);
+    background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%230041d2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 12px center no-repeat;
+    appearance: none;
+    font-family: var(--font-body); font-size: 14px;
+    color: #1a1a2e;
+    cursor: pointer;
+    outline: none;
+    border-radius: 0;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .form-select:focus { border-color: var(--ug-blue); box-shadow: 0 0 0 2px rgba(0,65,210,.12); }
+  .form-select option { font-family: var(--font-body); }
+
+  /* ═══════════════════════════════
+     TAGS
+  ═══════════════════════════════ */
+  .tag {
+    display: inline-flex; align-items: center;
+    padding: 3px 8px;
+    font-family: var(--font-body); font-size: 11px;
+    font-weight: 400;
+    line-height: 1;
+    background: var(--ug-blue);
+    color: white;
+    border-radius: 0;
+    gap: 4px;
+  }
+  .tag-dark { background: var(--ug-blue-dark); }
+  .tag-navy { background: var(--ug-navy); }
+  .tag-gray { background: var(--ug-gray-text); }
+  .tag-outlined { background: transparent; border: 1px solid var(--ug-blue); color: var(--ug-blue); }
+  .tag-info { background: var(--ug-info-strong); }
+  .tag-success { background: var(--ug-success-strong); }
+  .tag-error { background: var(--ug-error-strong); }
+  .tag-warning { background: var(--ug-warning); color: #000; }
+
+  /* ═══════════════════════════════
+     CARDS
+  ═══════════════════════════════ */
+  .news-card {
+    width: 100%; max-width: 301px;
+    display: flex; flex-direction: column;
+    border-bottom: 1px solid var(--ug-blue);
+  }
+  .news-card-img {
+    width: 100%; height: 180px;
+    background: var(--ug-gray-200);
+    display: flex; align-items: center; justify-content: center;
+    font-family: monospace; font-size: 11px; color: var(--ug-gray-text);
+    overflow: hidden;
+  }
+  .news-card-body { padding: 16px 0; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .news-card-date { font-family: var(--font-body); font-size: 11px; color: #1a1a2e; }
+  .news-card-title { font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--ug-blue-dark); line-height: 1.15; }
+  .news-card-body .t-body { flex: 1; }
+  .news-card-footer { padding-top: 12px; }
+
+  /* horizontal card */
+  .news-card-h {
+    display: flex; flex-direction: row; gap: 24px;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--ug-blue);
+  }
+  .news-card-h-img {
+    width: 187px; height: 137px; flex-shrink: 0;
+    background: var(--ug-gray-200);
+    display: flex; align-items: center; justify-content: center;
+    font-family: monospace; font-size: 11px; color: var(--ug-gray-text);
+  }
+  .news-card-h-body { display: flex; flex-direction: column; gap: 8px; }
+
+  /* featured card */
+  .news-card-featured {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background: var(--ug-gray-200);
+    overflow: hidden;
+  }
+  .news-card-featured-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: var(--ug-blue);
+    padding: 20px;
+  }
+  .news-card-featured-label .news-card-title { color: white; }
+
+  /* small card */
+  .small-card {
+    display: flex; gap: 20px;
+    align-items: flex-start;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ug-blue);
+  }
+  .small-card-img {
+    width: 80px; height: 80px; flex-shrink: 0;
+    background: var(--ug-gray-200);
+  }
+  .small-card-body { display: flex; flex-direction: column; gap: 6px; }
+  .small-card-title { font-family: var(--font-body); font-weight: 700; font-size: 14px; color: var(--ug-blue-dark); line-height: 1.3; }
+
+  /* ═══════════════════════════════
+     NAVIGATION
+  ═══════════════════════════════ */
+  .nav-preview{background:#0F2E6F;height:92px;display:flex;align-items:center;padding:0 25px 0 19px;position:relative;overflow:hidden}
+  .nav-logo{height:58px;width:auto;display:block;flex-shrink:0}
+  .nav-items{display:flex;align-items:center;gap:30px;margin:0 auto}
+  .nav-item{font-family:var(--font-body);font-weight:400;font-size:14px;line-height:1;color:#fff;text-decoration:none;white-space:nowrap;transition:color .2s}
+  .nav-item:hover{color:var(--ug-sail)}
+  .nav-brand{display:flex;align-items:center;gap:28px}
+  .nav-divider{width:1px;height:62px;background:#fff;flex-shrink:0}
+  .nav-claim{font-family:var(--font-body);font-weight:700;font-size:14px;line-height:1.7;letter-spacing:.5px;text-transform:uppercase;color:#fff}
+  .nav-mobile{background:#0F2E6F;height:113px;max-width:500px;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 22px}
+  .nav-emblem{height:72px;width:auto;display:block}
+  .logo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .logo-tile{display:flex;flex-direction:column;gap:10px}
+  .logo-stage{height:180px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md)}
+  .logo-stage img{display:block;box-shadow:none !important;border-radius:0 !important}
+  .logo-meta{font-size:12px;color:var(--ug-gray-text);line-height:1.4}
+  .logo-meta b{display:block;color:#1a1a2e;font-size:13px}
+  .nav-burger{background:none;border:0;padding:0;cursor:pointer;display:flex;flex-shrink:0}
+
+  /* Menu item states (secondary) */
+  .menu-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 20px;
+    background: var(--ug-gray-100);
+    font-family: var(--font-body); font-weight: 700; font-size: 14px;
+    color: #303030;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .menu-item:hover { background: var(--ug-blue); color: white; }
+  .menu-item.selected { background: var(--ug-blue-dark); color: white; box-shadow: var(--shadow-sm); }
+
+  /* Sidebar navigation menu (Kandydaci) */
+  .navmenu {
+    width: 100%; max-width: 360px;
+    background: var(--ug-gray-100);
+    font-family: var(--font-body);
+    display: flex; flex-direction: column;
+  }
+  .navmenu-title {
+    font-family: var(--font-heading);
+    font-weight: 700; font-size: 26px;
+    color: var(--ug-blue-dark);
+    padding: 24px 24px 12px;
+  }
+  .navmenu-item {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 14px 24px;
+    font-size: 14px; font-weight: 500; color: #1a1a2e;
+    text-decoration: none; cursor: pointer;
+    line-height: 1.25;
+    transition: background .15s, color .15s;
+  }
+  .navmenu-item:hover { background: rgba(0,65,210,.06); }
+  .navmenu-item .navmenu-chev { flex-shrink: 0; color: var(--ug-blue-dark); }
+  .navmenu-item.expanded {
+    background: var(--ug-blue); color: white;
+  }
+  .navmenu-item.expanded .navmenu-chev { color: white; }
+  .navmenu-sub {
+    background: var(--ug-gray-200);
+    display: flex; flex-direction: column;
+    padding: 6px 0;
+  }
+  .navmenu-subitem {
+    padding: 12px 24px 12px 32px;
+    font-size: 14px; font-weight: 500; color: #1a1a2e; line-height: 1.25;
+    text-decoration: none; cursor: pointer;
+    transition: color .15s;
+  }
+  .navmenu-subitem:hover { color: var(--ug-blue); }
+
+  /* Promo link banner (Erasmus+) */
+  .promo-banner {
+    display: flex; flex-direction: column; justify-content: space-between;
+    width: 100%; max-width: 780px; min-height: 180px;
+    padding: 32px 36px;
+    background: var(--ug-white);
+    border: 2px solid var(--ug-blue);
+    text-decoration: none; cursor: pointer;
+    transition: background .2s, border-color .2s;
+  }
+  .promo-banner-title {
+    font-family: var(--font-heading);
+    font-weight: 700; font-size: 24px; line-height: 1.15;
+    color: var(--ug-blue);
+    transition: color .2s;
+  }
+  .promo-banner-arrow { margin-top: 40px; color: var(--ug-blue); transition: color .2s; }
+  .promo-banner:hover,
+  .promo-banner.is-hover {
+    background: var(--ug-blue);
+    border-color: var(--ug-blue);
+  }
+  .promo-banner:hover .promo-banner-title,
+  .promo-banner:hover .promo-banner-arrow,
+  .promo-banner.is-hover .promo-banner-title,
+  .promo-banner.is-hover .promo-banner-arrow { color: var(--ug-white); }
+
+  /* ═══════════════════════════════
+     FOOTER PREVIEW
+  ═══════════════════════════════ */
+  .footer-preview {
+    background: var(--ug-blue-dark);
+    padding: 40px;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+  .footer-sub {
+    background: var(--ug-navy);
+    padding: 20px 40px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    text-align: center;
+    font-family: var(--font-body); font-size: 14px;
+    color: rgba(255,255,255,.8);
+  }
+  .footer-cols { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 32px; }
+  .footer-col-title {
+    font-family: var(--font-body); font-weight: 700; font-size: 18px;
+    color: white; margin-bottom: 16px;
+  }
+  .footer-link {
+    display: block;
+    font-family: var(--font-body); font-size: 14px;
+    color: rgba(255,255,255,.72);
+    text-decoration: none;
+    padding: 4px 0;
+    transition: color .15s;
+  }
+  .footer-link:hover { color: white; }
+  .footer-address {
+    font-family: var(--font-body); font-weight: 400; font-size: 14px;
+    color: rgba(255,255,255,.72); line-height: 1.7;
+  }
+
+  /* ═══════════════════════════════
+     SPACING
+  ═══════════════════════════════ */
+  .spacing-row {
+    display: flex; align-items: center; gap: 20px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--ug-gray-200);
+  }
+  .spacing-row:last-child { border-bottom: none; }
+  .spacing-bar-wrap { flex: 1; height: 24px; display: flex; align-items: center; }
+  .spacing-bar { height: 16px; background: var(--ug-blue); opacity: .8; }
+  .spacing-meta { min-width: 200px; font-family: monospace; font-size: 12px; color: var(--ug-gray-text); }
+  .spacing-token { font-weight: 700; color: var(--ug-blue-dark); }
+
+  /* ═══════════════════════════════
+     INTRO HERO
+  ═══════════════════════════════ */
+  .ds-hero {
+    background: linear-gradient(135deg, var(--ug-navy) 0%, var(--ug-blue-dark) 60%, var(--ug-blue) 100%);
+    padding: 48px 56px;
+    margin-bottom: 48px;
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+  }
+  .ds-hero::before {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 48px solid rgba(255,255,255,.05);
+  }
+  .ds-hero::after {
+    content: '';
+    position: absolute;
+    right: 80px; bottom: -60px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: 32px solid rgba(255,255,255,.04);
+  }
+  .ds-hero-badge {
+    display: inline-block;
+    background: var(--ug-blue);
+    color: white; font-family: var(--font-body);
+    font-size: 11px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 4px 12px; margin-bottom: 20px;
+  }
+  .ds-hero h1 {
+    font-family: var(--font-heading); font-weight: 600; font-size: 40px;
+    color: white; line-height: 1;
+    margin-bottom: 12px;
+  }
+  .ds-hero-sub {
+    font-family: var(--font-body); font-size: 16px;
+    color: rgba(255,255,255,.72); max-width: 500px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .ds-hero-meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+  .ds-hero-stat { color: rgba(255,255,255,.6); font-family: var(--font-body); font-size: 13px; }
+  .ds-hero-stat strong { display: block; color: white; font-size: 20px; font-weight: 700; }
+
+  /* chevron */
+  .chevron-btn {
+    width: 39.5px; height: 59px;
+    background: var(--ug-blue);
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: background .15s;
+    border: none;
+  }
+  .chevron-btn:hover { background: var(--ug-blue-dark); }
+
+  /* scrollbar */
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); }
+
+  /* Figma additions */
+  .btn-text{background:transparent;color:var(--ug-blue);padding:15px 25px 15px 20px}
+  .btn-text:hover{color:var(--ug-blue-dark)}
+  .btn svg{flex-shrink:0;transition:transform .2s}
+  .btn:hover svg{transform:translateX(4px)}
+  .login-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:14px;color:white;text-decoration:none}
+  .login-link:hover{text-decoration:underline}
+  .link-box{display:flex;flex-direction:column;gap:20px;width:300px;max-width:100%;padding:20px;background:#fff;box-shadow:inset 0 0 0 2px var(--ug-blue);font-family:var(--font-body);font-weight:700;font-size:14px;line-height:1;color:var(--ug-blue);text-decoration:none;box-sizing:border-box}
+  .link-box .lb-arrow{display:flex;align-items:center;height:11px;width:46.5px;transition:width .25s}
+  .link-box .lb-arrow::before{content:"";flex:1;height:2px;background:currentColor;margin-right:-7px}
+  .link-box .lb-arrow svg{flex-shrink:0;display:block}
+  .link-box:hover .lb-arrow{width:65.5px}
+  .link-box.is-empty{box-shadow:inset 0 0 0 2px var(--ug-blue-dark);min-height:89px}
+  .stepper{display:flex;align-items:flex-start;gap:0;flex-wrap:wrap}
+  .step{width:106px;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .step-num{width:71px;height:71px;display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-weight:700;font-size:32px;line-height:1;color:var(--ug-blue);border-radius:50% !important;box-sizing:border-box}
+  .step.is-done .step-num{box-shadow:inset 0 0 0 2px var(--ug-blue)}
+  .step-label{font-family:var(--font-body);font-size:16px;line-height:1.2;text-align:center;color:#000}
+  .step-sep{width:41px;margin:30px -3px 0;color:var(--ug-gray-600);flex-shrink:0}
+  .user-card{width:300px;max-width:100%;background:#fff;box-shadow:0px 4px 10px 0px rgba(0,0,0,0.25);padding:40px 19.5px 19px;display:flex;flex-direction:column;align-items:center;gap:40px;box-sizing:border-box;text-align:center;font-family:var(--font-body)}
+  .user-card-head{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+  .user-card-avatar{width:100px;height:100px;border-radius:50% !important;background:var(--ug-gray-100);margin-bottom:10px}
+  .user-card-name{font-weight:700;font-size:18px;line-height:1;color:var(--ug-blue-dark)}
+  .user-card-role{font-size:11px;line-height:1;color:#2F2F2F}
+  .user-card-contact{display:flex;flex-direction:column;gap:5px;font-size:14px;line-height:1.4;color:#000}
+  .user-card-contact a{color:var(--ug-blue);text-decoration:none}
+  .user-card-contact a:hover{text-decoration:underline}
+  .ug-cal{width:340px;max-width:100%;background:var(--ug-gray-100);box-shadow:inset 0 0 0 1px #EBEBEB,0px 4px 32px 0px rgba(170,170,170,0.03);padding:24px;display:flex;flex-direction:column;gap:20px;box-sizing:border-box;font-family:var(--font-body);color:#333}
+  .ug-cal-head{display:flex;justify-content:space-between;align-items:center}
+  .ug-cal-month{font-weight:700;font-size:14px;line-height:1;color:var(--ug-blue-dark)}
+  .ug-cal-arrows{display:flex;gap:4px}
+  .ug-cal-arrows button{background:none;border:none;padding:4px;cursor:pointer;color:#333;display:flex}
+  .ug-cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));row-gap:4px;text-align:center;font-size:14px;line-height:1}
+  .ug-cal-grid .wd{font-weight:700;font-size:12px;color:var(--ug-gray-text);padding-bottom:8px}
+  .ug-cal-grid .d{color:#333;height:36px;display:flex;align-items:center;justify-content:center}
+  .ug-cal-grid .d.today span{width:32px;height:32px;font-weight:700;border-radius:50% !important;background:var(--ug-blue);color:#fff;display:flex;align-items:center;justify-content:center}
+  .ug-cal-events{display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--ug-gray-200);padding-top:20px}
+  .ug-cal-ev-time{font-size:12px;color:var(--ug-gray-text);margin-bottom:4px}
+  .ug-cal-ev-title{font-size:14px;font-weight:700;line-height:1.2;color:#333}
+</style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <img src="theme/ug/logos/logo-mark.svg" alt="UG" style="width:40px;height:40px">
+    <div class="sidebar-logo-text">Design System<span>University of Gdańsk</span></div>
+    </div>
+  </div>
+  <div class="sidebar-nav">
+    <div class="sidebar-section-label">Foundation</div>
+    <a class="sidebar-link active" href="#colors">Colors</a>
+    <a class="sidebar-link" href="#typography">Typography</a>
+    <a class="sidebar-link" href="#spacing">Spacing &amp; Radius</a>
+    <a class="sidebar-link" href="#logo">Logo UG</a>
+
+    <div class="sidebar-section-label">Components</div>
+    <a class="sidebar-link" href="#buttons">Buttons</a>
+    <a class="sidebar-link" href="#forms">Forms</a>
+    <a class="sidebar-link" href="#tags">Tags</a>
+    <a class="sidebar-link" href="#cards">Cards</a>
+    <a class="sidebar-link" href="#stepper">Stepper</a>
+    <a class="sidebar-link" href="#calendar">Calendar</a>
+    <a class="sidebar-link" href="#navigation">Navigation</a>
+    <a class="sidebar-link" href="#footer">Footer</a>
+  </div>
+</nav>
+
+<!-- ══ MAIN ══ -->
+<main class="main">
+
+  <!-- Hero -->
+  <div class="ds-hero">
+    <div class="ds-hero-badge">v1.0 · 2025</div>
+    <h1>UG Design System</h1>
+    <p class="ds-hero-sub">A unified visual language for University of Gdańsk digital products — built on a foundation of trust, clarity, and accessibility.</p>
+    <div class="ds-hero-meta">
+      <div class="ds-hero-stat"><strong>3</strong> Font families</div>
+      <div class="ds-hero-stat"><strong>13</strong> Color tokens</div>
+      <div class="ds-hero-stat"><strong>8</strong> Components</div>
+      <div class="ds-hero-stat"><strong>9</strong> Spacing steps</div>
+    </div>
+  </div>
+
+  <!-- ════ COLORS ════ -->
+  <section class="ds-section" id="colors">
+    <div class="ds-section-header">
+      <h2>Colors</h2>
+      <span class="ds-section-num">01</span>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Primary Palette</div>
+      <div class="ds-grid ds-grid-3">
+        <div class="color-swatch">
+          <div class="color-swatch-fill" style="background:#0041d2"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">UG Blue</div>
+            <div class="color-swatch-hex">--ug-blue · #0041d2</div>
+            <div class="color-swatch-usage">Buttons, links, accents, nav active</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-fill" style="background:#052D73"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">UG Blue Dark</div>
+            <div class="color-swatch-hex">--ug-blue-dark · #052D73</div>
+            <div class="color-swatch-usage">Headings, hover states, footer bg</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-fill" style="background:#00153A"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">UG Navy</div>
+            <div class="color-swatch-hex">--ug-navy · #00153A</div>
+            <div class="color-swatch-usage">Footer bottom bar, deep backgrounds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Tints</div>
+      <div class="ds-grid ds-grid-3">
+        <div class="color-swatch">
+          <div class="color-swatch-fill" style="background:#a1daf8"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Sail</div>
+            <div class="color-swatch-hex">--ug-sail · #a1daf8</div>
+            <div class="color-swatch-usage">Highlights, selected states, tags</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-fill" style="background:#e5f5fd"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Foam</div>
+            <div class="color-swatch-hex">--ug-foam · #e5f5fd</div>
+            <div class="color-swatch-usage">Section backgrounds, subtle fills</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-fill" style="background:#FFFFFF;border:1px solid #e8e8e8"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">White</div>
+            <div class="color-swatch-hex">--ug-white · #ffffff</div>
+            <div class="color-swatch-usage">Cards, surfaces, reversed text</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Neutrals</div>
+      <div class="ds-grid ds-grid-4">
+        <div class="color-swatch">
+          <div class="color-swatch-fill" style="background:#F5F5F5;border:1px solid #e8e8e8"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 100</div>
+            <div class="color-swatch-hex">#F5F5F5</div>
+            <div class="color-swatch-usage">Page background, menu bg</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-fill" style="background:#D9D9D9"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 200</div>
+            <div class="color-swatch-hex">#D9D9D9</div>
+            <div class="color-swatch-usage">Image placeholders, dividers</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-fill" style="background:#8EA0C0"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 400</div>
+            <div class="color-swatch-hex">#8EA0C0</div>
+            <div class="color-swatch-usage">Secondary text, meta labels</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-fill" style="background:#6B6B6B"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 500</div>
+            <div class="color-swatch-hex">#6B6B6B</div>
+            <div class="color-swatch-usage">Borders, placeholder text</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Semantic Colors</div>
+      <div class="ds-grid ds-grid-2">
+        <div class="semantic-swatch">
+          <div class="semantic-dot" style="background:#DE3E44"></div>
+          <div class="semantic-info">
+            <div class="label">Error</div>
+            <div class="hex">--ug-error · #DE3E44 — icons, borders, backgrounds</div>
+            <div class="hex" style="display:flex;align-items:center;gap:8px;margin-top:4px"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:#A22D32"></span>--ug-error-strong · #A22D32 — text / background under white text (AAA)</div>
+          </div>
+        </div>
+        <div class="semantic-swatch">
+          <div class="semantic-dot" style="background:#1BA345"></div>
+          <div class="semantic-info">
+            <div class="label">Success</div>
+            <div class="hex">--ug-success · #1BA345 — icons, borders, backgrounds</div>
+            <div class="hex" style="display:flex;align-items:center;gap:8px;margin-top:4px"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:#11662B"></span>--ug-success-strong · #11662B — text / background under white text (AAA)</div>
+          </div>
+        </div>
+        <div class="semantic-swatch">
+          <div class="semantic-dot" style="background:#FEC001"></div>
+          <div class="semantic-info">
+            <div class="label">Warning</div>
+            <div class="hex">--ug-warning · #FEC001 — icons, borders, backgrounds</div>
+            <div class="hex" style="display:flex;align-items:center;gap:8px;margin-top:4px"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:#705500"></span>--ug-warning-strong · #705500 — text / background under white text (AAA)</div>
+          </div>
+        </div>
+        <div class="semantic-swatch">
+          <div class="semantic-dot" style="background:#1E9BE8"></div>
+          <div class="semantic-info">
+            <div class="label">Info</div>
+            <div class="hex">--ug-info · #1E9BE8 — icons, borders, backgrounds</div>
+            <div class="hex" style="display:flex;align-items:center;gap:8px;margin-top:4px"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:#125D8B"></span>--ug-info-strong · #125D8B — text / background under white text (AAA)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ TYPOGRAPHY ════ -->
+  <section class="ds-section" id="typography">
+    <div class="ds-section-header">
+      <h2>Typography</h2>
+      <span class="ds-section-num">02</span>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Headings — Work Sans</div>
+      <div>
+        <div class="type-row">
+          <div class="type-meta"><div class="name">H1</div><div class="spec">Work Sans 700 · 64px</div></div>
+          <div class="t-h1" style="font-size: 64px; font-weight: 700">Heading 1</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="name">H2</div><div class="spec">Work Sans 600 · 28px</div></div>
+          <div class="t-h2">Heading 2</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="name">H3</div><div class="spec">Work Sans 600 · 24px</div></div>
+          <div class="t-h3">Heading 3</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="name">H4</div><div class="spec">Work Sans 600 · 22px</div></div>
+          <div class="t-h4">Heading 4</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="name">H5</div><div class="spec">Work Sans 600 · 18px</div></div>
+          <div class="t-h5">Heading 5</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Body — DM Sans</div>
+      <div>
+        <div class="type-row">
+          <div class="type-meta"><div class="name">Lead</div><div class="spec">DM Sans 500 · 18px</div></div>
+          <div class="t-lead" style="font-weight: 400; font-size: 18px">Lead paragraph text, introductory copy</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="name">Body</div><div class="spec">DM Sans 400 · 16px</div></div>
+          <div class="t-body" style="max-width: 500px; font-size: 16px">Joint conferences, teaching support and growing cooperation within the Gdańsk City of Literature programme — standard body copy for articles and descriptions.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="name">Label</div><div class="spec">DM Sans 700 · 16px</div></div>
+          <div class="t-label" style="font-size: 16px">Bold label text</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="name">Small</div><div class="spec">DM Sans 400 · 12px</div></div>
+          <div class="t-small" style="font-size: 12px">05.04.2023 · Date stamps, meta information, captions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ SPACING ════ -->
+  <section class="ds-section" id="spacing">
+    <div class="ds-section-header">
+      <h2>Spacing &amp; Radius</h2>
+      <span class="ds-section-num">03</span>
+    </div>
+
+    <div class="ds-grid ds-grid-2" style="gap:20px">
+      <div class="ds-card">
+        <div class="ds-card-label">Spacing Scale</div>
+        <div>
+          <div class="spacing-row">
+            <div class="spacing-meta"><span class="spacing-token">--sp-4</span> · 4px</div>
+            <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:4px"></div></div>
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-meta"><span class="spacing-token">--sp-8</span> · 8px</div>
+            <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:8px"></div></div>
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-meta"><span class="spacing-token">--sp-12</span> · 12px</div>
+            <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:12px"></div></div>
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-meta"><span class="spacing-token">--sp-16</span> · 16px</div>
+            <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px"></div></div>
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-meta"><span class="spacing-token">--sp-20</span> · 20px</div>
+            <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:20px"></div></div>
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-meta"><span class="spacing-token">--sp-24</span> · 24px</div>
+            <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:24px"></div></div>
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-meta"><span class="spacing-token">--sp-32</span> · 32px</div>
+            <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:32px"></div></div>
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-meta"><span class="spacing-token">--sp-48</span> · 48px</div>
+            <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:48px"></div></div>
+          </div>
+          <div class="spacing-row">
+            <div class="spacing-meta"><span class="spacing-token">--sp-64</span> · 64px</div>
+            <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:64px"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-card">
+        <div class="ds-card-label">Border Radius</div>
+        <div class="ds-flex-col">
+          <div style="display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--ug-gray-200)">
+            <div style="width:60px;height:36px;background:var(--ug-blue);border-radius:3px;flex-shrink:0"></div>
+            <div><div style="font-weight:700;font-size:13px">Small</div><div style="font-family:monospace;font-size:12px;color: var(--ug-gray-text)">--radius-sm · 3px</div><div style="font-size:11px;color: var(--ug-gray-text)">Subtle rounding, chips</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--ug-gray-200)">
+            <div style="width:60px;height:36px;background:var(--ug-blue);border-radius:5px;flex-shrink:0"></div>
+            <div><div style="font-weight:700;font-size:13px">Medium (default)</div><div style="font-family:monospace;font-size:12px;color: var(--ug-gray-text)">--radius-md · 5px</div><div style="font-size:11px;color: var(--ug-gray-text)">Cards, modals, containers</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--ug-gray-200)">
+            <div style="width:60px;height:36px;background:var(--ug-blue);border-radius:8px;flex-shrink:0"></div>
+            <div><div style="font-weight:700;font-size:13px">Large</div><div style="font-family:monospace;font-size:12px;color: var(--ug-gray-text)">--radius-lg · 8px</div><div style="font-size:11px;color: var(--ug-gray-text)">Dialogs, popovers</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:12px 0">
+            <div style="width:60px;height:36px;background:var(--ug-blue);border-radius:9999px;flex-shrink:0"></div>
+            <div><div style="font-weight:700;font-size:13px">Full</div><div style="font-family:monospace;font-size:12px;color: var(--ug-gray-text)">--radius-full · 9999px</div><div style="font-size:11px;color: var(--ug-gray-text)">Pills, badges</div></div>
+          </div>
+        </div>
+
+        <div class="ds-card-label" style="margin-top:24px">Shadows</div>
+        <div class="ds-flex-col">
+          <div style="display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--ug-gray-200)">
+            <div style="width:80px;height:40px;background:white;border-radius:5px;box-shadow:0 2px 2px rgba(0,0,0,.15);flex-shrink:0"></div>
+            <div><div style="font-weight:700;font-size:13px">Small</div><div style="font-family:monospace;font-size:11px;color: var(--ug-gray-text)">--shadow-sm</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:12px 0">
+            <div style="width:80px;height:40px;background:white;border-radius:5px;box-shadow:0 4px 16px rgba(0,33,77,.08);flex-shrink:0"></div>
+            <div><div style="font-weight:700;font-size:13px">Medium</div><div style="font-family:monospace;font-size:11px;color: var(--ug-gray-text)">--shadow-md</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ LOGO ════ -->
+  <section class="ds-section" id="logo">
+    <div class="ds-section-header">
+      <h2>Logo UG</h2>
+      <span class="ds-section-num">04</span>
+    </div>
+    <div class="ds-card">
+      <div class="ds-card-label">Horizontal logo</div>
+      <div class="logo-grid">
+        <div class="logo-tile"><div class="logo-stage" style="background:var(--ug-blue)"><img src="theme/ug/logos/logo-white.svg" alt="University of Gdańsk" style="height:72px;width:auto"></div><div class="logo-meta"><b>White on blue</b>Primary version · logo-white.svg</div></div>
+        <div class="logo-tile"><div class="logo-stage" style="background:#0F2E6F"><img src="theme/ug/logos/logo-white.svg" alt="University of Gdańsk" style="height:72px;width:auto"></div><div class="logo-meta"><b>White on navigation background</b>#0F2E6F · navy · blue-dark</div></div>
+        <div class="logo-tile"><div class="logo-stage" style="background:#FFFFFF;border:1px solid var(--ug-gray-200)"><img src="theme/ug/logos/logo-blue.svg" alt="University of Gdańsk" style="height:72px;width:auto"></div><div class="logo-meta"><b>Blue on white</b>Light backgrounds · logo-blue.svg</div></div>
+      </div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-card-label">Emblem & mark</div>
+      <div class="logo-grid">
+        <div class="logo-tile"><div class="logo-stage" style="background:var(--ug-blue)"><img src="theme/ug/logos/logo-emblem-white.svg" alt="University of Gdańsk" style="height:96px;width:auto"></div><div class="logo-meta"><b>White emblem</b>Mobile, small formats · logo-emblem-white.svg</div></div>
+        <div class="logo-tile"><div class="logo-stage" style="background:#FFFFFF;border:1px solid var(--ug-gray-200)"><img src="theme/ug/logos/logo-emblem-blue.svg" alt="University of Gdańsk" style="height:96px;width:auto"></div><div class="logo-meta"><b>Blue emblem</b>Light backgrounds · logo-emblem-blue.svg</div></div>
+        <div class="logo-tile"><div class="logo-stage" style="background:var(--ug-gray-100)"><img src="theme/ug/logos/logo-mark.svg" alt="University of Gdańsk" style="height:96px;width:auto"></div><div class="logo-meta"><b>Mark</b>Favicon, avatar, app icon · logo-mark.svg</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ BUTTONS ════ -->
+  <section class="ds-section" id="buttons">
+    <div class="ds-section-header">
+      <h2>Buttons</h2>
+      <span class="ds-section-num">05</span>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Primary Buttons</div>
+      <div class="ds-flex" style="align-items:flex-start">
+        <div class="ds-flex-col" style="align-items:flex-start">
+          <button class="btn btn-primary" style="font-weight: 600; font-size: 12px">Read more</button>
+          <div style="font-size:11px;color: var(--ug-gray-text);margin-top:4px">Default</div>
+        </div>
+        <div class="ds-flex-col" style="align-items:flex-start">
+          <button class="btn btn-primary" style="background: var(--ug-blue-dark); font-weight: 600; font-size: 12px">Read more</button>
+          <div style="font-size:11px;color: var(--ug-gray-text);margin-top:4px">Hover</div>
+        </div>
+        <div class="ds-flex-col" style="align-items:flex-start">
+          <button class="btn btn-primary disabled" style="font-weight: 600; font-size: 12px" disabled>Read more</button>
+          <div style="font-size:11px;color: var(--ug-gray-text);margin-top:4px">Disabled</div>
+        </div>
+        <div class="ds-flex-col" style="align-items:flex-start">
+          <button class="btn btn-primary btn-sm" style="font-weight: 600; font-size: 12px">Search</button>
+          <div style="font-size:11px;color: var(--ug-gray-text);margin-top:4px">Small</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">With Arrow</div>
+      <div class="ds-flex" style="align-items:flex-start">
+        <div class="ds-flex-col" style="align-items:flex-start"><button class="btn btn-primary" style="font-weight: 600; font-size: 12px">Read more <svg width="42" height="11" viewBox="0 0 42 11" fill="currentColor"><path d="M 36.97 0.219 L 41.779 4.972 C 42.074 5.264 42.074 5.736 41.779 6.028 L 36.97 10.781 C 36.675 11.073 36.197 11.073 35.902 10.781 C 35.607 10.49 35.607 10.017 35.902 9.725 L 39.42 6.247 L 0 6.247 L 0 4.753 L 39.42 4.753 L 35.902 1.275 C 35.607 0.983 35.607 0.51 35.902 0.219 C 36.197 -0.073 36.675 -0.073 36.97 0.219 Z" fill-rule="evenodd"/></svg></button><div style="font-size:11px;color: var(--ug-gray-text);margin-top:4px">Primary + arrow</div></div>
+        <div class="ds-flex-col" style="align-items:flex-start"><button class="btn btn-text" style="font-weight: 600; font-size: 12px">Default button <svg width="42" height="11" viewBox="0 0 42 11" fill="currentColor"><path d="M 36.97 0.219 L 41.779 4.972 C 42.074 5.264 42.074 5.736 41.779 6.028 L 36.97 10.781 C 36.675 11.073 36.197 11.073 35.902 10.781 C 35.607 10.49 35.607 10.017 35.902 9.725 L 39.42 6.247 L 0 6.247 L 0 4.753 L 39.42 4.753 L 35.902 1.275 C 35.607 0.983 35.607 0.51 35.902 0.219 C 36.197 -0.073 36.675 -0.073 36.97 0.219 Z" fill-rule="evenodd"/></svg></button><div style="font-size:11px;color: var(--ug-gray-text);margin-top:4px">Text button</div></div>
+        <div class="ds-flex-col" style="align-items:flex-start;background:var(--ug-gray-500);padding:16px"><button class="btn btn-ghost-white" style="font-weight: 600; font-size: 12px">Read more <svg width="42" height="11" viewBox="0 0 42 11" fill="currentColor"><path d="M 36.97 0.219 L 41.779 4.972 C 42.074 5.264 42.074 5.736 41.779 6.028 L 36.97 10.781 C 36.675 11.073 36.197 11.073 35.902 10.781 C 35.607 10.49 35.607 10.017 35.902 9.725 L 39.42 6.247 L 0 6.247 L 0 4.753 L 39.42 4.753 L 35.902 1.275 C 35.607 0.983 35.607 0.51 35.902 0.219 C 36.197 -0.073 36.675 -0.073 36.97 0.219 Z" fill-rule="evenodd"/></svg></button><div style="font-size:11px;color:#fff;margin-top:4px">Ghost + arrow (on image)</div></div>
+        <div class="ds-flex-col" style="align-items:flex-start;background:var(--ug-gray-500);padding:16px"><button class="btn btn-ghost-white" style="font-weight: 600; font-size: 12px">Read more</button><div style="font-size:11px;color:#fff;margin-top:4px">Ghost (on image)</div></div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Link Box</div>
+      <div class="ds-flex" style="align-items:flex-start">
+        <a class="link-box" href="#">Research<span class="lb-arrow"><svg width="8" height="11" viewBox="0 0 8 11" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 0.7L6 5.5L1 10.3"/></svg></span></a>
+        <div style="font-size:12px;color: var(--ug-gray-text)">2px blue frame · DM Sans 700 · 14px — arrow extends on hover</div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Login Link</div>
+      <div style="background:var(--ug-blue-dark);padding:20px;display:inline-flex">
+        <a class="login-link" href="#"><svg width="24" height="24" viewBox="-2 -2 24 24" fill="currentColor"><path d="M 10 0 C 4.48 0 0 4.48 0 10 C 0 15.52 4.48 20 10 20 C 15.52 20 20 15.52 20 10 C 20 4.48 15.52 0 10 0 Z M 5.35 16.5 C 6.66 15.56 8.26 15 10 15 C 11.74 15 13.34 15.560 14.65 16.5 C 13.34 17.44 11.74 18 10 18 C 8.26 18 6.66 17.44 5.35 16.5 Z M 16.14 15.12 C 14.45 13.8 12.32 13 10 13 C 7.68 13 5.55 13.8 3.86 15.12 C 2.7 13.73 2 11.95 2 10 C 2 5.58 5.58 2 10 2 C 14.42 2 18 5.58 18 10 C 18 11.95 17.3 13.73 16.14 15.12 Z"/><path d="M 10 4 C 8.07 4 6.5 5.57 6.5 7.5 C 6.5 9.43 8.07 11 10 11 C 11.93 11 13.5 9.43 13.5 7.5 C 13.5 5.570 11.93 4 10 4 Z M 10 9 C 9.17 9 8.5 8.33 8.5 7.5 C 8.5 6.67 9.17 6 10 6 C 10.83 6 11.5 6.67 11.5 7.5 C 11.5 8.33 10.83 9 10 9 Z"/></svg>Log in</a>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Secondary & Outlined</div>
+      <div class="ds-flex" style="align-items:flex-start">
+        <div class="ds-flex-col" style="align-items:flex-start">
+          <button class="btn btn-outlined" style="letter-spacing: 1px; font-weight: 600; text-transform: uppercase; font-size: 12px">Learn more</button>
+          <div style="font-size:11px;color: var(--ug-gray-text);margin-top:4px">Outlined</div>
+        </div>
+        <div class="ds-flex-col" style="align-items:flex-start">
+          <button class="btn btn-dark" style="letter-spacing: 1px; font-weight: 600; font-size: 12px">Apply now</button>
+          <div style="font-size:11px;color: var(--ug-gray-text);margin-top:4px">Dark</div>
+        </div>
+        <div class="ds-flex-col" style="align-items:flex-start;background:var(--ug-blue-dark);padding:16px">
+          <button class="btn btn-ghost-white" style="letter-spacing: 1px; font-weight: 600; font-size: 12px">Read more</button>
+          <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px">Ghost (on dark)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Read More / Arrow Link</div>
+      <div class="ds-flex">
+        <a class="read-more" href="#" style="font-family: &quot;DM Sans&quot;; text-transform: uppercase; letter-spacing: 1px; font-size: 12px; font-weight: 600">
+          Read more
+          <svg width="42" height="11" viewBox="0 0 42 11" fill="#0041d2"><path d="M 36.97 0.219 L 41.779 4.972 C 42.074 5.264 42.074 5.736 41.779 6.028 L 36.97 10.781 C 36.675 11.073 36.197 11.073 35.902 10.781 C 35.607 10.49 35.607 10.017 35.902 9.725 L 39.42 6.247 L 0 6.247 L 0 4.753 L 39.42 4.753 L 35.902 1.275 C 35.607 0.983 35.607 0.51 35.902 0.219 C 36.197 -0.073 36.675 -0.073 36.97 0.219 Z" fill-rule="evenodd"/></svg>
+        </a>
+        <div style="background:var(--ug-blue-dark);padding:16px;display:flex;align-items:center;gap:12px">
+          <a class="read-more" href="#" style="color: white; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; font-size: 12px">
+            More news
+            <svg width="42" height="11" viewBox="0 0 42 11" fill="white"><path d="M 36.97 0.219 L 41.779 4.972 C 42.074 5.264 42.074 5.736 41.779 6.028 L 36.97 10.781 C 36.675 11.073 36.197 11.073 35.902 10.781 C 35.607 10.49 35.607 10.017 35.902 9.725 L 39.42 6.247 L 0 6.247 L 0 4.753 L 39.42 4.753 L 35.902 1.275 C 35.607 0.983 35.607 0.51 35.902 0.219 C 36.197 -0.073 36.675 -0.073 36.97 0.219 Z" fill-rule="evenodd"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Chevron Navigation</div>
+      <div class="ds-flex">
+        <button class="chevron-btn">
+          <svg width="14" height="22" viewBox="0 0 14 22" fill="none">
+            <path d="M12 2L2 11L12 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="chevron-btn">
+          <svg width="14" height="22" viewBox="0 0 14 22" fill="none">
+            <path d="M2 2L12 11L2 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div style="font-size:12px;color: var(--ug-gray-text)">Slider prev / next arrows</div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Add to Basket (Shop)</div>
+      <button class="btn btn-primary" style="gap: 15px; padding: 15px 25px 15px 20px; font-weight: 600; font-size: 12px">
+        ADD TO BASKET
+        <svg width="16" height="16" viewBox="0 0 20.007 20" fill="white"><path d="M 14.55 11 C 15.3 11 15.96 10.59 16.3 9.97 L 19.88 3.48 C 20.25 2.82 19.77 2 19.01 2 L 4.21 2 L 3.27 0 L 0 0 L 0 2 L 2 2 L 5.6 9.59 L 4.25 12.03 C 3.52 13.37 4.48 15 6 15 L 18 15 L 18 13 L 6 13 L 7.1 11 L 14.55 11 Z M 5.16 4 L 17.31 4 L 14.55 9 L 7.53 9 L 5.16 4 Z M 6 16 C 4.9 16 4.01 16.9 4.01 18 C 4.01 19.1 4.9 20 6 20 C 7.1 20 8 19.1 8 18 C 8 16.9 7.1 16 6 16 Z M 16 16 C 14.9 16 14.01 16.9 14.01 18 C 14.01 19.1 14.9 20 16 20 C 17.1 20 18 19.1 18 18 C 18 16.9 17.1 16 16 16 Z"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ════ FORMS ════ -->
+  <section class="ds-section" id="forms">
+    <div class="ds-section-header">
+      <h2>Forms</h2>
+      <span class="ds-section-num">06</span>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Text Inputs</div>
+      <div style="max-width:420px;display:flex;flex-direction:column;gap:16px">
+        <div class="form-group">
+          <label class="form-label">Full name</label>
+          <input class="form-input" type="text" placeholder="Input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Focused</label>
+          <input class="form-input is-focus" type="text" value="John Smith">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email address</label>
+          <input class="form-input" type="email" placeholder="john.smith@ug.edu.pl" style="border-color:var(--ug-blue)">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Disabled field</label>
+          <input class="form-input" type="text" placeholder="Disabled" disabled>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Validation error</label>
+          <input class="form-input" type="text" value="Invalid format" style="border-color:var(--ug-error)">
+          <div style="font-size:12px;color: var(--ug-error-text);margin-top:4px">This field is required.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Select / Dropdown</div>
+      <div style="max-width:420px;display:flex;flex-direction:column;gap:16px">
+        <div class="form-group">
+          <label class="form-label">Field of study</label>
+          <select class="form-select">
+            <option value="">Choose a programme</option>
+            <option>Research</option>
+            <option>Global Studies, full-time Master's</option>
+            <option>Tourism and Hospitality, full-time Master's</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Study mode</label>
+          <select class="form-select">
+            <option>Full-time</option>
+            <option>Part-time</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Search Bar</div>
+      <div style="display:flex;max-width:420px">
+        <input class="form-input" type="search" placeholder="Search..." style="border-right: none; height: 47px">
+        <button class="btn btn-primary" style="flex-shrink:0;padding:0 20px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Menu Dropdown Items</div>
+      <div style="max-width:360px;display:flex;flex-direction:column">
+        <div class="menu-item" style="font-weight: 600">
+          Research
+          <svg width="4" height="8" viewBox="0 0 4 8" fill="#0041d2"><path d="M4 4L4.707 4.707L5.414 4L4.707 3.293L4 4ZM-.707.707L3.293 4.707L4.707 3.293L.707-.707L-.707.707ZM3.293 3.293L-.707 7.293L.707 8.707L4.707 4.707L3.293 3.293Z"/></svg>
+        </div>
+        <div class="menu-item" style="background: var(--ug-blue); color: white; font-weight: 600">
+          Conferences & seminars
+          <svg width="4" height="8" viewBox="0 0 4 8" fill="white"><path d="M4 4L4.707 4.707L5.414 4L4.707 3.293L4 4ZM-.707.707L3.293 4.707L4.707 3.293L.707-.707L-.707.707ZM3.293 3.293L-.707 7.293L.707 8.707L4.707 4.707L3.293 3.293Z"/></svg>
+        </div>
+        <div class="menu-item selected" style="font-weight: 600">
+          UG Press
+          <svg width="4" height="8" viewBox="0 0 8 4" fill="white"><path d="M4 4L4.707 4.707L5.414 4L4.707 3.293L4 4ZM-.707.707L3.293 4.707L4.707 3.293L.707-.707L-.707.707ZM3.293 3.293L-.707 7.293L.707 8.707L4.707 4.707L3.293 3.293Z" transform="rotate(-90 4 4)"/></svg>
+        </div>
+        <div class="menu-item" style="font-weight: 600">
+          Job offers
+          <svg width="4" height="8" viewBox="0 0 4 8" fill="#0041d2"><path d="M4 4L4.707 4.707L5.414 4L4.707 3.293L4 4ZM-.707.707L3.293 4.707L4.707 3.293L.707-.707L-.707.707ZM3.293 3.293L-.707 7.293L.707 8.707L4.707 4.707L3.293 3.293Z"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Sidebar Navigation Menu</div>
+      <nav class="navmenu">
+        <div class="navmenu-title" style="font-size: 18px">Candidates</div>
+        <a class="navmenu-item" href="#">Admissions 2026/27</a>
+        <a class="navmenu-item" href="#">
+          Bachelor's, Master's and long-cycle programmes
+          <svg class="navmenu-chev" width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="navmenu-item expanded" href="#">
+          Joint programmes within SEA-EU
+          <svg class="navmenu-chev" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="navmenu-sub">
+          <a class="navmenu-subitem" href="#">Sustainable Blue Economy (SeaBluE)</a>
+          <a class="navmenu-subitem" href="#">Port Management and Logistics (MIPMAL)</a>
+          <a class="navmenu-subitem" href="#">Sustainability Transition for Organisations and Resilience Management (STORM)</a>
+          <a class="navmenu-subitem" href="#">Marine &amp; Maritime Sciences and Technologies</a>
+        </div>
+        <a class="navmenu-item" href="#">
+          Doctoral schools
+          <svg class="navmenu-chev" width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="navmenu-item" href="#">
+          Postgraduate studies
+          <svg class="navmenu-chev" width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="navmenu-item" href="#">
+          Courses & training
+          <svg class="navmenu-chev" width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="navmenu-item" href="#">UG Open Days</a>
+        <a class="navmenu-item" href="#">Recognition of prior learning</a>
+        <a class="navmenu-item" href="#">Transfers</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ════ TAGS ════ -->
+  <section class="ds-section" id="tags">
+    <div class="ds-section-header">
+      <h2>Tags</h2>
+      <span class="ds-section-num">07</span>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Tag Variants</div>
+      <div class="ds-flex" style="margin-bottom:16px">
+        <span class="tag" style="height: 18px; padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Conferences</span>
+        <span class="tag" style="height: 18px; padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Science</span>
+        <span class="tag" style="height: 18px; padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Research</span>
+      </div>
+      <div class="ds-flex" style="margin-bottom:16px">
+        <span class="tag tag-dark" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Faculty of Law</span>
+        <span class="tag tag-dark" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">History</span>
+        <span class="tag tag-dark" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Philosophy</span>
+      </div>
+      <div class="ds-flex" style="margin-bottom:16px">
+        <span class="tag tag-navy" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">UG Rector</span>
+        <span class="tag tag-navy" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">News</span>
+        <span class="tag tag-navy" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">BIP</span>
+      </div>
+      <div class="ds-flex" style="margin-bottom:16px"><span class="tag tag-info" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Info</span><span class="tag tag-success" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Success</span><span class="tag tag-error" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Error</span><span class="tag tag-warning" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Warning</span><span class="tag tag-gray" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Gray</span></div>
+      <div class="ds-flex">
+        <span class="tag tag-outlined" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Candidates</span>
+        <span class="tag tag-outlined" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Alumni</span>
+        <span class="tag tag-outlined" style="padding-top: 4px; border-radius: 20px; padding-right: 12px; padding-left: 12px; text-transform: uppercase; font-size: 10px; font-weight: 600">Staff</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CARDS ════ -->
+  <section class="ds-section" id="cards">
+    <div class="ds-section-header">
+      <h2>Cards</h2>
+      <span class="ds-section-num">08</span>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Vertical News Card</div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap">
+        <div class="news-card">
+          <div class="news-card-img">[ photo ]</div>
+          <div class="news-card-body" style="padding: 12px 0px 15px">
+            <span class="news-card-date">05.04.2023</span>
+            <div class="news-card-title">Creative writing gets new support</div>
+            <p class="t-body">Joint conferences, teaching support and growing cooperation within the Gdańsk City of Literature programme.</p>
+          </div>
+          <div class="news-card-footer" style="padding: 12px 0px">
+            <a class="read-more" href="#">
+              Read more
+              <svg width="42" height="11" viewBox="0 0 42 11" fill="#0041d2"><path d="M 36.97 0.219 L 41.779 4.972 C 42.074 5.264 42.074 5.736 41.779 6.028 L 36.97 10.781 C 36.675 11.073 36.197 11.073 35.902 10.781 C 35.607 10.49 35.607 10.017 35.902 9.725 L 39.42 6.247 L 0 6.247 L 0 4.753 L 39.42 4.753 L 35.902 1.275 C 35.607 0.983 35.607 0.51 35.902 0.219 C 36.197 -0.073 36.675 -0.073 36.97 0.219 Z" fill-rule="evenodd"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-img">[ photo ]</div>
+          <div class="news-card-body" style="padding: 12px 0px 16px">
+            <span class="news-card-date">12.03.2023</span>
+            <div class="news-card-title">New research laboratory at the Faculty of Chemistry</div>
+            <p class="t-body">A modern chemistry research centre opens with EU funding from Horizon Europe.</p>
+          </div>
+          <div class="news-card-footer" style="padding: 12px 0px">
+            <a class="read-more" href="#">
+              Read more
+              <svg width="42" height="11" viewBox="0 0 42 11" fill="#0041d2"><path d="M 36.97 0.219 L 41.779 4.972 C 42.074 5.264 42.074 5.736 41.779 6.028 L 36.97 10.781 C 36.675 11.073 36.197 11.073 35.902 10.781 C 35.607 10.49 35.607 10.017 35.902 9.725 L 39.42 6.247 L 0 6.247 L 0 4.753 L 39.42 4.753 L 35.902 1.275 C 35.607 0.983 35.607 0.51 35.902 0.219 C 36.197 -0.073 36.675 -0.073 36.97 0.219 Z" fill-rule="evenodd"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Featured Card (Image + Blue Banner)</div>
+      <div class="news-card-featured" style="max-width:630px">
+        <div style="width:100%;height:100%;background:var(--ug-gray-200);display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:13px;color: var(--ug-gray-text)">[ featured photo ]</div>
+        <div class="news-card-featured-label">
+          <div class="news-card-title" style="font-size: 14px">UG and the City of Gdańsk sign a letter of intent</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Horizontal News Card</div>
+      <div style="max-width:628px">
+        <div class="news-card-h">
+          <div class="news-card-h-img">[ photo ]</div>
+          <div class="news-card-h-body">
+            <span class="news-card-date">05.04.2023</span>
+            <div class="news-card-title" style="font-size:18px">Etiam eu turpis molestie, dictum est a, mattis</div>
+            <p class="t-body">Joint conferences, teaching support and growing cooperation within the Gdańsk City of Literature programme...</p>
+            <a class="read-more" href="#">
+              Read more
+              <svg width="42" height="11" viewBox="0 0 42 11" fill="#0041d2"><path d="M 36.97 0.219 L 41.779 4.972 C 42.074 5.264 42.074 5.736 41.779 6.028 L 36.97 10.781 C 36.675 11.073 36.197 11.073 35.902 10.781 C 35.607 10.49 35.607 10.017 35.902 9.725 L 39.42 6.247 L 0 6.247 L 0 4.753 L 39.42 4.753 L 35.902 1.275 C 35.607 0.983 35.607 0.51 35.902 0.219 C 36.197 -0.073 36.675 -0.073 36.97 0.219 Z" fill-rule="evenodd"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Small Card</div>
+      <div style="max-width:300px;display:flex;flex-direction:column;gap:16px">
+        <div class="small-card">
+          <div class="small-card-img"></div>
+          <div class="small-card-body">
+            <span class="news-card-date">05.04.2023</span>
+            <div class="small-card-title">Etiam eu turpis molestie, dictum est a, mattis</div>
+          </div>
+        </div>
+        <div class="small-card">
+          <div class="small-card-img"></div>
+          <div class="small-card-body">
+            <span class="news-card-date">28.02.2023</span>
+            <div class="small-card-title">New programmes in UG's academic offer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">User Card</div>
+      <div class="user-card">
+        <div class="user-card-head"><div class="user-card-avatar"></div><div class="user-card-name">Full name</div><div class="user-card-role">Head of Department</div></div>
+        <div class="user-card-contact"><a href="tel:+48585236044">+48 58 523 60 44</a><a href="mailto:adres.email@ug.edu.pl">adres.email@ug.edu.pl</a><span>Room A.216</span></div>
+      </div>
+    </div>
+
+    <div class="ds-card">
+      <div class="ds-card-label">Info Box (About)</div>
+      <div class="ug-infobox" style="max-width:410px;background:white;box-shadow:var(--shadow-infobox);overflow:hidden">
+        <div style="width:100%;height:130px;background:var(--ug-gray-200);display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:12px;color: var(--ug-gray-text)">[ image ]</div>
+        <div style="padding:20px">
+          <div class="t-h1" style="font-size: 18px; margin-bottom: 12px">About the University</div>
+          <p class="t-body" style="margin-bottom:16px">Qorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
+          <a class="read-more" href="#">
+            Read more
+            <svg width="42" height="11" viewBox="0 0 42 11" fill="#0041d2"><path d="M 36.97 0.219 L 41.779 4.972 C 42.074 5.264 42.074 5.736 41.779 6.028 L 36.97 10.781 C 36.675 11.073 36.197 11.073 35.902 10.781 C 35.607 10.49 35.607 10.017 35.902 9.725 L 39.42 6.247 L 0 6.247 L 0 4.753 L 39.42 4.753 L 35.902 1.275 C 35.607 0.983 35.607 0.51 35.902 0.219 C 36.197 -0.073 36.675 -0.073 36.97 0.219 Z" fill-rule="evenodd"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ STEPPER ════ -->
+  <section class="ds-section" id="stepper">
+    <div class="ds-section-header">
+      <h2>Stepper</h2>
+      <span class="ds-section-num">09</span>
+    </div>
+    <div class="ds-card">
+      <div class="ds-card-label">Process Steps — completed steps get a 2px circle</div>
+      <div class="stepper"><div class="step is-done"><div class="step-num">1</div><div class="step-label">Report preparation</div></div><svg class="step-sep" width="41" height="11" viewBox="0 0 41 11" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 5.5h39M34.5 1l4.5 4.5-4.5 4.5"/></svg><div class="step is-done"><div class="step-num">2</div><div class="step-label">Approval</div></div><svg class="step-sep" width="41" height="11" viewBox="0 0 41 11" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 5.5h39M34.5 1l4.5 4.5-4.5 4.5"/></svg><div class="step"><div class="step-num">3</div><div class="step-label">Supervisor approval</div></div><svg class="step-sep" width="41" height="11" viewBox="0 0 41 11" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 5.5h39M34.5 1l4.5 4.5-4.5 4.5"/></svg><div class="step"><div class="step-num">4</div><div class="step-label">Dean's approval</div></div><svg class="step-sep" width="41" height="11" viewBox="0 0 41 11" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 5.5h39M34.5 1l4.5 4.5-4.5 4.5"/></svg><div class="step"><div class="step-num">5</div><div class="step-label">Education Office</div></div></div>
+    </div>
+  </section>
+
+  <!-- ════ CALENDAR ════ -->
+  <section class="ds-section" id="calendar">
+    <div class="ds-section-header">
+      <h2>Calendar</h2>
+      <span class="ds-section-num">10</span>
+    </div>
+    <div class="ds-card">
+      <div class="ds-card-label">Calendar + Events</div>
+      <div class="ug-cal">
+        <div class="ug-cal-head"><div class="ug-cal-month">January 2020</div><div class="ug-cal-arrows"><button aria-label="Previous month"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1.5L2 6l4.5 4.5"/></svg></button><button aria-label="Next month"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 1.5L6 6l-4.5 4.5"/></svg></button></div></div>
+        <div class="ug-cal-grid"><div class="wd">Mo</div><div class="wd">Tu</div><div class="wd">We</div><div class="wd">Th</div><div class="wd">Fr</div><div class="wd">Sa</div><div class="wd">Su</div><div></div><div></div><div></div><div class="d"><span>1</span></div><div class="d"><span>2</span></div><div class="d"><span>3</span></div><div class="d"><span>4</span></div><div class="d"><span>5</span></div><div class="d"><span>6</span></div><div class="d"><span>7</span></div><div class="d today"><span>8</span></div><div class="d"><span>9</span></div><div class="d"><span>10</span></div><div class="d"><span>11</span></div><div class="d"><span>12</span></div><div class="d"><span>13</span></div><div class="d"><span>14</span></div><div class="d"><span>15</span></div><div class="d"><span>16</span></div><div class="d"><span>17</span></div><div class="d"><span>18</span></div><div class="d"><span>19</span></div><div class="d"><span>20</span></div><div class="d"><span>21</span></div><div class="d"><span>22</span></div><div class="d"><span>23</span></div><div class="d"><span>24</span></div><div class="d"><span>25</span></div><div class="d"><span>26</span></div><div class="d"><span>27</span></div><div class="d"><span>28</span></div><div class="d"><span>29</span></div><div class="d"><span>30</span></div><div class="d"><span>31</span></div></div>
+        <div class="ug-cal-events"><div><div class="ug-cal-ev-time">8 AM</div><div class="ug-cal-ev-title">Breakfast</div></div><div><div class="ug-cal-ev-time">10 AM</div><div class="ug-cal-ev-title">Travel to venue</div></div><div><div class="ug-cal-ev-time">10:30 AM</div><div class="ug-cal-ev-title">Ceremony</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ NAVIGATION ════ -->
+  <section class="ds-section" id="navigation">
+    <div class="ds-section-header">
+      <h2>Navigation</h2>
+      <span class="ds-section-num">11</span>
+    </div>
+
+    <div class="ds-card">
+      <div class="nav-preview" style="justify-content: space-between"><img class="nav-logo" src="theme/ug/logos/logo-white.svg" alt="University of Gdańsk"><button class="nav-burger" aria-label="Menu"><img src="theme/ug/logos/icon-bars.svg" alt="" width="24" height="21" style="width: 18px; height: 15px"></button></div>
+    
+    </div>
+    <div class="ds-card">
+      <div class="nav-preview" style="justify-content: space-between"><div class="nav-brand"><img class="nav-logo" src="theme/ug/logos/logo-white.svg" alt="University of Gdańsk"><span class="nav-divider"></span><div class="nav-claim">Admissions<br>2027/28</div></div><button class="nav-burger" aria-label="Menu"><img src="theme/ug/logos/icon-bars.svg" alt="" width="24" height="21" style="width: 18px; height: 15px"></button></div>
+    </div>
+    <div class="ds-card">
+      <div class="nav-mobile" style="height: 80px"><img class="nav-emblem" src="theme/ug/logos/logo-emblem-white.svg" alt="University of Gdańsk" style="width: 35px; height: 64px"><button class="nav-burger" aria-label="Menu"><img src="theme/ug/logos/icon-bars.svg" alt="" width="30" height="26" style="width: 17px; height: 16px"></button></div>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <section class="ds-section" id="footer">
+    <div class="ds-section-header">
+      <h2>Footer</h2>
+      <span class="ds-section-num">12</span>
+    </div>
+
+    <div style="border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md)">
+      <div class="footer-preview">
+        <div class="footer-cols">
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+              <img src="theme/ug/logos/logo-white.svg" alt="University of Gdańsk" style="height: 52px; width: 122px">
+            </div>
+            <div class="footer-address">
+              Rector's Office, University of Gdańsk<br><br>
+              ul. Jana Bażyńskiego 8, 80-309 Gdańsk<br>
+              Tax ID (NIP): 584-020-32-39, REGON: 000001330<br><br>
+              Reception: +48 58 523 30 00
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">Information for</div>
+            <a class="footer-link" href="#">Candidates</a>
+            <a class="footer-link" href="#">Students</a>
+            <a class="footer-link" href="#">Doctoral candidates</a>
+            <a class="footer-link" href="#">Alumni</a>
+            <a class="footer-link" href="#">Staff</a>
+            <a class="footer-link" href="#">Media</a>
+          </div>
+          <div>
+            <div class="footer-col-title">Links</div>
+            <a class="footer-link" href="#">Academic calendar</a>
+            <a class="footer-link" href="#">Helpdesk</a>
+            <a class="footer-link" href="#">University Gazette</a>
+            <a class="footer-link" href="#">BIP</a>
+            <a class="footer-link" href="#">UG Careers Office</a>
+            <a class="footer-link" href="#">Accessibility statement</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-sub">University of Gdańsk 2025</div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+// Sidebar active link highlight on scroll
+const sections = document.querySelectorAll('.ds-section');
+const links = document.querySelectorAll('.sidebar-link');
+
+function onScroll() {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 80) current = s.id;
+  });
+  links.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+  });
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// Tweaks panel
+let tweaksVisible = false;
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "primaryColor": "#0041d2",
+  "darkColor": "#052D73",
+  "navyColor": "#00153A",
+  "bodyFont": "DM Sans",
+  "headingFont": "Work Sans"
+}/*EDITMODE-END*/;
+
+window.addEventListener('message', e => {
+  if (e.data?.type === '__activate_edit_mode') {
+    tweaksVisible = true;
+    document.getElementById('tweaks-panel').style.display = 'block';
+  }
+  if (e.data?.type === '__deactivate_edit_mode') {
+    tweaksVisible = false;
+    document.getElementById('tweaks-panel').style.display = 'none';
+  }
+});
+window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+function applyTweak(key, value) {
+  const map = {
+    primaryColor: '--ug-blue',
+    darkColor: '--ug-blue-dark',
+    navyColor: '--ug-navy'
+  };
+  if (map[key]) document.documentElement.style.setProperty(map[key], value);
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: value } }, '*');
+}
+</script>
+
+<!-- Tweaks Panel -->
+<div id="tweaks-panel" style="display:none;position:fixed;bottom:24px;right:24px;background:white;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:20px 24px;width:280px;z-index:9999;font-family:'DM Sans',sans-serif">
+  <div style="font-weight:700;font-size:14px;margin-bottom:16px;color:#052D73">Tweaks</div>
+
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div>
+      <div style="font-size:12px;font-weight:700;color:#6B6B6B;margin-bottom:6px">Primary Blue</div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <input type="color" value="#0041d2" id="tw-primary" style="width:40px;height:32px;border:1px solid #D9D9D9;cursor:pointer;padding:2px">
+        <input type="text" id="tw-primary-hex" value="#0041d2" style="flex:1;height:32px;border:1px solid #D9D9D9;padding:0 10px;font-family:monospace;font-size:13px">
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:700;color:#6B6B6B;margin-bottom:6px">Dark Blue</div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <input type="color" value="#052D73" id="tw-dark" style="width:40px;height:32px;border:1px solid #D9D9D9;cursor:pointer;padding:2px">
+        <input type="text" id="tw-dark-hex" value="#052D73" style="flex:1;height:32px;border:1px solid #D9D9D9;padding:0 10px;font-family:monospace;font-size:13px">
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:700;color:#6B6B6B;margin-bottom:6px">Navy</div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <input type="color" value="#00153A" id="tw-navy" style="width:40px;height:32px;border:1px solid #D9D9D9;cursor:pointer;padding:2px">
+        <input type="text" id="tw-navy-hex" value="#00153A" style="flex:1;height:32px;border:1px solid #D9D9D9;padding:0 10px;font-family:monospace;font-size:13px">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+['primary','dark','navy'].forEach(key => {
+  const colorKey = key === 'primary' ? 'primaryColor' : key === 'dark' ? 'darkColor' : 'navyColor';
+  const picker = document.getElementById('tw-' + key);
+  const hex = document.getElementById('tw-' + key + '-hex');
+  picker.addEventListener('input', e => { hex.value = e.target.value; applyTweak(colorKey, e.target.value); });
+  hex.addEventListener('change', e => { picker.value = e.target.value; applyTweak(colorKey, e.target.value); });
+});
+</script>
+
+</body>
+</html>

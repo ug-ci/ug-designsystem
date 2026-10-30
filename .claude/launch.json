@@ -1,0 +1,10 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "wordpress-local",
+      "port": 10003,
+      "url": "http://localhost:10003"
+    }
+  ]
+}

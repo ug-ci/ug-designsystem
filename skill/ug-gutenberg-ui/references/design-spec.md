@@ -1,0 +1,146 @@
+# UG Design System — specyfikacja efektywna
+
+Źródło: `assets/ug-design-system-reference.html` (kopia „UG Design System.html”).
+**Zasada:** podane wartości to to, co strona wzorcowa faktycznie renderuje — gdy styl inline w HTML-u różni się od klasy CSS, obowiązuje inline. Gdy etykieta opisu różni się od próbki, obowiązuje próbka (patrz „Niespójności”).
+
+## 1. Kolory
+
+| Token | Hex | Użycie |
+|---|---|---|
+| `--ug-blue` | `#0041d2` | przyciski, linki, akcenty, linie kart |
+| `--ug-blue-dark` | `#052D73` | nagłówki, hover przycisków, tło stopki |
+| `--ug-navy` | `#00153A` | dolny pasek stopki, hover „dark”, głębokie tła |
+| `--ug-nav` | `#0F2E6F` | tło górnej nawigacji (poza paletą tokenów — tylko nawigacja) |
+| `--ug-sail` | `#a1daf8` | hover pozycji nawigacji, wyróżnienia |
+| `--ug-foam` | `#e5f5fd` | tła sekcji, subtelne wypełnienia |
+| `--ug-white` | `#FFFFFF` | karty, powierzchnie, tekst odwrócony |
+| `--ug-ink` | `#1a1a2e` | tekst podstawowy (body) |
+| `--ug-gray-100` | `#F5F5F5` | tło strony wzorcowej, tło menu, tło kalendarza |
+| `--ug-gray-200` | `#D9D9D9` | placeholdery zdjęć, linie, podmenu |
+| `--ug-gray-400` | `#8EA0C0` | obramowanie stanu disabled |
+| `--ug-gray-500` | `#6B6B6B` | ramki pól formularzy |
+| `--ug-gray-600` | `#606060` | strzałki steppera |
+| `--ug-gray-text` | `#595959` | szary tekst (AAA 7:1), placeholdery, etykiety |
+
+Semantyczne — wariant jasny tylko na ikony/ramki/tła; wariant `-strong` na tekst i tła pod białym tekstem (AAA):
+
+| | jasny | strong |
+|---|---|---|
+| error | `#DE3E44` | `#A22D32` |
+| success | `#1BA345` | `#11662B` |
+| warning | `#FEC001` | `#705500` (tag warning: tło `#FEC001` + czarny tekst) |
+| info | `#1E9BE8` | `#125D8B` |
+
+Reguły: biały tekst na navy/blue/blue-dark; nigdy niebieski na navy. Maks. 2 kolory tła na widok. Bez gradientów, emoji i dekoracyjnych cieni. (Gradient hero w pliku wzorcowym to ozdoba dokumentacji, nie komponent.)
+
+## 2. Typografia
+
+Fonty: **Work Sans** (nagłówki) i **DM Sans** (reszta). Wagi 400–700, pliki variable `latin` + `latin-ext` (polskie znaki wymagają `latin-ext`) w `assets/theme/ug/fonts/`.
+
+| Styl | Font | Waga | Rozmiar | Line-height | Kolor |
+|---|---|---|---|---|---|
+| H1 | Work Sans | 700 | 64px (fluid 40→64) | 1 | blue-dark |
+| H2 | Work Sans | 600 | 28px | 1 | blue-dark |
+| H3 | Work Sans | 600 | 24px | 1.1 | blue-dark |
+| H4 | Work Sans | 600 | 22px | 1.1 | blue-dark |
+| H5 | Work Sans | 600 | 18px | 1.2 | blue-dark |
+| Lead | DM Sans | 400 | 18px | 1.4 | ink |
+| Body | DM Sans | 400 | 16px | 1.5 | ink |
+| Label | DM Sans | 700 | 16px | 1 | ink |
+| Small | DM Sans | 400 | 12px | 1.4 | gray-text |
+| Caption / data | DM Sans | 400 | 11px | 1.4 | ink |
+| UI (menu, pola, karty-tekst) | DM Sans | 400 | 14px | 1.5 | ink |
+
+H1 bez podkreślenia (klasa `.ug-h1-underline` istnieje, ale nie jest użyta w żadnym komponencie wzorca). Mobilny rozmiar H1 (40px) to założenie — wzorzec pokazuje tylko desktop.
+
+## 3. Odstępy, promienie, cienie
+
+- Skala: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64 px (`--ug-sp-*`, preset `spacing--{n}`).
+- **Promienie: 0 wszędzie** (`body *{border-radius:0 !important}`). Skala 3/5/8/9999 na stronie wzorcowej jest nadpisana i nie obowiązuje. Wyjątki — koła: numer w stepperze, avatar karty osoby, „dziś” w kalendarzu (klasa `.ug-round`).
+- Cienie: `sm` `0 2px 2px rgba(0,0,0,.15)` · `md` `0 4px 16px rgba(0,33,77,.08)` · `infobox` `0 8px 24px rgba(0,33,77,.14)` · `img` `0 1px 3px rgba(0,33,77,.12)` (wszystkie zdjęcia, nie logo/ikony) · `card` `0 4px 10px rgba(0,0,0,.25)` (karta osoby).
+- Animacje: tylko kolor/tło `.15s`; strzałki `.2s`; bez innych.
+- Układ strony: nie zdefiniowany we wzorcu. Założenie: `contentSize 1140px`, `wideSize 1320px`.
+
+## 4. Przyciski
+
+Wspólne: DM Sans **600, 12px, uppercase, letter-spacing 1px**, `line-height:1`, wysokość **48px**, padding `15px 25px 15px 20px`, gap 10px, bez zaokrągleń, przejście `.15s`.
+
+| Wariant | Tło / tekst | Ramka | Hover |
+|---|---|---|---|
+| Primary (domyślny) | blue / biały | — | tło blue-dark |
+| Outlined (`ug-outlined`) | transparent / blue | 2px blue | tło blue, tekst biały |
+| Dark (`ug-dark`) | blue-dark / biały | — | tło navy |
+| Ghost (`ug-ghost`, na ciemnym/zdjęciu) | transparent / biały | 2px biała | tło `rgba(255,255,255,.15)` |
+| Text (`ug-text`) | transparent / blue | — | tekst blue-dark |
+| Disabled | `rgba(107,107,107,.1)` / gray-text | gray-400 | brak, `not-allowed` |
+| Small (`ug-btn-sm`) | jak wyżej | — | wysokość 36px, padding `8px 16px` |
+
+Strzałka (`ug-arrow`): ikona 42×11 po prawej; na hover przesuwa się o 4px. „Add to basket”: gap 15px, ikona koszyka 16×16 po prawej.
+
+Inne: **Read more** (link ze strzałką 42×11, 12px/600 uppercase, ls 1px, blue; gap 8→12px na hover; na ciemnym tle biały) · **Link Box** (300px, padding 20, ramka inset 2px blue, DM Sans 700 14px, strzałka 46.5px→65.5px na hover; wariant pusty: ramka blue-dark, min-height 89px) · **Login link** (biały 14px z ikoną użytkownika na blue-dark) · **Chevron slidera** (39.5×59px, tło blue, hover blue-dark, biała strzałka).
+
+## 5. Formularze
+
+- Etykieta: DM Sans 700 13px gray-text, odstęp do pola 6px.
+- Input: wysokość 41px, padding `10px 20px`, ramka 1px gray-500, tło białe, 14px, placeholder gray-text.
+- Focus: ramka blue + pierścień `0 0 0 3px rgba(0,65,210,.25)`. Disabled: tło `rgba(107,107,107,.1)`. Błąd: ramka `#DE3E44`, komunikat 12px `#A22D32`.
+- Select: jak input, padding-right 40px, strzałka w dół blue 16×16 po prawej; focus pierścień 2px `rgba(0,65,210,.12)`.
+- Wyszukiwarka: input 47px bez prawej ramki + przycisk primary (padding `0 20px`) z białą lupą.
+- Pozycje menu rozwijanego: padding `10px 20px`, tło gray-100, DM Sans 600 14px `#303030`, chevron 8px po prawej; hover blue/biały; wybrana blue-dark/biały + cień sm.
+- Menu boczne (Kandydaci): tło gray-100, tytuł Work Sans 700 18px blue-dark (padding `24px 24px 12px`), pozycje padding `14px 24px` 14px/500, hover `rgba(0,65,210,.06)`; rozwinięta pozycja blue/biała z chevronem w dół; podmenu tło gray-200, padding pionowy 6px, pozycje `12px 24px 12px 32px`, hover tekst blue.
+
+## 6. Tagi
+
+Kwadratowe, DM Sans **600 10px uppercase**, `line-height:1`, padding `4px 12px`, gap 12px między tagami. Warianty: blue (domyślny) · dark (blue-dark) · navy · gray (`#595959`) · info/success/error (kolory `-strong`) + biały tekst · warning (`#FEC001` + czarny) · outlined (1px blue, tekst blue).
+
+## 7. Karty
+
+Wszystkie zdjęcia: cień `img`, bez zaokrągleń. Data 11px ink. Tytuł Work Sans 600 18px/1.15 blue-dark. Tekst 14px.
+
+- **Pionowa** (max 301px): zdjęcie 180px wys.; body padding `12px 0 15px`, gap 8; stopka z Read more padding `12px 0`; dolna linia 1px blue.
+- **Pozioma** (max 628px): zdjęcie 187×137, gap 24, padding-bottom 20, linia 1px blue.
+- **Wyróżniona** (max 630px): zdjęcie 320px wys., baner blue u dołu (padding 20), tytuł biały Work Sans 600 14px.
+- **Mała**: miniatura 80×80, gap 20, padding-bottom 16, linia 1px blue; tytuł DM Sans 700 14px/1.3 blue-dark.
+- **Osoba** (300px): biała, cień `card`, padding `40px 19.5px 19px`, gap 40; avatar koło 100px; imię DM Sans 700 18px blue-dark; rola 11px `#2F2F2F`; kontakt 14px/1.4 (linki blue, odstęp 5px).
+- **Info box** (max 410px): biały, cień `infobox`; zdjęcie 130px wys.; body padding 20; tytuł Work Sans 600 18px/1 blue-dark, margines dolny 12px; tekst + Read more.
+- **Baner promo** (max 780px): biały, ramka 2px blue, padding `32px 36px`, min-height 180; tytuł Work Sans 700 24px blue; strzałka 42×11 na dole; hover: tło blue, tytuł i strzałka białe.
+
+## 8. Stepper
+
+Kroki 106px szer.; numer w kole 71px (DM Sans 700 32px blue); ukończony krok: okrąg 2px blue; etykieta 16px/1.2 czarna, wyśrodkowana; separator strzałka 41×11 gray-600 między krokami.
+
+## 9. Kalendarz
+
+340px, tło gray-100, padding 24, gap 20, ramka inset 1px `#EBEBEB`. Miesiąc DM Sans 700 14px blue-dark; dni tygodnia 700 12px gray-text; komórki dni 36px wys.; „dziś” koło 32px blue, biała liczba 700. Wydarzenia: separator 1px gray-200, godzina 12px gray-text, tytuł 700 14px `#333`.
+
+## 10. Nawigacja górna
+
+Tło `#0F2E6F`, biały tekst, hamburger (`icon-bars.svg`) po prawej, **bez pozycji menu w pasku**.
+- Desktop: wysokość 92px, padding `0 25px 0 19px`, logo poziome 58px wys., hamburger 18×15px.
+- Kampania: logo + biała pionowa linia 1×62px + hasło (DM Sans 700 14px/1.7, ls .5px, uppercase), gap 28px.
+- Mobile: wysokość 80px, sam herb 35×64px, hamburger 17×16px, padding `0 30px 0 22px`.
+- Pozycje w rozwiniętym menu: DM Sans 400 14px biały, hover `--ug-sail`, `.2s`.
+
+## 11. Stopka
+
+Górny pasek blue-dark, padding 40, 3 kolumny `1.5fr 1fr 1fr`, gap 32. Kol. 1: logo białe 122×52 + adres (14px/1.7 `rgba(255,255,255,.72)`). Kol. 2–3: tytuł DM Sans 700 18px biały + linki 14px `rgba(255,255,255,.72)` padding pionowy 4px, hover biały. Dolny pasek navy, padding `20px 40px`, wyśrodkowany, 14px `rgba(255,255,255,.8)`.
+
+## 12. Logo
+
+| Plik | Użycie |
+|---|---|
+| `logo-white.svg` | na blue, navy, blue-dark, `#0F2E6F` (podstawowe) |
+| `logo-blue.svg` | na białym / jasnym |
+| `logo-emblem-white.svg` / `-blue.svg` | mobile, małe formaty (sam herb 32×51) |
+| `logo-mark.svg` | favicon, avatar, ikona aplikacji (herb na blue, 64×64) |
+| `icon-bars.svg` | hamburger (biały) |
+
+Zdjęcia dostają cień `img`; logo i ikony nie.
+
+## 13. Niespójności w pliku wzorcowym (do decyzji właściciela)
+
+1. **Lead:** etykieta „DM Sans 500 · 18px”, próbka renderuje 400. Przyjęto **400** (Google Fonts w pliku ładuje tylko 400/700).
+2. **Letter-spacing przycisku primary:** próbka nie ma, outlined/dark mają 1px. Przyjęto **1px dla wszystkich** (spójnie z wcześniejszą wersją skilla).
+3. **Body:** `<body>` ma 14px, sekcja Typography mówi 16px. Przyjęto **16px dla treści, 14px dla UI** (menu, pola, karty).
+4. **Stary `SKILL.md` z projektu Design** podawał wysokość przycisku 40px (HTML: 48px; 36px dla small) oraz tło body `#1a1a2e` jako kolor tekstu — tu obowiązuje plik HTML.
+5. **Obszary bez wzorca** (rozszerzone w CSS jako ekstrapolacja, oznaczone w pliku): tabele, cytaty, focus klawiatury (`outline 3px rgba(0,65,210,.5)`), układ szerokości strony, H1 mobile.

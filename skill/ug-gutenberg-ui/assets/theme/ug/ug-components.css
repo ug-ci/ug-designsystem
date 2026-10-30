@@ -457,7 +457,7 @@ ul.ug-navmenu, ul.ug-navmenu ul { list-style: none; margin: 0; padding: 0; }
 /* ───────────────────────── 15. MENU DESKTOP (klasyczne, ≥1024px) ─────────────────────────
    Pozycje w pasku wg specyfikacji nawigacji: DM Sans 400 14px biały, odstęp 30px, wyśrodkowane między logo a prawą krawędzią,
    hover sail .2s. Poniżej 1024px (WordPress domyślnie przełącza na 600px) zostaje hamburger. Podmenu = rozwijane pod pozycją. */
-.ug-header > .wp-block-navigation { margin-left: auto; margin-right: auto; }
+.ug-header > .wp-block-navigation { margin-left: auto; margin-right: 0; }
 @media (min-width: 600px) and (max-width: 1023px) {
   .ug-header .wp-block-navigation__responsive-container:not(.is-menu-open) { display: none !important; }
   .ug-header .wp-block-navigation__responsive-container-open { display: flex !important; }
@@ -491,3 +491,20 @@ ul.ug-navmenu, ul.ug-navmenu ul { list-style: none; margin: 0; padding: 0; }
   .ug-header .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation__submenu-container .wp-block-navigation-item { margin: 0; }
   .ug-header .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation__submenu-container .wp-block-navigation-item__content { display: block; padding: 10px 20px; width: 100%; box-sizing: border-box; }
 }
+
+/* ───────────────────────── 16. WYSZUKIWARKA W NAGŁÓWKU (lupa + lightbox, desktop ≥1024px) ───────────────────────── */
+.ug-header .ug-search-open { display: none; flex-shrink: 0; align-items: center; justify-content: center; width: 44px; height: 44px; margin: 0 -12px 0 18px; padding: 0; border: 0; background: none; color: #fff; cursor: pointer; transition: color .2s; }
+.ug-header .ug-search-open:hover { color: var(--ug-sail); }
+@media (min-width: 1024px) { .ug-header .ug-search-open { display: inline-flex; } }
+.ug-header > .ug-search-modal { display: none; position: fixed; inset: 0; z-index: 100001; margin: 0; padding: 24px; box-sizing: border-box; align-items: center; justify-content: center; flex-direction: column; gap: 0; background: rgba(15,46,111,.97); }
+.ug-header > .ug-search-modal.is-open { display: flex; }
+.ug-search-modal .wp-block-search { width: 100%; max-width: 640px; margin: 0; }
+.ug-search-modal .wp-block-search__inside-wrapper { max-width: none; }
+.ug-search-modal .wp-block-search__input { height: 56px; font-size: 18px; border-color: #fff; }
+.ug-search-modal .wp-block-search__button { height: 57px; padding: 0 24px; }
+.ug-search-close { position: absolute; top: 19px; right: 19px; width: 24px; height: 24px; padding: 0; border: 0; background: none; color: #fff; cursor: pointer; }
+.ug-search-close:hover { color: var(--ug-sail); }
+html.ug-no-scroll { overflow: hidden; }
+/* W edytorze lightbox jest zawsze widoczny jako zwykły blok */
+.editor-styles-wrapper .ug-header > .ug-search-modal { display: flex; position: static; background: var(--ug-nav); }
+.editor-styles-wrapper .ug-search-close { position: static; }

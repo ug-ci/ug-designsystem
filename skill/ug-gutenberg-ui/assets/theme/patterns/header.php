@@ -30,5 +30,19 @@
 <!-- wp:navigation-link {"label":"Link nadrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":true} /-->
 <!-- wp:navigation-link {"label":"Link nadrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":true} /-->
 <!-- /wp:navigation -->
+
+<!-- wp:html -->
+<button type="button" class="ug-search-open" aria-haspopup="dialog" aria-controls="ug-search-modal" aria-expanded="false" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></button>
+<!-- /wp:html -->
+
+<!-- wp:group {"anchor":"ug-search-modal","className":"ug-search-modal"} -->
+<div id="ug-search-modal" class="wp-block-group ug-search-modal">
+<!-- wp:html -->
+<button type="button" class="ug-search-close" aria-label="Close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M1 1l22 22M23 1L1 23"/></svg></button>
+<!-- /wp:html -->
+
+<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search...","buttonText":"Search","buttonUseIcon":true,"buttonPosition":"button-outside"} /-->
+</div>
+<!-- /wp:group -->
 </div>
 <!-- /wp:group -->

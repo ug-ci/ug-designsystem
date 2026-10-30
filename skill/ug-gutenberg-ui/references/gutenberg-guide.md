@@ -7,7 +7,7 @@ Skopiuj z `assets/theme/` do motywu blokowego (zalecany motyw potomny):
 | Z | Do motywu |
 |---|---|
 | `theme.json` | scal z `theme.json` motywu (palety, fonty, rozmiary, odstępy, cienie, style elementów) — lub podmień, jeśli motyw jest nowy |
-| `ug/` (css, js, fonts, logos) | `<motyw>/ug/` |
+| `ug/` (css, js, fonts, logos, placeholder.svg) | `<motyw>/ug/` |
 | `patterns/*.php` | `<motyw>/patterns/` |
 | `parts/header.html` | `<motyw>/parts/header.html` — nagłówek UG z hamburgerem (wzorzec `ug/header`) w całym motywie |
 | `templates/front-page.html` | `<motyw>/templates/front-page.html` — strona główna bez tytułu (treść = 4 wzorce `ug/home-*`) |
@@ -38,6 +38,7 @@ Weryfikacja po instalacji: Wygląd → Edytor → Style pokazuje paletę UG (bez
 | Karta pionowa | `ug/news-card` | `group.ug-news-card` › `image`, `group.ug-news-card__body`, `group.ug-news-card__footer` |
 | Karta pozioma | `ug/news-card-horizontal` | `group.ug-news-card--h` |
 | Karta wyróżniona | `ug/featured-card` | `group.ug-featured-card` › `image` + `paragraph.ug-featured-card__label` |
+| Slider kart | `ug/slider` | `group.ug-slider` › `group.ug-slider__track` (karty `ug-news-card ug-slide`) + `group.ug-slider__nav` (2× `core/html` `ug-chevron-btn`); skrypt `ug/ug-slider.js`. 3 karty ≥782px, 1 karta poniżej; scroll-snap, strzałki, ←/→ |
 | Mała karta | `ug/small-card` | `group.ug-small-card` |
 | Karta osoby | `ug/user-card` | `group.ug-user-card`; avatar: `image` z klasą `ug-round` |
 | Info box | `ug/infobox` | `group.ug-infobox` |

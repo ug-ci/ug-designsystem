@@ -577,3 +577,23 @@ a.wp-block-read-more.ug-read-more:hover { gap: 12px; text-decoration: none; }
 .ug-home-cta h2 { color: #fff; }
 .ug-home-cta p { max-width: 640px; margin: 0 auto 32px; text-align: center; }
 @media (max-width: 781px) { .ug-home-hero { padding-top: 56px !important; padding-bottom: 56px !important; } .ug-home-news, .ug-home-about, .ug-home-cta { padding-top: 48px !important; padding-bottom: 48px !important; } .ug-home-about .wp-block-columns { gap: 32px; } }
+
+/* ───────────────────────── 20. SLIDER KART (wzorzec ug/slider) ─────────────────────────
+   Desktop: 3 karty widoczne; poniżej 782px: 1 karta. Przewijanie scroll-snap (gest, strzałki, ←/→). */
+.ug-slider { position: relative; max-width: 1140px; margin-inline: auto; }
+.ug-slider > * { margin-block: 0 !important; }
+.ug-slider__track { display: flex; flex-wrap: nowrap; gap: 24px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-behavior: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+.ug-slider__track::-webkit-scrollbar { display: none; }
+.ug-slider__track > .ug-slide { flex: 0 0 calc((100% - 48px) / 3); max-width: none; scroll-snap-align: start; margin: 0 !important; }
+.ug-slider__track:focus-visible { outline: 3px solid rgba(0,65,210,.5); outline-offset: 4px; }
+.ug-slider .ug-news-card > .wp-block-image img { height: auto; aspect-ratio: 5 / 3; }
+/* Strzałki po lewej i prawej stronie, wyśrodkowane w pionie względem zdjęcia karty (5:3):
+   margin-top w % liczony jest od szerokości, więc środek zdjęcia = (szerokość − 48px) / 10 (3 karty) lub 30% szerokości (1 karta). */
+.ug-slider__nav { position: absolute; inset: 0; margin: 0 !important; pointer-events: none; }
+.ug-slider__nav .ug-chevron-btn { position: absolute; top: 0; z-index: 2; pointer-events: auto; margin: calc((100% - 48px) / 10 - 29.5px) 0 0 !important; }
+.ug-slider__nav .ug-chevron-btn.is-prev { left: 0; }
+.ug-slider__nav .ug-chevron-btn.is-next { right: 0; }
+.ug-chevron-btn[disabled] { background: var(--ug-gray-200); cursor: not-allowed; }
+.ug-chevron-btn[disabled]::after { background: var(--ug-gray-500); }
+@media (max-width: 781px) { .ug-slider__track > .ug-slide { flex-basis: 100%; } .ug-slider__nav .ug-chevron-btn { margin-top: calc(100% * .3 - 29.5px) !important; } }
+@media (prefers-reduced-motion: no-preference) { .ug-slider__track { scroll-behavior: smooth; } }

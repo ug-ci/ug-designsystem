@@ -140,6 +140,10 @@ Design system nie definiuje tych komponentów; zbudowano je z istniejących toke
 - **Accordion:** linia 1px blue nad pierwszą i pod każdą pozycją; nagłówek Work Sans 600 18px/1.2 blue-dark (hover blue), padding pionowy 16px; chevron blue 14×8 po prawej (obrót 180° po rozwinięciu, 0,2 s); treść DM Sans 16px, padding-bottom 20px; max. szerokość 780px; wiele pozycji może być otwartych naraz.
 - **Tabs:** lista z linią 1px gray-200; zakładka DM Sans 600 14px uppercase (ls .5px), padding `14px 24px`, nieaktywna gray-text, hover blue-dark, aktywna blue z linią 3px blue; panel padding `24px 0`, treść 16px. Na mobile lista przewija się poziomo.
 
+### Slider kart — rozszerzenie spoza wzorca
+
+Karty `ug-news-card` w poziomym torze `scroll-snap` (odstęp 24px): 3 karty widoczne od 782px, 1 karta poniżej. Nawigacja: strzałki z wzorca „Chevron Navigation” (39.5×59px, blue, hover blue-dark) po lewej i prawej krawędzi toru, wyśrodkowane w pionie na zdjęciu karty; na końcach zablokowane (gray-200). Obsługa gestu, klawiszy ←/→ i `prefers-reduced-motion`.
+
 ## 11. Stopka
 
 Górny pasek blue-dark, padding 40, 3 kolumny `1.5fr 1fr 1fr`, gap 32. Kol. 1: logo białe 122×52 + adres (14px/1.7 `rgba(255,255,255,.72)`). Kol. 2–3: tytuł DM Sans 700 18px biały + linki 14px `rgba(255,255,255,.72)` padding pionowy 4px, hover biały. Dolny pasek navy, padding `20px 40px`, wyśrodkowany, 14px `rgba(255,255,255,.8)`.

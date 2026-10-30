@@ -29,15 +29,7 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:navigation {"textColor":"white","overlayMenu":"mobile","icon":"menu","overlayBackgroundColor":"nav","overlayTextColor":"white","openSubmenusOnClick":true,"layout":{"type":"flex","justifyContent":"right"}} -->
-<!-- wp:navigation-link {"label":"Link nadrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":true} /-->
-<!-- wp:navigation-submenu {"label":"Link nadrzędny","type":"custom","url":"#","kind":"custom"} -->
-<!-- wp:navigation-link {"label":"Link podrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":false} /-->
-<!-- wp:navigation-link {"label":"Link podrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":false} /-->
-<!-- /wp:navigation-submenu -->
-<!-- wp:navigation-link {"label":"Link nadrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":true} /-->
-<!-- wp:navigation-link {"label":"Link nadrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":true} /-->
-<!-- /wp:navigation -->
+<!-- wp:navigation {"textColor":"white","overlayMenu":"mobile","icon":"menu","overlayBackgroundColor":"nav","overlayTextColor":"white","openSubmenusOnClick":true,"layout":{"type":"flex","justifyContent":"right"}} /-->
 
 <!-- wp:html -->
 <button type="button" class="ug-search-open" aria-haspopup="dialog" aria-controls="ug-search-modal" aria-expanded="false" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></button>

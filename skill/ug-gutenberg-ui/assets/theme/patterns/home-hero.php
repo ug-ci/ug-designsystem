@@ -3,12 +3,12 @@
  * Title: UG — Strona główna — Hero
  * Slug: ug/home-hero
  * Categories: ug-components
- * Description: Hero: niebieskie tło, H1 biały, lead i dwa przyciski (ghost + dark).
- * Keywords: hero baner strona główna
+ * Description: Hero: zdjęcie wyróżniające strony w tle (core/cover, useFeaturedImage) przyciemnione overlayem navy 70%, H1 i lead białe, dwa przyciski.
+ * Keywords: hero baner strona główna zdjęcie
  */
 ?>
-<!-- wp:group {"align":"full","className":"ug-home-hero","style":{"spacing":{"padding":{"top":"96px","bottom":"96px","left":"24px","right":"24px"}}},"backgroundColor":"blue","textColor":"white","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull ug-home-hero has-white-color has-blue-background-color has-text-color has-background" style="padding-top:96px;padding-right:24px;padding-bottom:96px;padding-left:24px"><!-- wp:heading {"level":1,"textColor":"white"} -->
+<!-- wp:cover {"useFeaturedImage":true,"dimRatio":70,"overlayColor":"navy","isUserOverlayColor":true,"minHeight":520,"minHeightUnit":"px","contentPosition":"center left","align":"full","className":"ug-home-hero","style":{"spacing":{"padding":{"top":"96px","bottom":"96px","left":"24px","right":"24px"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-cover alignfull has-custom-content-position is-position-center-left ug-home-hero" style="padding-top:96px;padding-right:24px;padding-bottom:96px;padding-left:24px;min-height:520px"><span aria-hidden="true" class="wp-block-cover__background has-navy-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:heading {"level":1,"textColor":"white"} -->
 <h1 class="wp-block-heading has-white-color has-text-color">Projekt, który łączy naukę z praktyką</h1>
 <!-- /wp:heading -->
 
@@ -24,5 +24,5 @@
 <!-- wp:button {"className":"is-style-ug-dark"} -->
 <div class="wp-block-button is-style-ug-dark"><a class="wp-block-button__link wp-element-button" href="#">Kontakt</a></div>
 <!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
-<!-- /wp:group -->
+<!-- /wp:buttons --></div></div>
+<!-- /wp:cover -->

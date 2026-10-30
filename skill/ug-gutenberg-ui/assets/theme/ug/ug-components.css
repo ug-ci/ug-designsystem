@@ -555,10 +555,15 @@ html.ug-no-scroll { overflow: hidden; }
 @media (max-width: 600px) { .wp-block-tab-list { flex-wrap: nowrap; overflow-x: auto; } .wp-block-tab-list button { padding: 14px 16px; white-space: nowrap; } }
 
 /* ───────────────────────── 19. STRONA GŁÓWNA (wzorce ug/home-*) ───────────────────────── */
+/* Hero (core/cover z obrazem wyróżniającym strony, overlay navy 70%). Fallback bez zdjęcia: blue pod overlayem. */
+.ug-home-hero.wp-block-cover { background-color: var(--ug-blue); }
+.ug-home-hero.wp-block-cover { justify-content: center; }
+.ug-home-hero .wp-block-cover__inner-container { width: 100%; max-width: 1140px; margin-left: auto; margin-right: auto; }
+.ug-home-hero .wp-block-cover__image-background { box-shadow: none; }
+/* Treść hero wyrównana do lewej krawędzi kontenera 1140px (reszta stron centrowana) */
+.ug-home-hero .wp-block-cover__inner-container > * { max-width: 1140px; margin-left: 0 !important; margin-right: auto !important; }
+.ug-home-hero .wp-block-cover__inner-container > .is-style-ug-lead { max-width: 640px; margin-bottom: 32px; }
 .ug-home-hero h1 { margin: 0 0 16px; }
-/* Hero wyrównany do lewej krawędzi kontenera 1140px (reszta stron centrowana) */
-.ug-home-hero.is-layout-constrained > * { max-width: 1140px; margin-left: max(0px, calc((100% - 1140px) / 2)) !important; margin-right: auto !important; }
-.ug-home-hero.is-layout-constrained > .is-style-ug-lead { max-width: 640px; margin-bottom: 32px; }
 .ug-home-news > h2, .ug-home-about h2, .ug-home-cta h2 { margin: 0 0 32px; }
 .ug-home-news .wp-block-post-template { gap: 24px; margin: 0 0 40px; padding: 0; list-style: none; }
 .ug-home-news .wp-block-post-template > li { margin: 0; }

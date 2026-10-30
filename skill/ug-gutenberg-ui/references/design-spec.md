@@ -148,6 +148,10 @@ Karty `ug-news-card` w poziomym torze `scroll-snap` (odstęp 24px): 3 karty wido
 
 Treść wpisu (data 12px gray-text, H1, obraz wyróżniający 5:3, treść, kategorie jako tagi) w kolumnie **max 900px**, wyśrodkowanej (`contentSize` i `wideSize` = 900px, więc nawet wyrównanie „szeroko” nie wychodzi poza 900px). Pod kategoriami nawigacja „Poprzedni wpis | Następny wpis”: linia 1px blue, dwie kolumny (poprzedni po lewej, następny po prawej), etykieta 12px/700 uppercase blue ze strzałką 42×11 (w lewo / w prawo) nad tytułem Work Sans 600 18px blue-dark (hover blue); na mobile jedna kolumna. Pozostałe szablony używają szerokości 1140/1320px.
 
+### Hero strony głównej
+
+Tło = zdjęcie wyróżniające strony (`core/cover`, „użyj obrazu wyróżniającego”), przyciemnione overlayem navy `#00153A` o krycju 70%; bez zdjęcia: tło blue pod overlayem. Min. wysokość 520px, padding 96px (mobile 56px), treść wyrównana do lewej krawędzi kontenera 1140px, tekst biały.
+
 ## 11. Stopka
 
 Górny pasek blue-dark, padding 40, 3 kolumny `1.5fr 1fr 1fr`, gap 32. Kol. 1: logo białe 122×52 + adres (14px/1.7 `rgba(255,255,255,.72)`). Kol. 2–3: tytuł DM Sans 700 18px biały + linki 14px `rgba(255,255,255,.72)` padding pionowy 4px, hover biały. Dolny pasek navy, padding `20px 40px`, wyśrodkowany, 14px `rgba(255,255,255,.8)`.

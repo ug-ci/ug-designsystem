@@ -47,6 +47,7 @@ Weryfikacja po instalacji: Wygląd → Edytor → Style pokazuje paletę UG (bez
 | Menu boczne | `ug/sidebar-menu` | `core/navigation` z klasą `ug-navmenu` w `group.ug-navmenu-wrap` |
 | Nagłówek | `ug/header`, `ug/header-campaign` | `group.ug-header` › logo + herb (`image.ug-logo`, `image.ug-emblem`) + `core/navigation` (`overlayMenu: always`) |
 | Stopka | `ug/footer` | `group.ug-footer` › `.ug-footer__main` (siatka `.ug-footer__cols`) + `.ug-footer__sub` |
+| Paleta kolorów | `ug/colors` | `group.ug-swatch-card` › `group.ug-swatches` › `group.ug-swatch` (wypełnienie = slot palety) |
 | Tytuł strony | `ug/page-title` | `core/heading` H1 + `paragraph.is-style-ug-lead` |
 
 Wstawianie wzorca programowo: `<!-- wp:pattern {"slug":"ug/news-card"} /-->`.
@@ -102,3 +103,4 @@ Wnioski z testu:
 - **Menu boczne** używa przycisków `wp-block-navigation-submenu__toggle`; podmenu rozwija się kliknięciem (`aria-expanded`), nie ma stanu „rozwinięte” w statycznym wzorcu.
 - **Puste bloki obrazu** nie renderują się na froncie, dlatego wzorce używają `ug/placeholder.svg` (szary #D9D9D9) — zastąp własnym zdjęciem.
 - **Walidacja w edytorze** (brak „Unexpected or invalid content”) wymaga zalogowanego edytora — patrz status w raporcie.
+- **Cache wzorców motywu:** po dodaniu nowego pliku do `patterns/` WordPress może go nie widzieć — podbij `Version` w `style.css` motywu lub wywołaj `wp_get_theme()->delete_pattern_cache()`.

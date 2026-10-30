@@ -32,7 +32,7 @@ Skill do budowania nowych stron WordPress (edytor blokowy) **wiernie** w identyf
 
 ## Wzorce (`assets/theme/patterns/`)
 
-`ug/header` · `ug/header-campaign` · `ug/footer` · `ug/page-title` · `ug/buttons` · `ug/read-more` · `ug/link-box` · `ug/promo-banner` · `ug/tags` · `ug/news-card` · `ug/news-card-horizontal` · `ug/featured-card` · `ug/small-card` · `ug/user-card` · `ug/infobox` · `ug/stepper` · `ug/calendar` · `ug/form` · `ug/search` · `ug/sidebar-menu`
+`ug/header` · `ug/header-campaign` · `ug/footer` · `ug/page-title` · `ug/colors` · `ug/buttons` · `ug/read-more` · `ug/link-box` · `ug/promo-banner` · `ug/tags` · `ug/news-card` · `ug/news-card-horizontal` · `ug/featured-card` · `ug/small-card` · `ug/user-card` · `ug/infobox` · `ug/stepper` · `ug/calendar` · `ug/form` · `ug/search` · `ug/sidebar-menu`
 
 ## Pliki
 

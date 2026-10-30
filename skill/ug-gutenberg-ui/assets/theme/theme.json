@@ -550,9 +550,21 @@
       "name": "footer",
       "title": "Stopka UG",
       "area": "footer"
+    },
+    {
+      "name": "sidebar",
+      "title": "Menu boczne UG",
+      "area": "uncategorized"
     }
   ],
   "customTemplates": [
+    {
+      "name": "page-with-sidebar",
+      "title": "Strona z menu bocznym",
+      "postTypes": [
+        "page"
+      ]
+    },
     {
       "name": "page-campaign",
       "title": "Strona kampanii (nagłówek z tytułem)",

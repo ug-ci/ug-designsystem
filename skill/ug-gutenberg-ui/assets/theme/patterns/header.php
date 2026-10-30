@@ -12,7 +12,7 @@
 <!-- wp:group {"className":"ug-header__brand"} -->
 <div class="wp-block-group ug-header__brand">
 <!-- wp:image {"className":"ug-logo","linkDestination":"custom"} -->
-<figure class="wp-block-image ug-logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( get_theme_file_uri( 'ug/logos/logo-white.svg' ) ); ?>" alt="University of Gdańsk"/></a></figure>
+<figure class="wp-block-image ug-logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( get_theme_file_uri( 'ug/logos/logo-ug-white.svg' ) ); ?>" alt="University of Gdańsk"/></a></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"className":"ug-emblem","linkDestination":"custom"} -->

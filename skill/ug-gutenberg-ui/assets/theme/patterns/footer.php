@@ -16,7 +16,7 @@
 <!-- wp:group {"className":"ug-footer__col"} -->
 <div class="wp-block-group ug-footer__col">
 <!-- wp:image {"className":"ug-footer__logo"} -->
-<figure class="wp-block-image ug-footer__logo"><img src="<?php echo esc_url( get_theme_file_uri( 'ug/logos/logo-white.svg' ) ); ?>" alt="University of Gdańsk"/></figure>
+<figure class="wp-block-image ug-footer__logo"><img src="<?php echo esc_url( get_theme_file_uri( 'ug/logos/logo-ug-white.svg' ) ); ?>" alt="University of Gdańsk"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph {"className":"ug-footer__address"} -->

@@ -166,8 +166,10 @@ Górny pasek blue-dark, padding 40, 3 kolumny `1.5fr 1fr 1fr`, gap 32. Kol. 1: l
 
 | Plik | Użycie |
 |---|---|
-| `logo-white.svg` | na blue, navy, blue-dark, `#0F2E6F` (podstawowe) |
-| `logo-blue.svg` | na białym / jasnym |
+| `logo-ug-white.svg` | na blue, navy, blue-dark, `#0F2E6F` (podstawowe) |
+| `logo-ug-white-en.svg` | wersja angielska na ciemnych tłach |
+| `logo-ug.svg` | na białym / jasnym |
+| `logo-ug-en.svg` | wersja angielska na jasnych tłach |
 | `logo-emblem-white.svg` / `-blue.svg` | mobile, małe formaty (sam herb 32×51) |
 | `logo-mark.svg` | favicon, avatar, ikona aplikacji (herb na blue, 64×64) |
 | `icon-bars.svg` | hamburger (biały) |
@@ -181,3 +183,6 @@ Zdjęcia dostają cień `img`; logo i ikony nie.
 3. **Body:** `<body>` ma 14px, sekcja Typography mówi 16px. Przyjęto **16px dla treści, 14px dla UI** (menu, pola, karty).
 4. **Stary `SKILL.md` z projektu Design** podawał wysokość przycisku 40px (HTML: 48px; 36px dla small) oraz tło body `#1a1a2e` jako kolor tekstu — tu obowiązuje plik HTML.
 5. **Obszary bez wzorca** (rozszerzone w CSS jako ekstrapolacja, oznaczone w pliku): tabele, cytaty, focus klawiatury (`outline 3px rgba(0,65,210,.5)`), układ szerokości strony, H1 mobile.
+
+### Cytat (`core/quote`) — rozszerzenie
+Lewa linia 4px blue, padding 4/0/4/24, tekst 18px/1.4 waga 400, `cite` 12px gray-text. Wzorzec wizualny nie definiuje cytatu; styl wyprowadzony z lead.

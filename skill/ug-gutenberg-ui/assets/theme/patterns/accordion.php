@@ -8,8 +8,8 @@
  */
 ?>
 <!-- wp:accordion -->
-<div role="group" class="wp-block-accordion"><!-- wp:accordion-item {"openByDefault":true} -->
-<div class="wp-block-accordion-item is-open"><!-- wp:accordion-heading {"level":3} -->
+<div role="group" class="wp-block-accordion"><!-- wp:accordion-item -->
+<div class="wp-block-accordion-item"><!-- wp:accordion-heading {"level":3} -->
 <h3 class="wp-block-accordion-heading has-icon has-icon-right"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title">Admissions 2026/27</span><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span></button></h3>
 <!-- /wp:accordion-heading -->
 

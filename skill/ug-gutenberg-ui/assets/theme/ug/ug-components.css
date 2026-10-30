@@ -597,3 +597,11 @@ a.wp-block-read-more.ug-read-more:hover { gap: 12px; text-decoration: none; }
 .ug-chevron-btn[disabled]::after { background: var(--ug-gray-500); }
 @media (max-width: 781px) { .ug-slider__track > .ug-slide { flex-basis: 100%; } .ug-slider__nav .ug-chevron-btn { margin-top: calc(100% * .3 - 29.5px) !important; } }
 @media (prefers-reduced-motion: no-preference) { .ug-slider__track { scroll-behavior: smooth; } }
+
+/* ───────────────────────── 21. STRONA 404 (wzorzec ug/404, szablon bez nagłówka i stopki) ───────────────────────── */
+.ug-404 { text-align: center; }
+.ug-404 > * { max-width: 640px; margin-block: 0 !important; }
+.ug-404 .ug-404__code { font-family: var(--ug-font-heading); font-size: clamp(96px, 22vw, 200px); line-height: 1; letter-spacing: -.02em; }
+.ug-404 h1 { max-width: 900px; margin-top: 8px !important; color: #fff; }
+.ug-404 p:not(.ug-404__code) { font-size: 18px; line-height: 1.4; }
+.ug-404 .wp-block-buttons { margin-top: 16px !important; }

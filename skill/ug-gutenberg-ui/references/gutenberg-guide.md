@@ -10,6 +10,7 @@ Skopiuj z `assets/theme/` do motywu blokowego (zalecany motyw potomny):
 | `ug/` (css, js, fonts, logos, placeholder.svg) | `<motyw>/ug/` |
 | `patterns/*.php` | `<motyw>/patterns/` |
 | `parts/header.html` | `<motyw>/parts/header.html` — nagłówek UG z hamburgerem (wzorzec `ug/header`) w całym motywie |
+| `templates/404.html` | `<motyw>/templates/404.html` — strona błędu bez nagłówka i stopki |
 | `templates/front-page.html` | `<motyw>/templates/front-page.html` — strona główna bez tytułu (treść = 4 wzorce `ug/home-*`) |
 | `templates/page-with-sidebar.html` | `<motyw>/templates/page.html` (lub osobny szablon) — strona z menu bocznym |
 | `functions-snippet.php` | wklej do `functions.php` (enqueue CSS + edytor, style bloków, kategorie wzorców) |
@@ -53,6 +54,7 @@ Weryfikacja po instalacji: Wygląd → Edytor → Style pokazuje paletę UG (bez
 | Stopka | `ug/footer` | `group.ug-footer` › `.ug-footer__main` (siatka `.ug-footer__cols`) + `.ug-footer__sub` |
 | Paleta kolorów | `ug/colors` | `group.ug-swatch-card` › `group.ug-swatches` › `group.ug-swatch` (wypełnienie = slot palety) |
 | Strona główna | `ug/home-hero`, `ug/home-news`, `ug/home-about`, `ug/home-cta` + `templates/front-page.html` | Hero (blue, H1 + lead + 2 przyciski) · Aktualności (`core/query`, 3 wpisy, siatka 3 kol., karta `ug-news-card`) · O projekcie (`core/columns`: tekst + przycisk / zdjęcie, tło foam) · CTA (blue-dark, wyśrodkowany) |
+| Strona 404 | `ug/404` + `templates/404.html` | `group.ug-404` (navy, min-height 100vh, flex): kod 404 sail 200px, H1 biały, tekst sail, przycisk ghost; szablon bez nagłówka i stopki |
 | Tytuł strony | `ug/page-title` | `core/heading` H1 + `paragraph.is-style-ug-lead` |
 
 Wstawianie wzorca programowo: `<!-- wp:pattern {"slug":"ug/news-card"} /-->`.

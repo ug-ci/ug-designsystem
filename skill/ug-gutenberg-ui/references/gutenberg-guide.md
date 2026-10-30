@@ -10,6 +10,7 @@ Skopiuj z `assets/theme/` do motywu blokowego (zalecany motyw potomny):
 | `ug/` (css, js, fonts, logos, placeholder.svg) | `<motyw>/ug/` |
 | `patterns/*.php` | `<motyw>/patterns/` |
 | `parts/header.html` | `<motyw>/parts/header.html` — nagłówek UG z hamburgerem (wzorzec `ug/header`) w całym motywie |
+| `templates/single.html` | `<motyw>/templates/single.html` — szablon wpisu, treść (data, tytuł, obraz, treść, kategorie) max 900px |
 | `templates/404.html` | `<motyw>/templates/404.html` — strona błędu bez nagłówka i stopki |
 | `templates/front-page.html` | `<motyw>/templates/front-page.html` — strona główna bez tytułu (treść = 4 wzorce `ug/home-*`) |
 | `templates/page-with-sidebar.html` | `<motyw>/templates/page.html` (lub osobny szablon) — strona z menu bocznym |

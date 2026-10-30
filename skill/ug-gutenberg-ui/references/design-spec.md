@@ -115,7 +115,7 @@ Kroki 106px szer.; numer w kole 71px (DM Sans 700 32px blue); ukończony krok: o
 
 ## 10. Nawigacja górna
 
-Tło `#0F2E6F`, biały tekst. **Desktop ≥1024px: klasyczne menu w pasku** (pozycje DM Sans 400 14px biały, odstęp 30px, wyrównane do prawej krawędzi paska, hover sail .2s; podmenu rozwijane pod pozycją na tle `#0F2E6F`). **Poniżej 1024px: hamburger** (`icon-bars.svg`) po prawej, pozycje w overlayu.
+Tło `#0F2E6F`, biały tekst. **Desktop ≥1024px: klasyczne menu w pasku** (pozycje DM Sans 400 14px biały, odstęp 30px, wyrównane do prawej krawędzi paska, hover sail .2s; podmenu rozwijane pod pozycją na tle `#0F2E6F`, padding kontenera 12px, pozycje `14px 24px`). **Poniżej 1024px: hamburger** (`icon-bars.svg`) po prawej, pozycje w overlayu.
 - Desktop: wysokość 92px, padding `0 25px 0 19px`, logo poziome 58px wys., hamburger 18×15px.
 - Kampania: logo + biała pionowa linia 1×62px + hasło (DM Sans 700 14px/1.7, ls .5px, uppercase), gap 28px.
 - Mobile: wysokość 80px, sam herb 35×64px, hamburger 17×16px, padding `0 30px 0 22px`.
@@ -143,6 +143,10 @@ Design system nie definiuje tych komponentów; zbudowano je z istniejących toke
 ### Slider kart — rozszerzenie spoza wzorca
 
 Karty `ug-news-card` w poziomym torze `scroll-snap` (odstęp 24px): 3 karty widoczne od 782px, 1 karta poniżej. Nawigacja: strzałki z wzorca „Chevron Navigation” (39.5×59px, blue, hover blue-dark) po lewej i prawej krawędzi toru, wyśrodkowane w pionie na zdjęciu karty; na końcach zablokowane (gray-200). Obsługa gestu, klawiszy ←/→ i `prefers-reduced-motion`.
+
+### Szablon wpisu
+
+Treść wpisu (data 12px gray-text, H1, obraz wyróżniający 5:3, treść, kategorie jako tagi) w kolumnie **max 900px**, wyśrodkowanej (`contentSize` i `wideSize` = 900px, więc nawet wyrównanie „szeroko” nie wychodzi poza 900px). Pod kategoriami nawigacja „Poprzedni wpis | Następny wpis”: linia 1px blue, dwie kolumny (poprzedni po lewej, następny po prawej), etykieta 12px/700 uppercase blue ze strzałką 42×11 (w lewo / w prawo) nad tytułem Work Sans 600 18px blue-dark (hover blue); na mobile jedna kolumna. Pozostałe szablony używają szerokości 1140/1320px.
 
 ## 11. Stopka
 

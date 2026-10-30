@@ -39,7 +39,7 @@ Fonty: **Work Sans** (nagłówki) i **DM Sans** (reszta). Wagi 400–700, pliki 
 
 | Styl | Font | Waga | Rozmiar | Line-height | Kolor |
 |---|---|---|---|---|---|
-| H1 | Work Sans | 700 | 64px (fluid 40→64) | 1 | blue-dark |
+| H1 | Work Sans | 600 | 64px (fluid 40→64) | 1 | blue-dark |
 | H2 | Work Sans | 600 | 28px | 1 | blue-dark |
 | H3 | Work Sans | 600 | 24px | 1.1 | blue-dark |
 | H4 | Work Sans | 600 | 22px | 1.1 | blue-dark |
@@ -87,7 +87,7 @@ Inne: **Read more** (link ze strzałką 42×11, 12px/600 uppercase, ls 1px, blue
 - Select: jak input, padding-right 40px, strzałka w dół blue 16×16 po prawej; focus pierścień 2px `rgba(0,65,210,.12)`.
 - Wyszukiwarka: input 47px bez prawej ramki + przycisk primary (padding `0 20px`) z białą lupą.
 - Pozycje menu rozwijanego: padding `10px 20px`, tło gray-100, DM Sans 600 14px `#303030`, chevron 8px po prawej; hover blue/biały; wybrana blue-dark/biały + cień sm.
-- Menu boczne (Kandydaci): tło gray-100, tytuł Work Sans 700 18px blue-dark (padding `24px 24px 12px`), pozycje padding `14px 24px` 14px/500, hover `rgba(0,65,210,.06)`; rozwinięta pozycja blue/biała z chevronem w dół; podmenu tło gray-200, padding pionowy 6px, pozycje `12px 24px 12px 32px`, hover tekst blue.
+- Menu boczne (Kandydaci): tło gray-100, tytuł Work Sans 600 18px blue-dark (padding `24px 24px 12px`), pozycje padding `14px 24px` 14px/500, hover `rgba(0,65,210,.06)`; rozwinięta pozycja blue/biała z chevronem w dół; podmenu tło gray-200, padding pionowy 6px, pozycje `12px 24px 12px 32px`, hover tekst blue.
 
 ## 6. Tagi
 
@@ -103,7 +103,7 @@ Wszystkie zdjęcia: cień `img`, bez zaokrągleń. Data 11px ink. Tytuł Work Sa
 - **Mała**: miniatura 80×80, gap 20, padding-bottom 16, linia 1px blue; tytuł DM Sans 700 14px/1.3 blue-dark.
 - **Osoba** (300px): biała, cień `card`, padding `40px 19.5px 19px`, gap 40; avatar koło 100px; imię DM Sans 700 18px blue-dark; rola 11px `#2F2F2F`; kontakt 14px/1.4 (linki blue, odstęp 5px).
 - **Info box** (max 410px): biały, cień `infobox`; zdjęcie 130px wys.; body padding 20; tytuł Work Sans 600 18px/1 blue-dark, margines dolny 12px; tekst + Read more.
-- **Baner promo** (max 780px): biały, ramka 2px blue, padding `32px 36px`, min-height 180; tytuł Work Sans 700 24px blue; strzałka 42×11 na dole; hover: tło blue, tytuł i strzałka białe.
+- **Baner promo** (max 780px): biały, ramka 2px blue, padding `32px 36px`, min-height 180; tytuł Work Sans 600 24px blue; strzałka 42×11 na dole; hover: tło blue, tytuł i strzałka białe.
 
 ## 8. Stepper
 
@@ -120,6 +120,8 @@ Tło `#0F2E6F`, biały tekst. **Desktop ≥1024px: klasyczne menu w pasku** (poz
 - Kampania: logo + biała pionowa linia 1×62px + hasło (DM Sans 700 14px/1.7, ls .5px, uppercase), gap 28px.
 - Mobile: wysokość 80px, sam herb 35×64px, hamburger 17×16px, padding `0 30px 0 22px`.
 - Pozycje w rozwiniętym menu: DM Sans 400 14px biały, hover `--ug-sail`, `.2s`.
+
+Nagłówek jest **sticky** (przyklejony do górnej krawędzi okna; przy zalogowanym użytkowniku pod paskiem admina).
 
 ### Menu mobilne (overlay hamburgera) — wg makiety
 
@@ -150,7 +152,7 @@ Treść wpisu (data 12px gray-text, H1, obraz wyróżniający 5:3, treść, kate
 
 ### Hero strony głównej
 
-Tło = zdjęcie wyróżniające strony (`core/cover`, „użyj obrazu wyróżniającego”), zamienione na monochromatyczne (`grayscale`) i przyciemnione overlayem navy `#00153A` o krycju 80%; bez zdjęcia: tło blue pod overlayem. Min. wysokość 520px, padding 96px (mobile 56px), treść wyrównana do lewej krawędzi kontenera 1140px, tekst biały.
+Tło = zdjęcie wyróżniające strony (`core/cover`, „użyj obrazu wyróżniającego”), zamienione na monochromatyczne (`grayscale`) i przykryte overlayem z gradientem pionowym jak w hero centrumsportowe.ug.edu.pl: `linear-gradient(0deg, rgb(6,45,115) 5%, rgba(6,45,115,.83) 52%)` (u dołu pełny blue-dark, od połowy wysokości w górę .83); bez zdjęcia: tło blue pod overlayem. Zdjęcie jest „sticky” (przypięte do okna, efekt parallax; wyłączane przy `prefers-reduced-motion`). Min. wysokość 520px, padding 96px (mobile 56px), treść wyrównana do lewej krawędzi kontenera 1140px, tekst biały.
 
 ### CTA strony głównej
 
@@ -158,7 +160,7 @@ Tło: ciemny gradient `linear-gradient(135deg, navy #00153A → blue-dark #052D7
 
 ## 11. Stopka
 
-Górny pasek blue-dark, padding 40, 3 kolumny `1.5fr 1fr 1fr`, gap 32. Kol. 1: logo białe 122×52 + adres (14px/1.7 `rgba(255,255,255,.72)`). Kol. 2–3: tytuł DM Sans 700 18px biały + linki 14px `rgba(255,255,255,.72)` padding pionowy 4px, hover biały. Dolny pasek navy, padding `20px 40px`, wyśrodkowany, 14px `rgba(255,255,255,.8)`.
+Górny pasek blue-dark, padding 40, 3 kolumny `1.5fr 1fr 1fr`, gap 32. Kol. 1: logo białe 122×52 + adres (14px/1.7 `rgba(255,255,255,.72)`). Kol. 2–3: tytuł DM Sans 600 18px biały + linki 14px `rgba(255,255,255,.72)` padding pionowy 4px, hover biały. Dolny pasek navy, padding `20px 40px`, wyśrodkowany, 14px `rgba(255,255,255,.8)`.
 
 ## 12. Logo
 

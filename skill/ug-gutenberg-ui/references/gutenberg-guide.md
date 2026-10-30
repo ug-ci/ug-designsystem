@@ -102,7 +102,7 @@ Jeden H1 na stronę. H2–H5 zgodnie z tabelą typografii (rozmiary pochodzą z 
 
 ## 10. Wyniki testu na WordPressie 7.1.4 (Local, motyw potomny Twenty Twenty-Five)
 
-Sprawdzone na froncie (1440px): wszystkie 20 wzorców rejestruje się i renderuje; zmierzone wartości zgadzają się ze specyfikacją (przycisk 48px/12px/ls 1px, input/select 41px, nagłówek 92px z logo 58px, stopka 3 kolumny, krąg steppera 71px, kalendarz 340px, H1 64px Work Sans 700, brak promieni poza `ug-round`).
+Sprawdzone na froncie (1440px): wszystkie 20 wzorców rejestruje się i renderuje; zmierzone wartości zgadzają się ze specyfikacją (przycisk 48px/12px/ls 1px, input/select 41px, nagłówek 92px z logo 58px, stopka 3 kolumny, krąg steppera 71px, kalendarz 340px, H1 64px Work Sans 600, brak promieni poza `ug-round`).
 
 Wnioski z testu:
 - **Slugi rozmiarów z cyfrą po literze** (`h1`) WordPress zamienia na `h-1` — dlatego używamy `heading-1…4`.

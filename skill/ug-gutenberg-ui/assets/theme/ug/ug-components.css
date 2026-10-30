@@ -266,7 +266,7 @@ html { scroll-behavior: smooth; }
 
 /* Baner promocyjny (cały blok jest linkiem) */
 .ug-promo { position: relative; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; width: 100%; max-width: 780px; min-height: 180px; padding: 32px 36px; background: #fff; border: 2px solid var(--ug-blue); transition: background .2s, border-color .2s; }
-.ug-promo__title { margin: 0; font-family: var(--ug-font-heading); font-weight: 700; font-size: 24px; line-height: 1.15; color: var(--ug-blue); transition: color .2s; }
+.ug-promo__title { margin: 0; font-family: var(--ug-font-heading); font-weight: 600; font-size: 24px; line-height: 1.15; color: var(--ug-blue); transition: color .2s; }
 .ug-promo__title a { color: inherit; text-decoration: none; }
 .ug-promo__title a::before { content: ""; position: absolute; inset: 0; }
 .ug-promo::after { content: ""; margin-top: 40px; width: 42px; height: 11px; background: var(--ug-blue); transition: background .2s; -webkit-mask: var(--ug-arrow) left center/contain no-repeat; mask: var(--ug-arrow) left center/contain no-repeat; }
@@ -341,7 +341,7 @@ ol.ug-stepper { display: flex; flex-wrap: wrap; align-items: flex-start; list-st
 
 /* Menu boczne (core/navigation pionowa .ug-navmenu) */
 .ug-navmenu-wrap { width: 100%; max-width: 360px; background: var(--ug-gray-100); margin-left: 0 !important; margin-right: auto; }
-.ug-navmenu-title { margin: 0; padding: 24px 24px 12px; font-family: var(--ug-font-heading); font-weight: 700; font-size: 18px; line-height: 1.1; color: var(--ug-blue-dark); }
+.ug-navmenu-title { margin: 0; padding: 24px 24px 12px; font-family: var(--ug-font-heading); font-weight: 600; font-size: 18px; line-height: 1.1; color: var(--ug-blue-dark); }
 ul.ug-navmenu, ul.ug-navmenu ul { list-style: none; margin: 0; padding: 0; }
 .ug-navmenu.wp-block-navigation { display: block; }
 .ug-navmenu .wp-block-navigation__container { display: flex; flex-direction: column; align-items: stretch; gap: 0; width: 100%; }
@@ -383,7 +383,7 @@ ul.ug-navmenu, ul.ug-navmenu ul { list-style: none; margin: 0; padding: 0; }
 .ug-footer__logo { margin: 0; padding-bottom: 20px; }
 .ug-footer__logo img { display: block; width: 122px; height: 52px; box-shadow: none; }
 .ug-footer__address { margin: 0; font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.72); }
-.ug-footer__title { margin: 0; padding-bottom: 16px; font-family: var(--ug-font-body); font-weight: 700; font-size: 18px; line-height: 1.3; color: #fff; }
+.ug-footer__title { margin: 0; padding-bottom: 16px; font-family: var(--ug-font-body); font-weight: 600; font-size: 18px; line-height: 1.3; color: #fff; }
 .ug-footer__links { list-style: none; margin: 0; padding: 0; }
 .ug-footer__links li { margin: 0; }
 .ug-footer__links a { display: block; padding: 4px 0; font-size: 14px; color: rgba(255,255,255,.72); text-decoration: none; transition: color var(--ug-t); }
@@ -559,7 +559,14 @@ html.ug-no-scroll { overflow: hidden; }
 .ug-home-hero.wp-block-cover { background-color: var(--ug-blue); }
 .ug-home-hero.wp-block-cover { justify-content: center; }
 .ug-home-hero .wp-block-cover__inner-container { width: 100%; max-width: 1140px; margin-left: auto; margin-right: auto; }
-.ug-home-hero .wp-block-cover__image-background { box-shadow: none; filter: grayscale(1); } /* zdjęcie monochromatyczne pod overlayem navy */
+.ug-home-hero .wp-block-cover__image-background { box-shadow: none; filter: grayscale(1); } /* zdjęcie monochromatyczne */
+/* Zdjęcie w tle „sticky” (efekt parallax): obraz przypięty do okna, hero działa jak okno na nie (clip-path przycina element fixed). */
+@media (prefers-reduced-motion: no-preference) {
+  .ug-home-hero.wp-block-cover { clip-path: inset(0); }
+  .ug-home-hero .wp-block-cover__image-background { position: fixed; inset: 0; width: 100%; height: 100vh; object-fit: cover; }
+}
+/* Overlay z gradientem jak w hero centrumsportowe.ug.edu.pl: od dołu pełny blue-dark (5%), do .83 w połowie wysokości i wyżej */
+.ug-home-hero .wp-block-cover__background { opacity: 1 !important; background: linear-gradient(0deg, rgb(6, 45, 115) 5%, rgba(6, 45, 115, .83) 52%) !important; }
 /* Treść hero wyrównana do lewej krawędzi kontenera 1140px (reszta stron centrowana) */
 .ug-home-hero .wp-block-cover__inner-container > * { max-width: 1140px; margin-left: 0 !important; margin-right: auto !important; }
 .ug-home-hero .wp-block-cover__inner-container > .is-style-ug-lead { max-width: 640px; margin-bottom: 32px; }
@@ -648,3 +655,6 @@ a.wp-block-read-more.ug-read-more:hover { gap: 12px; text-decoration: none; }
 /* Strona główna: sekcje przylegają do siebie i do stopki (bez białych pasów z blockGap) */
 .ug-home-hero, .ug-home-news, .ug-home-about, .ug-home-cta { margin-block: 0 !important; }
 .home .wp-site-blocks > * { margin-block-start: 0; }
+
+/* Nagłówek (navbar) przyklejony do góry okna; z-index ponad paskiem admina, żeby overlay menu i lightbox wyszukiwania go przykrywały */
+.wp-site-blocks > header.wp-block-template-part { position: sticky; top: var(--wp-admin--admin-bar--height, 0px); z-index: 100000; }

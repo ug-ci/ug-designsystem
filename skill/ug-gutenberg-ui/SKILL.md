@@ -17,7 +17,7 @@ Skill do budowania nowych stron WordPress (edytor blokowy) **wiernie** w identyf
 ## Twarde zasady
 
 - **Paleta (tylko te kolory):** blue `#0041d2`, blue-dark `#052D73`, navy `#00153A`, nav `#0F2E6F` (tylko górny pasek), sail `#a1daf8`, foam `#e5f5fd`, white; neutralne `#F5F5F5` `#D9D9D9` `#8EA0C0` `#6B6B6B` `#606060`, szary tekst `#595959`; tekst body `#1a1a2e`; semantyczne error/success/warning/info (+ warianty `-strong` na tekst i tła pod białym tekstem). W blokach używaj **slotów palety** (`blue-dark`, `foam`…), nigdy hexów.
-- **Czcionki:** nagłówki **Work Sans 600** (H1 **700**, 64px) w kolorze blue-dark; wszystko inne **DM Sans**. H2 28 · H3 24 · H4 22 · H5 18; lead 18; body 16 (UI 14); small 12; data 11. Rozmiary z presetów motywu — nie ustawiaj ich ręcznie w nagłówkach.
+- **Czcionki:** nagłówki **Work Sans 600** (wszystkie, także H1 64px) w kolorze blue-dark; wszystko inne **DM Sans**. H2 28 · H3 24 · H4 22 · H5 18; lead 18; body 16 (UI 14); small 12; data 11. Rozmiary z presetów motywu — nie ustawiaj ich ręcznie w nagłówkach.
 - **Zero zaokrągleń** wszędzie (przyciski, pola, tagi, karty, zdjęcia, menu). Wyjątek: koła — numer steppera, avatar osoby, „dziś” w kalendarzu (klasa `ug-round`).
 - **Przyciski:** DM Sans 600 12px uppercase, letter-spacing 1px, wysokość 48px; primary blue → hover blue-dark; outlined 2px blue; dark blue-dark → hover navy; ghost tylko na ciemnym tle/zdjęciu; strzałka 42×11 (`ug-arrow`).
 - **Pola formularzy:** 41px, ramka 1px `#6B6B6B`, padding 10/20; focus = ramka blue + pierścień 3px; błąd = ramka `#DE3E44` + komunikat `#A22D32` 12px.

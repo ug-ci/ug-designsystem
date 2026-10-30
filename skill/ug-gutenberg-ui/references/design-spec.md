@@ -121,6 +121,11 @@ Tło `#0F2E6F`, biały tekst, hamburger (`icon-bars.svg`) po prawej, **bez pozyc
 - Mobile: wysokość 80px, sam herb 35×64px, hamburger 17×16px, padding `0 30px 0 22px`.
 - Pozycje w rozwiniętym menu: DM Sans 400 14px biały, hover `--ug-sail`, `.2s`.
 
+### Menu mobilne (overlay hamburgera) — wg makiety
+
+Pełny ekran `#0F2E6F`. Pasek górny 75px: białe logo poziome (109×45px, od lewej 20px, od góry 11px) i X 24×24 (kreska 2px, prawa krawędź 19px, góra 19px). Wiersze: wysokość 60px, DM Sans 500 16px biały, padding `0 12px`, linia 1px `rgba(255,255,255,.5)` pod każdym wierszem, kontener z wcięciem 11px po bokach. Pozycja z podmenu: chevron 24×13 po prawej. Wiersz podrzędny: tło `#B6C3E1` (`--ug-nav-sub`), tekst blue-dark, linia `rgba(255,255,255,.9)`. Hover tekstu: sail.
+Korekty błędów makiety: (1) podświetlenie wiersza podrzędnego miało pełną szerokość ekranu, a linie były wcięte — ujednolicono do wcięcia 11px; (2) rozwinięta pozycja miała chevron ∨ (taki sam jak zwinięta) — przyjęto ∨ zwinięte, ∧ rozwinięte.
+
 ## 11. Stopka
 
 Górny pasek blue-dark, padding 40, 3 kolumny `1.5fr 1fr 1fr`, gap 32. Kol. 1: logo białe 122×52 + adres (14px/1.7 `rgba(255,255,255,.72)`). Kol. 2–3: tytuł DM Sans 700 18px biały + linki 14px `rgba(255,255,255,.72)` padding pionowy 4px, hover biały. Dolny pasek navy, padding `20px 40px`, wyśrodkowany, 14px `rgba(255,255,255,.8)`.

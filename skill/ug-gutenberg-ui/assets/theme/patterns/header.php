@@ -21,6 +21,13 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:navigation {"overlayMenu":"always","icon":"menu","overlayBackgroundColor":"nav","overlayTextColor":"white","layout":{"type":"flex","justifyContent":"right"}} /-->
+<!-- wp:navigation {"overlayMenu":"always","icon":"menu","overlayBackgroundColor":"nav","overlayTextColor":"white","openSubmenusOnClick":true,"layout":{"type":"flex","justifyContent":"right"}} -->
+<!-- wp:navigation-link {"label":"Link nadrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":true} /-->
+<!-- wp:navigation-submenu {"label":"Link nadrzędny","type":"custom","url":"#","kind":"custom"} -->
+<!-- wp:navigation-link {"label":"Link podrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":false} /-->
+<!-- /wp:navigation-submenu -->
+<!-- wp:navigation-link {"label":"Link nadrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":true} /-->
+<!-- wp:navigation-link {"label":"Link nadrzędny","type":"custom","url":"#","kind":"custom","isTopLevelLink":true} /-->
+<!-- /wp:navigation -->
 </div>
 <!-- /wp:group -->

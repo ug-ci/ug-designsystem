@@ -23,7 +23,7 @@ Skill do budowania nowych stron WordPress (edytor blokowy) **wiernie** w identyf
 - **Pola formularzy:** 41px, ramka 1px `#6B6B6B`, padding 10/20; focus = ramka blue + pierścień 3px; błąd = ramka `#DE3E44` + komunikat `#A22D32` 12px.
 - **Tagi:** kwadratowe, 10px/600 uppercase, padding 4/12.
 - **Karty:** dolna linia 1px blue; tytuł Work Sans 600 18px blue-dark; zdjęcia z cieniem 3px (`img`), logo i ikony bez cienia.
-- **Nawigacja górna:** tło `#0F2E6F`, białe logo, **tylko hamburger** po prawej (bez pozycji menu w pasku); desktop 92px (logo 58px), mobile 80px z samym herbem 35×64.
+- **Nawigacja górna:** tło `#0F2E6F`, białe logo; desktop ≥1024px klasyczne menu w pasku (DM Sans 14px biały, odstęp 30px, hover sail), poniżej hamburger z overlayem i akordeonem; pasek 92px (logo 58px), mobile 80px z samym herbem 35×64.
 - **Stopka:** blue-dark (3 kolumny 1.5/1/1) + dolny pasek navy.
 - **Logo:** białe na blue/navy/`#0F2E6F`; niebieskie na jasnych tłach; na mobile sam herb.
 - **Tła:** maks. 2 kolory tła na widok; biały tekst na ciemnych, nigdy niebieski na navy.

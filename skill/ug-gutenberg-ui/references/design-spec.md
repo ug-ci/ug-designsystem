@@ -115,7 +115,7 @@ Kroki 106px szer.; numer w kole 71px (DM Sans 700 32px blue); ukończony krok: o
 
 ## 10. Nawigacja górna
 
-Tło `#0F2E6F`, biały tekst, hamburger (`icon-bars.svg`) po prawej, **bez pozycji menu w pasku**.
+Tło `#0F2E6F`, biały tekst. **Desktop ≥1024px: klasyczne menu w pasku** (pozycje DM Sans 400 14px biały, odstęp 30px, wyrównane do prawej krawędzi paska, hover sail .2s; podmenu rozwijane pod pozycją na tle `#0F2E6F`). **Poniżej 1024px: hamburger** (`icon-bars.svg`) po prawej, pozycje w overlayu.
 - Desktop: wysokość 92px, padding `0 25px 0 19px`, logo poziome 58px wys., hamburger 18×15px.
 - Kampania: logo + biała pionowa linia 1×62px + hasło (DM Sans 700 14px/1.7, ls .5px, uppercase), gap 28px.
 - Mobile: wysokość 80px, sam herb 35×64px, hamburger 17×16px, padding `0 30px 0 22px`.
@@ -123,7 +123,7 @@ Tło `#0F2E6F`, biały tekst, hamburger (`icon-bars.svg`) po prawej, **bez pozyc
 
 ### Menu mobilne (overlay hamburgera) — wg makiety
 
-Pełny ekran `#0F2E6F`. Pasek górny 75px: białe logo poziome (109×45px, od lewej 20px, od góry 11px) i X 24×24 (kreska 2px, prawa krawędź 19px, góra 19px). Wiersze: wysokość 60px, DM Sans 500 16px biały, padding `0 12px`, linia 1px `rgba(255,255,255,.5)` pod każdym wierszem, kontener z wcięciem 11px po bokach. Pozycja z podmenu: chevron 24×13 po prawej. Wiersz podrzędny: tło `#B6C3E1` (`--ug-nav-sub`), tekst blue-dark, linia `rgba(255,255,255,.9)`. Hover tekstu: sail.
+Pełny ekran `#0F2E6F`. Pasek górny 75px: białe logo poziome (109×45px, od lewej 20px, od góry 11px) i X 24×24 (kreska 2px, prawa krawędź 19px, góra 19px). Wiersze: wysokość 60px, DM Sans 500 14px biały, padding `0 12px`, linia 1px `rgba(255,255,255,.5)` pod każdym wierszem, kontener z wcięciem 11px po bokach. Pozycja z podmenu: chevron 24×13 po prawej. Wiersz podrzędny: tło `#B6C3E1` (`--ug-nav-sub`), tekst blue-dark, linia `rgba(255,255,255,.9)`. Hover tekstu: sail.
 Korekty błędów makiety: (1) podświetlenie wiersza podrzędnego miało pełną szerokość ekranu, a linie były wcięte — ujednolicono do wcięcia 11px; (2) rozwinięta pozycja miała chevron ∨ (taki sam jak zwinięta) — przyjęto ∨ zwinięte, ∧ rozwinięte.
 
 ## 11. Stopka

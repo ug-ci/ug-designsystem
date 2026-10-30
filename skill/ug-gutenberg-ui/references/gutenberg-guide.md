@@ -82,7 +82,7 @@ Jeden H1 na stronę. H2–H5 zgodnie z tabelą typografii (rozmiary pochodzą z 
 - Nie używaj gradientów, emoji, dekoracyjnych cieni, `border-radius`, własnych fontów.
 - Nie przebijaj stylów `!important` poza zerowaniem promieni.
 - Nie zmieniaj struktury klas `ug-*` we wzorcach — CSS na nich polega.
-- Nie dodawaj pozycji menu do paska nawigacji górnej (tylko hamburger).
+- Nie zmieniaj breakpointu menu (1024px) bez zmiany sekcji 15 w CSS — WordPress domyślnie przełącza na 600px.
 
 ## 9. Testowanie na WordPressie (Novamira / WP-CLI)
 
@@ -100,6 +100,7 @@ Wnioski z testu:
 - **Motyw potomny dziedziczy po rodzicu** niektóre presety (np. rozmiary `large`, `x-large`, kolory domyślne rdzenia). Dla pełnej czystości palety użyj samodzielnego motywu blokowego zamiast potomnego, albo nie wybieraj tych presetów.
 - **Hamburger:** `core/navigation` z `overlayMenu: always` i atrybutami `overlayBackgroundColor: nav`, `overlayTextColor: white` — bez nich rozwinięte menu ma białe tło i niewidoczne białe linki.
 - **Fokus hamburgera:** WordPress po zamknięciu menu oddaje fokus przyciskowi otwierającemu, co przy kliknięciu zostawia widoczną ramkę. `ug/ug-header.js` zdejmuje fokus po zamknięciu menu myszą/dotykiem; z klawiatury zachowanie domyślne (dostępność).
+- **Accordion w menu mobilnym:** WordPress w overlayu ustawia wszystkie podmenu jako otwarte (`aria-expanded=true`), więc nie da się ich zwinąć natywnie. `ug/ug-header.js` przejmuje kliknięcie przełącznika: klasa `.ug-acc-open` na elemencie podmenu, jedno otwarte naraz, `aria-expanded` synchronizowane; CSS animuje `max-height` (.25s, wyłączane przy `prefers-reduced-motion`). Domyślnie wszystko zwinięte.
 - **Menu boczne** używa przycisków `wp-block-navigation-submenu__toggle`; podmenu rozwija się kliknięciem (`aria-expanded`), nie ma stanu „rozwinięte” w statycznym wzorcu.
 - **Puste bloki obrazu** nie renderują się na froncie, dlatego wzorce używają `ug/placeholder.svg` (szary #D9D9D9) — zastąp własnym zdjęciem.
 - **Walidacja w edytorze** (brak „Unexpected or invalid content”) wymaga zalogowanego edytora — patrz status w raporcie.

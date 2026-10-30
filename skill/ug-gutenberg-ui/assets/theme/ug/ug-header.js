@@ -56,7 +56,7 @@
 			modal.setAttribute('role', 'dialog');
 			modal.setAttribute('aria-modal', 'true');
 			modal.setAttribute('aria-label', 'Search');
-			var f = field(); if (f) { f.focus(); }
+			var f = field(); if (f) { f.focus(); setTimeout(function () { if (modal.classList.contains('is-open') && document.activeElement !== f) { f.focus(); } }, 60); }
 		};
 		var closeSearch = function () {
 			modal.classList.remove('is-open');
@@ -80,4 +80,25 @@
 			}
 		});
 	}
+
+	/* Logo w overlayu menu mobilnego jest linkiem do strony głównej (adres i grafika z logo w nagłówku). */
+	function ensureMenuLogo() {
+		var c = document.querySelector('.ug-header .wp-block-navigation__responsive-container.is-menu-open');
+		if (!c || c.querySelector('.ug-menu-logo')) { return; }
+		var img = document.querySelector('.ug-header .ug-logo img');
+		var link = document.querySelector('.ug-header .ug-logo a');
+		if (!img || !link) { return; }
+		var a = document.createElement('a');
+		a.className = 'ug-menu-logo';
+		a.href = link.href;
+		a.setAttribute('aria-label', img.alt || 'Home');
+		var i = document.createElement('img');
+		i.src = img.currentSrc || img.src;
+		i.alt = '';
+		a.appendChild(i);
+		c.insertBefore(a, c.firstChild);
+	}
+	new MutationObserver(function () {
+		if (document.documentElement.classList.contains('has-modal-open')) { ensureMenuLogo(); setTimeout(ensureMenuLogo, 0); setTimeout(ensureMenuLogo, 150); }
+	}).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 })();

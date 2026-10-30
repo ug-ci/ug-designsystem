@@ -40,6 +40,8 @@ Weryfikacja po instalacji: Wygląd → Edytor → Style pokazuje paletę UG (bez
 | Mała karta | `ug/small-card` | `group.ug-small-card` |
 | Karta osoby | `ug/user-card` | `group.ug-user-card`; avatar: `image` z klasą `ug-round` |
 | Info box | `ug/infobox` | `group.ug-infobox` |
+| Accordion | `ug/accordion` | `core/accordion` (WordPress ≥ 7.0): `accordion-item` › `accordion-heading` + `accordion-panel`; style globalnie na klasach `wp-block-accordion*` |
+| Tabs | `ug/tabs` | `core/tabs`: `tab-list` + `tab-panels` › `tab-panel`; style na `wp-block-tab-*`, aktywna zakładka `aria-selected="true"` |
 | Stepper | `ug/stepper` | `core/list` (uporządkowana) z klasą `ug-stepper`; ukończone: klasa `is-done` na elemencie listy |
 | Kalendarz | `ug/calendar` | `core/html` z klasami `ug-cal*` (statyczny; dla danych dynamicznych podłącz wtyczkę wydarzeń i zachowaj klasy) |
 | Formularz | `ug/form` | `core/html` z `.ug-form`; formularze wtyczek (CF7, Gravity, WPForms) opakuj w `core/group` z klasą `ug-form` |

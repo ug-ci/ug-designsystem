@@ -123,12 +123,22 @@ Tło `#0F2E6F`, biały tekst. **Desktop ≥1024px: klasyczne menu w pasku** (poz
 
 ### Menu mobilne (overlay hamburgera) — wg makiety
 
-Pełny ekran `#0F2E6F`. Pasek górny 75px: białe logo poziome (109×45px, od lewej 20px, od góry 11px) i X 24×24 (kreska 2px, prawa krawędź 19px, góra 19px). Wiersze: wysokość 60px, DM Sans 500 14px biały, padding `0 12px`, linia 1px `rgba(255,255,255,.5)` pod każdym wierszem, kontener z wcięciem 11px po bokach. Pozycja z podmenu: chevron 24×13 po prawej. Wiersz podrzędny: tło `#B6C3E1` (`--ug-nav-sub`), tekst blue-dark, linia `rgba(255,255,255,.9)`. Hover tekstu: sail.
-Korekty błędów makiety: (1) podświetlenie wiersza podrzędnego miało pełną szerokość ekranu, a linie były wcięte — ujednolicono do wcięcia 11px; (2) rozwinięta pozycja miała chevron ∨ (taki sam jak zwinięta) — przyjęto ∨ zwinięte, ∧ rozwinięte.
+Pełny ekran `#0F2E6F`. Pasek górny 75px: białe logo poziome jako link do strony głównej (109×45px, od lewej 20px, od góry 11px; wstawia je `ug-header.js` na podstawie logo z nagłówka) i X 24×24 (kreska 2px, prawa krawędź 19px, góra 19px). Lista zaczyna się 95px od góry (pasek 75px + 20px marginesu). Wiersze: wysokość 48px, DM Sans 500 14px biały, padding `0 12px`, linia 1px `rgba(255,255,255,.5)` pod każdym wierszem, kontener z wcięciem 11px po bokach. Pozycja z podmenu: chevron 24×13 po prawej. Wiersz podrzędny: tło navy `#00153A` (ciemniejsze od overlayu), tekst biały, linia `rgba(255,255,255,.25)` (ciemniejsza niż przy nadrzędnych), hover sail. Hover tekstu: sail. Linki nadrzędne wersalikami (uppercase, letter-spacing .5px), podlinki bez zmian. Wysokość wiersza 48px.
+Korekty błędów makiety: (1) wiersz podrzędny miał pełną szerokość ekranu, a linie były wcięte — ujednolicono do wcięcia 11px; (2) rozwinięta pozycja miała chevron ∨ (taki sam jak zwinięta) — przyjęto ∨ zwinięte, ∧ rozwinięte.
 
 ### Wyszukiwarka w nagłówku (desktop ≥1024px) — rozszerzenie spoza wzorca
 
 Lupa (ikona 20px, biała, hover sail) po prawej stronie menu, przycisk 44×44px. Klik otwiera lightbox na cały ekran: tło `rgba(15,46,111,.97)`, wyśrodkowane pole wyszukiwania (max 640px, input 56px z białą ramką + przycisk primary), X 24×24 w prawym górnym rogu. Esc, klik w tło lub X zamyka; fokus wraca na lupę (klawiatura), scroll strony zablokowany.
+
+### Ikony paska (mobile i tablet)
+
+Hamburger: trzy linie 2px, 26×18px, białe (pole dotyku 52×44px). Lupa: 26px, kreska 1,75px, pole dotyku 44×44px, po lewej od hamburgera (odstęp wizualny ok. 28px). Oba środki w osi pionowej paska. Na desktopie lupa ma 20px po prawej od menu.
+
+### Accordion i Tabs — rozszerzenia spoza wzorca
+
+Design system nie definiuje tych komponentów; zbudowano je z istniejących tokenów (do akceptacji projektanta).
+- **Accordion:** linia 1px blue nad pierwszą i pod każdą pozycją; nagłówek Work Sans 600 18px/1.2 blue-dark (hover blue), padding pionowy 16px; chevron blue 14×8 po prawej (obrót 180° po rozwinięciu, 0,2 s); treść DM Sans 16px, padding-bottom 20px; max. szerokość 780px; wiele pozycji może być otwartych naraz.
+- **Tabs:** lista z linią 1px gray-200; zakładka DM Sans 600 14px uppercase (ls .5px), padding `14px 24px`, nieaktywna gray-text, hover blue-dark, aktywna blue z linią 3px blue; panel padding `24px 0`, treść 16px. Na mobile lista przewija się poziomo.
 
 ## 11. Stopka
 

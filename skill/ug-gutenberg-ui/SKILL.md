@@ -32,7 +32,7 @@ Skill do budowania nowych stron WordPress (edytor blokowy) **wiernie** w identyf
 
 ## Wzorce (`assets/theme/patterns/`)
 
-`ug/header` · `ug/header-campaign` · `ug/footer` · `ug/page-title` · `ug/404` · `ug/home-hero` · `ug/home-news` · `ug/home-about` · `ug/home-cta` · `ug/colors` · `ug/typography` · `ug/logos` · `ug/buttons` · `ug/read-more` · `ug/link-box` · `ug/promo-banner` · `ug/tags` · `ug/news-card` · `ug/news-card-horizontal` · `ug/featured-card` · `ug/slider` · `ug/small-card` · `ug/user-card` · `ug/infobox` · `ug/accordion` · `ug/tabs` · `ug/stepper` · `ug/calendar` · `ug/form` · `ug/search` · `ug/sidebar-menu`
+`ug/header` · `ug/header-campaign` · `ug/footer` · `ug/page-title` · `ug/404` · `ug/home-hero` · `ug/home-news` · `ug/home-about` · `ug/home-cta` · `ug/news-list` · `ug/colors` · `ug/typography` · `ug/logos` · `ug/buttons` · `ug/read-more` · `ug/link-box` · `ug/promo-banner` · `ug/tags` · `ug/news-card` · `ug/news-card-horizontal` · `ug/featured-card` · `ug/slider` · `ug/small-card` · `ug/user-card` · `ug/infobox` · `ug/accordion` · `ug/tabs` · `ug/stepper` · `ug/calendar` · `ug/form` · `ug/search` · `ug/sidebar-menu`
 
 ## Pliki
 

@@ -13,6 +13,7 @@ Skopiuj z `assets/theme/` do motywu blokowego (zalecany motyw potomny):
 | `templates/single.html` | `<motyw>/templates/single.html` — szablon wpisu, treść (data, tytuł, obraz, treść, kategorie) max 900px |
 | `parts/header-campaign.html` + `templates/page-campaign.html` | nagłówek kampanijny (logo \| pionowa linia 62px \| tytuł uppercase) jako część szablonu „Nagłówek kampanijny” oraz szablon strony „Strona kampanii”; `theme.json` rejestruje `templateParts` i `customTemplates` (wybór w edytorze: Strona → Szablon) |
 | `templates/404.html` | `<motyw>/templates/404.html` — strona błędu bez nagłówka i stopki |
+| `patterns/news-list.php` + `templates/home.html` + `templates/archive.html` | strona aktualności: nagłówek, filtr kategorii (tagi), siatka 3 kart, paginacja UG. `home.html` = strona wpisów (Ustawienia → Czytanie → „Strona wpisów”), `archive.html` = kategorie/tagi/daty. Liczba wpisów na stronę = ustawienie Czytanie (zalecane 9) |
 | `templates/front-page.html` | `<motyw>/templates/front-page.html` — strona główna bez tytułu (treść = 4 wzorce `ug/home-*`) |
 | `templates/page-with-sidebar.html` + `parts/sidebar.html` | szablon „Strona z menu bocznym” (zarejestrowany w `customTemplates`): menu 20% / treść 80%, aktywny link blue. Menu to część szablonu `sidebar` — zamień wzorcowe linki na własne w Edytorze witryny; nie twórz osobnego `wp_navigation`, bo nagłówek bez przypisanego menu używa ostatnio dodanego |
 | `functions-snippet.php` | wklej do `functions.php` (enqueue CSS + edytor, style bloków, kategorie wzorców) |

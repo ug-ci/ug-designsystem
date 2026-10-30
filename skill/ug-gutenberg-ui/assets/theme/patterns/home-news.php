@@ -34,7 +34,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"is-style-ug-outlined"} -->
-<div class="wp-block-button is-style-ug-outlined"><a class="wp-block-button__link wp-element-button" href="#">Wszystkie aktualności</a></div>
+<div class="wp-block-button is-style-ug-outlined"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( get_option( 'page_for_posts' ) ? get_permalink( (int) get_option( 'page_for_posts' ) ) : home_url( '/' ) ); ?>">Wszystkie aktualności</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->

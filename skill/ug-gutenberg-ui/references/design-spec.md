@@ -189,3 +189,6 @@ Lewa linia 4px blue, padding 4/0/4/24, tekst 18px/1.4 waga 400, `cite` 12px gray
 
 ### Checkbox i radio — rozszerzenie
 Wzorzec wizualny nie definiuje tych pól; styl wyprowadzony z pól tekstowych (`.ug-choice` w `.ug-form`). Kontrolka 20×20, ramka 1px gray-500, tło białe; zaznaczona: tło i ramka blue, biały znaczek (checkbox kwadratowy, radio okrągłe z klasą `ug-round` i białą kropką). Hover: ramka blue; focus: pierścień 3px; błąd: ramka `#DE3E44` + komunikat `#A22D32`; disabled: tło `rgba(107,107,107,.1)`, ramka gray-400. Etykieta DM Sans 14px/400 ink, odstęp od pola 12px; tytuł grupy (`legend`) jak etykieta pola.
+
+### Blok core/calendar — rozszerzenie
+Styl `.wp-block-calendar` odwzorowuje komponent `.ug-cal`: karta gray-100 340px (padding 24), nazwa miesiąca DM Sans 700 14px blue-dark, dni tygodnia 700 12px gray-text, komórki 36px bez ramek, dni z wpisami blue 700, dzisiaj = białe 700 na kole blue 32px, nawigacja miesięcy pod linią gray-200 (ukryta, gdy brak sąsiednich miesięcy z wpisami).

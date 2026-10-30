@@ -292,7 +292,7 @@ ol.ug-stepper { display: flex; flex-wrap: wrap; align-items: flex-start; list-st
 }
 
 /* ───────────────────────── 9. KALENDARZ (wp:html, patrz pattern ug-calendar) ───────────────────────── */
-.ug-cal { box-sizing: border-box; width: 340px; max-width: 100%; padding: 24px; display: flex; flex-direction: column; gap: 20px; background: var(--ug-gray-100); box-shadow: inset 0 0 0 1px #EBEBEB, 0 4px 32px rgba(170,170,170,.03); font-family: var(--ug-font-body); color: #333; }
+.ug-cal { font-size: 14px; line-height: normal; box-sizing: border-box; width: 340px; max-width: 100%; padding: 24px; display: flex; flex-direction: column; gap: 20px; background: var(--ug-gray-100); box-shadow: inset 0 0 0 1px #EBEBEB, 0 4px 32px rgba(170,170,170,.03); font-family: var(--ug-font-body); color: #333; }
 .ug-cal-head { display: flex; justify-content: space-between; align-items: center; }
 .ug-cal-month { font-weight: 700; font-size: 14px; line-height: 1; color: var(--ug-blue-dark); }
 .ug-cal-arrows { display: flex; gap: 4px; }
@@ -576,12 +576,12 @@ html.ug-no-scroll { overflow: hidden; }
 .ug-home-hero .wp-block-cover__inner-container > .is-style-ug-lead { max-width: 640px; margin-bottom: 32px; }
 .ug-home-hero h1 { margin: 0 0 16px; }
 .ug-home-news > h2, .ug-home-about h2, .ug-home-cta h2 { margin: 0 0 32px; }
-.ug-home-news .wp-block-post-template { gap: 24px; margin: 0 0 40px; padding: 0; list-style: none; }
-.ug-home-news .wp-block-post-template > li { margin: 0; }
-.ug-home-news .ug-news-card { max-width: none; height: 100%; }
-.ug-home-news .ug-news-card .wp-block-post-featured-image { margin: 0; }
-.ug-home-news .ug-news-card .wp-block-post-featured-image img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 3; object-fit: cover; box-shadow: var(--ug-shadow-img); }
-.ug-home-news .ug-news-card__footer { margin-top: auto; }
+.ug-home-news .wp-block-post-template, .ug-news-list .wp-block-post-template { gap: 24px; margin: 0 0 40px; padding: 0; list-style: none; }
+.ug-home-news .wp-block-post-template > li, .ug-news-list .wp-block-post-template > li { margin: 0; }
+.ug-home-news .ug-news-card, .ug-news-list .ug-news-card { max-width: none; height: 100%; }
+.ug-home-news .ug-news-card .wp-block-post-featured-image, .ug-news-list .ug-news-card .wp-block-post-featured-image { margin: 0; }
+.ug-home-news .ug-news-card .wp-block-post-featured-image img, .ug-news-list .ug-news-card .wp-block-post-featured-image img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 3; object-fit: cover; box-shadow: var(--ug-shadow-img); }
+.ug-home-news .ug-news-card__footer, .ug-news-list .ug-news-card__footer { margin-top: auto; }
 a.wp-block-read-more.ug-read-more { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--ug-blue); text-decoration: none; transition: gap .2s; }
 a.wp-block-read-more.ug-read-more::after { content: ""; flex-shrink: 0; width: 42px; height: 11px; background: currentColor; -webkit-mask: var(--ug-arrow) center/contain no-repeat; mask: var(--ug-arrow) center/contain no-repeat; }
 a.wp-block-read-more.ug-read-more:hover { gap: 12px; text-decoration: none; }
@@ -693,3 +693,37 @@ a.wp-block-read-more.ug-read-more:hover { gap: 12px; text-decoration: none; }
 .ug-form .ug-choice input:disabled:checked { background-color: var(--ug-gray-400); }
 .ug-form .ug-choice:has(input:disabled) { color: var(--ug-gray-text); cursor: not-allowed; }
 .ug-form .ug-choice input.is-error { border-color: var(--ug-error); }
+
+/* Blok core/calendar — wygląd komponentu .ug-cal (karta gray-100, miesiąc blue-dark, dziś = koło blue) */
+.wp-block-calendar { box-sizing: border-box; width: 340px; max-width: 100%; padding: 24px; background: var(--ug-gray-100); box-shadow: inset 0 0 0 1px #EBEBEB, 0 4px 32px rgba(170,170,170,.03); font-family: var(--ug-font-body); font-size: 14px; line-height: 1; text-align: center; color: #333; }
+.wp-block-calendar table.wp-calendar-table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0 4px; margin: 0; background: none; color: #333; }
+.wp-block-calendar table caption { caption-side: top; padding: 0 0 16px; background: none; text-align: left; font-weight: 700; font-size: 14px; line-height: 1; text-transform: capitalize; color: var(--ug-blue-dark); }
+.wp-block-calendar table :is(th, td) { border: 0; }
+.wp-block-calendar table thead th { padding: 0 0 4px; background: none; font-weight: 700; font-size: 12px; line-height: 1; color: var(--ug-gray-text); }
+.wp-block-calendar table tbody td { height: 36px; padding: 0; font-size: 14px; line-height: 1; color: #333; }
+.wp-block-calendar table tbody td a { display: flex; align-items: center; justify-content: center; height: 36px; font-weight: 700; color: var(--ug-blue); text-decoration: none; }
+.wp-block-calendar table tbody td a:hover { color: var(--ug-blue-dark); text-decoration: underline; }
+.wp-block-calendar table tbody td#today { font-weight: 700; color: #fff; background: radial-gradient(circle at center, var(--ug-blue) 0 15.5px, transparent 16px) center / 36px 36px no-repeat; }
+.wp-block-calendar table tbody td#today a { color: #fff; }
+.wp-block-calendar .wp-calendar-nav { display: flex; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--ug-gray-200); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.wp-block-calendar .wp-calendar-nav a { color: var(--ug-blue); text-decoration: none; }
+.wp-block-calendar .wp-calendar-nav a:hover { color: var(--ug-blue-dark); }
+.wp-block-calendar .wp-calendar-nav:not(:has(a)) { display: none; }
+
+/* Strona aktualności (templates/home.html, archive.html, patterns/news-list.php) */
+.ug-news-page > h1, .ug-news-page > .wp-block-query-title { margin: 0 0 24px; }
+.ug-news-page > .wp-block-term-description { margin: 0 0 24px; font-size: 18px; line-height: 1.4; }
+.ug-news-list > * { margin-block: 0 !important; }
+.ug-news-list ul.ug-news-filter { list-style: none; padding: 0; margin-bottom: 32px !important; }
+.ug-news-list ul.ug-news-filter li { margin: 0; padding: 0; }
+.ug-news-list .wp-block-post-template { row-gap: 40px; margin-bottom: 48px; }
+.ug-pagination { align-items: center; gap: 8px; padding-top: 24px; border-top: 1px solid var(--ug-gray-200); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.ug-pagination a { color: var(--ug-blue); text-decoration: none; }
+.ug-pagination a:hover { color: var(--ug-blue-dark); }
+.ug-pagination .wp-block-query-pagination-numbers { display: flex; gap: 8px; }
+.ug-pagination .page-numbers { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 8px; border: 1px solid var(--ug-gray-500); color: var(--ug-ink); text-decoration: none; letter-spacing: 0; font-size: 14px; transition: background-color var(--ug-t), color var(--ug-t), border-color var(--ug-t); }
+.ug-pagination a.page-numbers:hover { border-color: var(--ug-blue); color: var(--ug-blue); }
+.ug-pagination .page-numbers.current { background: var(--ug-blue); border-color: var(--ug-blue); color: #fff; }
+.ug-pagination .page-numbers.dots { border: 0; }
+@media (max-width: 781px) { .ug-news-page { padding-top: 32px !important; padding-bottom: 48px !important; } .ug-news-list .wp-block-post-template { grid-template-columns: 1fr; } }
+.ug-news-list ul.ug-news-filter li.current-cat > a { background: var(--ug-blue-dark); }

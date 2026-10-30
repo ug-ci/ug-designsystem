@@ -336,7 +336,7 @@ ol.ug-stepper { display: flex; flex-wrap: wrap; align-items: flex-start; list-st
 }
 
 /* Menu boczne (core/navigation pionowa .ug-navmenu) */
-.ug-navmenu-wrap { width: 100%; max-width: 360px; background: var(--ug-gray-100); }
+.ug-navmenu-wrap { width: 100%; max-width: 360px; background: var(--ug-gray-100); margin-left: 0 !important; margin-right: auto; }
 .ug-navmenu-title { margin: 0; padding: 24px 24px 12px; font-family: var(--ug-font-heading); font-weight: 700; font-size: 18px; line-height: 1.1; color: var(--ug-blue-dark); }
 ul.ug-navmenu, ul.ug-navmenu ul { list-style: none; margin: 0; padding: 0; }
 .ug-navmenu.wp-block-navigation { display: block; }

@@ -534,5 +534,31 @@
         }
       }
     }
-  }
+  },
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Nagłówek UG",
+      "area": "header"
+    },
+    {
+      "name": "header-campaign",
+      "title": "Nagłówek kampanijny (logo | pionowa linia | tytuł)",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Stopka UG",
+      "area": "footer"
+    }
+  ],
+  "customTemplates": [
+    {
+      "name": "page-campaign",
+      "title": "Strona kampanii (nagłówek z tytułem)",
+      "postTypes": [
+        "page"
+      ]
+    }
+  ]
 }

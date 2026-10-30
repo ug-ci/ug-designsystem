@@ -107,7 +107,7 @@ Wszystkie zdjęcia: cień `img`, bez zaokrągleń. Data 11px ink. Tytuł Work Sa
 
 ## 8. Stepper
 
-Kroki 106px szer.; numer w kole 71px (DM Sans 700 32px blue); ukończony krok: okrąg 2px blue; etykieta 16px/1.2 czarna, wyśrodkowana; separator strzałka 41×11 gray-600 między krokami.
+Kroki 106px szer.; numer w kole 57px (DM Sans 700 26px blue; 20% mniejsze niż we wzorcu 71px/32px); ukończony krok: okrąg 2px blue; etykieta 16px/1.2 czarna, wyśrodkowana; separator strzałka 41×11 gray-600 między krokami.
 
 ## 9. Kalendarz
 

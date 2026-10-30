@@ -278,17 +278,17 @@ html { scroll-behavior: smooth; }
 ol.ug-stepper { display: flex; flex-wrap: wrap; align-items: flex-start; list-style: none; margin: 0; padding: 0; counter-reset: ug-step; }
 .ug-stepper > li { counter-increment: ug-step; position: relative; width: 106px; margin: 0 35px 0 0; display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 16px; line-height: 1.2; text-align: center; color: #000; }
 .ug-stepper > li:last-child { margin-right: 0; }
-.ug-stepper > li::before { content: counter(ug-step); box-sizing: border-box; width: 71px; height: 71px; display: flex; align-items: center; justify-content: center; border-radius: 50% !important; font-weight: 700; font-size: 32px; line-height: 1; color: var(--ug-blue); }
+.ug-stepper > li::before { content: counter(ug-step); box-sizing: border-box; width: 57px; height: 57px; display: flex; align-items: center; justify-content: center; border-radius: 50% !important; font-weight: 700; font-size: 26px; line-height: 1; color: var(--ug-blue); }
 .ug-stepper > li.is-done::before { box-shadow: inset 0 0 0 2px var(--ug-blue); }
-.ug-stepper > li:not(:last-child)::after { content: ""; position: absolute; top: 30px; left: 103px; width: 41px; height: 11px; background: var(--ug-gray-600); -webkit-mask: var(--ug-step-arrow) center/contain no-repeat; mask: var(--ug-step-arrow) center/contain no-repeat; }
+.ug-stepper > li:not(:last-child)::after { content: ""; position: absolute; top: 23px; left: 103px; width: 41px; height: 11px; background: var(--ug-gray-600); -webkit-mask: var(--ug-step-arrow) center/contain no-repeat; mask: var(--ug-step-arrow) center/contain no-repeat; }
 
 /* Mobile: stepper pionowy (strzałki w dół między krokami) — specyfikacja pokazuje tylko desktop */
 @media (max-width: 600px) {
   ol.ug-stepper { flex-direction: column; align-items: stretch; }
-  .ug-stepper > li { width: auto; margin: 0 0 56px; flex-direction: row; align-items: center; gap: 20px; text-align: left; }
+  .ug-stepper > li { width: auto; margin: 0 0 45px; flex-direction: row; align-items: center; gap: 20px; text-align: left; }
   .ug-stepper > li:last-child { margin-bottom: 0; }
   .ug-stepper > li::before { flex-shrink: 0; }
-  .ug-stepper > li:not(:last-child)::after { left: 15px; top: 93px; transform: rotate(90deg); }
+  .ug-stepper > li:not(:last-child)::after { left: 8px; top: 74px; transform: rotate(90deg); }
 }
 
 /* ───────────────────────── 9. KALENDARZ (wp:html, patrz pattern ug-calendar) ───────────────────────── */
@@ -634,3 +634,11 @@ a.wp-block-read-more.ug-read-more:hover { gap: 12px; text-decoration: none; }
 .ug-post-nav__next { margin-left: auto !important; align-items: flex-end; text-align: right; }
 .ug-post-nav__next .post-navigation-link__label { justify-content: flex-end; }
 @media (max-width: 600px) { .ug-single .ug-post-nav { flex-direction: column; } .ug-post-nav > * { max-width: 100%; } .ug-post-nav__next { margin-left: 0 !important; align-items: flex-start; text-align: left; } .ug-post-nav__next .post-navigation-link__label { justify-content: flex-start; } }
+
+/* Siatka tagów (wzorzec ug/tags): komórka = tag + nazwa klasy/token */
+.ug-tag-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px 16px; }
+.ug-tag-grid > * { margin: 0 !important; }
+.ug-tag-cell { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.ug-tag-cell > * { margin: 0 !important; }
+.ug-tag-cell__meta { font-family: monospace; font-size: 11px; line-height: 1.4; color: var(--ug-gray-text); }
+@media (max-width: 600px) { .ug-tag-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

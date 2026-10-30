@@ -311,6 +311,8 @@ ol.ug-stepper { display: flex; flex-wrap: wrap; align-items: flex-start; list-st
 /* Hamburger: biała ikona po prawej, bez pozycji menu w pasku (overlayMenu = always) */
 .ug-header .wp-block-navigation__responsive-container-open { display: flex; padding: 0; background: none; border: 0; color: #fff; }
 .ug-header .wp-block-navigation__responsive-container-open svg { display: none; }
+.ug-header :is(.wp-block-navigation__responsive-container-open, .wp-block-navigation__responsive-container-close):focus:not(:focus-visible) { outline: 0; box-shadow: none; }
+.ug-header .wp-block-navigation__responsive-container-open:focus-visible { outline-color: #fff; }
 .ug-header .wp-block-navigation__responsive-container-open::before { content: ""; width: 18px; height: 15px; background: var(--ug-bars) center/contain no-repeat; }
 .ug-header .wp-block-navigation__responsive-container.is-menu-open { background-color: var(--ug-nav) !important; color: #fff !important; }
 .ug-header .wp-block-navigation__responsive-container.is-menu-open :is(a, .wp-block-navigation-item__content) { font-family: var(--ug-font-body); font-weight: 400; font-size: 14px; color: #fff; transition: color .2s; }

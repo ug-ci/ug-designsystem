@@ -17,6 +17,13 @@ add_action( 'wp_enqueue_scripts', function () {
 		array(),
 		filemtime( get_theme_file_path( 'ug/ug-components.css' ) )
 	);
+	wp_enqueue_script(
+		'ug-header',
+		get_theme_file_uri( 'ug/ug-header.js' ),
+		array(),
+		filemtime( get_theme_file_path( 'ug/ug-header.js' ) ),
+		array( 'in_footer' => true, 'strategy' => 'defer' )
+	);
 } );
 
 // Style bloków: przyciski (CSS w ug-components.css).

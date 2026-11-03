@@ -1,9 +1,12 @@
 ---
 name: ug-gutenberg-ui
-description: Interfejs graficzny Uniwersytetu Gdańskiego (UG) dla stron WordPress w edytorze Gutenberg — dokładne kolory, czcionki (Work Sans / DM Sans), przyciski, formularze, tagi, karty, stepper, kalendarz, nawigacja, stopka oraz gotowe wzorce bloków, theme.json i CSS. Użyj zawsze, gdy tworzysz, edytujesz lub oceniasz strony, szablony, wzorce lub bloki Gutenberga/WordPress w identyfikacji UG, albo gdy ktoś prosi o stronę „w stylu UG”.
+description: Interfejs graficzny Uniwersytetu Gdańskiego (UG) dla stron WordPress w edytorze Gutenberg — dokładne kolory, czcionki (Work Sans / DM Sans), przyciski, formularze, tagi, karty, stepper, kalendarz, nawigacja, stopka oraz gotowe wzorce bloków, theme.json i CSS. Użyj zawsze, gdy tworzysz, edytujesz lub oceniasz strony, szablony, wzorce lub bloki Gutenberga/WordPress w identyfikacji UG. NIE stosuj do portalu głównego ug.edu.pl (Drupal/Bootstrap 5 — do niego służy skill ug-drupal-bootstrap).
 ---
 
-# UG Gutenberg UI
+# UG Gutenberg UI (WordPress)
+
+> **ZAKRES STOSOWANIA:** Niniejszy skill dotyczy **WYŁĄCZNIE stron WordPress** w edytorze blokowym (Gutenberg, motyw FSE, wzorce `ug/*`, `theme.json`).  
+> **NIE STOSOWAĆ DLA ug.edu.pl (Drupal):** Portal główny `ug.edu.pl` działa na Drupalu i Bootstrapie 5.2 — do niego służy oddzielny skill `ug-drupal-bootstrap`.
 
 Skill do budowania nowych stron WordPress (edytor blokowy) **wiernie** w identyfikacji Uniwersytetu Gdańskiego. Wzorzec wizualny: `assets/ug-design-system-reference.html` (otwórz w przeglądarce — to źródło prawdy dla każdej wartości).
 
@@ -28,11 +31,15 @@ Skill do budowania nowych stron WordPress (edytor blokowy) **wiernie** w identyf
 - **Logo:** `logo-ug-white.svg` (PL) / `logo-ug-white-en.svg` (EN) na blue, navy, `#0F2E6F`; `logo-ug.svg` / `logo-ug-en.svg` na jasnych tłach; na mobile sam herb. Pliki w `assets/theme/ug/logos`, bez tła i cienia.
 - **Tła:** maks. 2 kolory tła na widok; biały tekst na ciemnych, nigdy niebieski na navy.
 - **Bez:** gradientów, emoji, dekoracyjnych cieni, własnych fontów, animacji innych niż kolor `.15s`/strzałka `.2s`.
-- **Dostępność WCAG AA:** kontrast tekstu ≥ 4.5:1 (duży tekst ≥ 3:1), elementy UI ≥ 3:1, widoczny fokus klawiatury. Paleta spełnia też AAA — szary tekst tylko `#595959`, błąd tekstowy tylko `#A22D32`. Treści przykładowe w interfejsie po angielsku („Read more”, „Search”).
+- **Dostępność WCAG AA:** kontrast tekstu ≥ 4.5:1 (duży tekst ≥ 3:1), elementy UI ≥ 3:1, widoczny fokus klawiatury. Paleta spełnia też AAA — szary tekst tylko `#595959`, błąd tekstowy tylko `#A22D32`. Treści przykładowe w interfejsie po angielsku („Read more”); wyjątek: pola wyszukiwania we wzorcach mają polski placeholder „Szukaj” — na stronach EN zmień go na „Search”.
 
 ## Wzorce (`assets/theme/patterns/`)
 
 `ug/header` · `ug/header-hamburger` · `ug/header-campaign` · `ug/footer` · `ug/page-title` · `ug/404` · `ug/home-hero` · `ug/home-news` · `ug/home-about` · `ug/home-cta` · `ug/news-list` · `ug/colors` · `ug/typography` · `ug/logos` · `ug/buttons` · `ug/read-more` · `ug/link-box` · `ug/promo-banner` · `ug/tags` · `ug/news-card` · `ug/news-card-horizontal` · `ug/featured-card` · `ug/slider` · `ug/small-card` · `ug/user-card` · `ug/infobox` · `ug/accordion` · `ug/tabs` · `ug/stepper` · `ug/calendar` · `ug/form` · `ug/search` · `ug/sidebar-menu`
+
+## Szablony i części (`assets/theme/templates`, `parts`)
+
+Szablony: `front-page` · `home` (lista aktualności) · `archive` · `single` (treść max 900 px + poprzedni/następny) · `404` (bez nagłówka i stopki) · `page-with-sidebar` (menu 20% / treść 80%) · `page-hamburger` · `page-campaign`. Części: `header` · `header-hamburger` · `header-campaign` · `footer` · `sidebar`. Szablony niestandardowe są zarejestrowane w `theme.json` (`customTemplates`, `templateParts`) — wybór w edytorze: Strona → Szablon. Nagłówek podmienia się globalnie, zamieniając część `header` na wariant z `parts/`.
 
 ## Pliki
 

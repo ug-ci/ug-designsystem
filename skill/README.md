@@ -6,10 +6,10 @@
 |---|---|---|
 | Claude Code (globalnie) | `~/.claude/skills/ug-gutenberg-ui` | `./sync.sh --install` |
 | Claude Code (projekt) | `<projekt>/.claude/skills/ug-gutenberg-ui` | skopiuj `dist/claude/ug-gutenberg-ui` |
-| Antigravity (projekt) | `<projekt>/.agent/skills/ug-gutenberg-ui` | skopiuj `dist/antigravity/.agent` |
-| Antigravity (globalnie) | `~/.gemini/antigravity/skills/ug-gutenberg-ui` | `./sync.sh --install` |
+| Antigravity (projekt) | `<projekt>/.agent/skills/ug-gutenberg-ui` lub `.agents/skills/...` | skopiuj `dist/antigravity/.agent` |
+| Antigravity (globalnie) | `~/.gemini/config/skills/ug-gutenberg-ui` i `~/.gemini/antigravity/skills/...` | `./sync.sh --install` |
 
-Ścieżki Antigravity nie zostały zweryfikowane w samym programie — format `SKILL.md` (frontmatter `name` + `description`) jest identyczny.
+> **Uwaga:** Niniejszy skill dotyczy wyłącznie **WordPressa / edytora Gutenberg**. Do portalu głównego `ug.edu.pl` (Drupal + Bootstrap 5.2) służy oddzielny skill `ug-drupal-bootstrap`.
 
 Warstwa UI dla WordPressa (motyw): `ug-gutenberg-ui/assets/theme/` — instalacja w `references/gutenberg-guide.md`, sekcja 1.
 
